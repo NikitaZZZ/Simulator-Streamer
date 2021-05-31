@@ -1,0 +1,11 @@
+body { background: url("../img/main.jpg"); }
+
+#main { padding: 1%; }
+
+#nav-tabContent { margin-left: 1%; }
+
+#list-back-list { background: #343a40; color: #fff; }
+
+#back { background: #343a40; color: #fff; }
+
+.list-group-item.active { background: #343a40; border-color: #343a40; }

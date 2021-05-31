@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/avatar.png">
+    <link rel="stylesheet" href="bootstrap-4.4.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/random_events.css">
+    <title>Случайные события</title>
+</head>
+<body>
+    <h3 class="text-center" style="color: #fff; margin-top: 0.5%;">Случайные события</h3>
+    <div class="d-flex justify-content-center" id="main">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-action" id="list-first-event" data-toggle="list" href="#first" role="tab" aria-controls="tab">Простуда</a>
+            <a class="list-group-item list-group-item-action" id="list-second-event" data-toggle="list" href="#second" role="tab" aria-controls="tab">Техника</a>
+            <a class="list-group-item list-group-item-action" id="list-third-event" data-toggle="list" href="#third" role="tab" aria-controls="tab">Усталость</a>
+            <a class="list-group-item list-group-item-action" id="list-fourth-event" data-toggle="list" href="#fourth" role="tab" aria-controls="tab">Ранение</a>
+            <a class="list-group-item list-group-item-action" id="back" href="index.html">Назад</a>
+        </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade" id="first" role="tabpanel" aria-labelledby="list-tab-list">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/event-zabolel.png" class="card-img" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    При этом событии у Алины уменьшается здоровье на 10 и энергия на 20. 
+                                    И также вы не можете провести стрим.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="list-tab-list">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/event-tech.png" class="card-img" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    При этом событии у Алины ломается оборудование.  
+                                    У вас уменьшается уровень всех ресурсов, если вы прокачивали его. 
+                                    И вы также не сможете провести стрим.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="list-tab-list">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/event-ustal.png" class="card-img" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    При этом событии Алина не проводит стрим и ее энергия падает до 30.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="fourth" role="tabpanel" aria-labelledby="list-tab-list">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="img/event-hurt.png" class="card-img" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    При этом событии Алинa случайно поранила себе палец.
+                                    Вы также не можете провести стрим и у вас вычитается 40 здоровья и 30 энергии.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/373834e38f.js" crossorigin="anonymous"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Neucha&display=swap');
+
+* {
+    font-family: "Neucha", sans-serif;
+}
+
+/* Main Styles */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.col-sm {
+    border-radius: 10px;
+}
+
+#Butt-Text2, #Butt-History {
+    display: inline-block;
+    font-size: 18px;
+    width: 200px;
+    height: 64px;
+}
+
+#Butt-Text4 {
+    margin-top: 2%;
+}
+
+#List-Text1 {
+    font-size: 20px;
+}
+
+#List-Text3 {
+    font-size: 20px;
+}
+
+#health, #food,
+#water, #energy,
+#history, #secrets {
+    font-size: 20px;
+}
+
+#img-items, #img-heroes {
+    margin-top: 1%;
+}
+
+#to-eat, #to-up, #shop, #settings {
+    width: 125px;
+    height: 45px;
+    margin-top: 5px;
+}
+
+#btn-stream {
+    visibility: hidden;
+}
+
+#to-roulette-heroes {
+    margin-top: 10px;
+    width: 125px;
+    height: 45px;
+}
+
+#to-eat { font-size: 15px; }
+
+#roulette, #guessHero {
+    width: 120px;
+    height: 45px;
+    margin-top: 5px;
+}
+
+#casino {
+    width: 150px;
+    height: 45px;
+    margin-top: 5px;
+}
+
+#ToDo-Text1 {
+    color: #fff;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#Games-Text1 {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+#result-items, #result-heroes {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1.15rem;
+}
+
+#btn-stream {
+    width: 135px;
+    height: 55px;
+    margin-top: 5px;
+}
+
+#stream-body {
+    text-align: center;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#result-heroes2, #result-items1 {
+    color: #fff;
+    margin-top: 10px;
+}
+
+#cls { border-radius: 0; }
+
+#p-stream-money, #stream-money,
+#title-heroes, #title-items,
+#title-followers, #followers,
+#title-watchers, #watchers,
+#title-donat, #donat, #donat-all { color: #fff; }
+
+#up-title {
+    float: left;
+    margin-bottom: 0;
+}
+
+#money, #money-shop, #money-guessHero,
+#money-settings {
+    float: right;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+#name, #level, #cost,
+#name_2, #level_2, #cost_2,
+#name_3, #level_3, #cost_3,
+#name_4, #level_4, #cost_4,
+#name_5, #level_5, #cost_5,
+#name_6, #level_6, #cost_6 { float: left; }
+
+#up1, #up2, #up3, #up4, #up5, #up6  { width: 65px; margin-left: 2%; }
+
+#level, #level_2, #level_3,
+#level_4, #level_5, #level_6 { margin-left: 10px; text-decoration: underline }
+
+#name, #level, #cost,
+#name_2, #level_2, #cost_2,
+#name_3, #level_3, #cost_3,
+#name_4, #level_4, #cost_4,
+#name_5, #level_5, #cost_5,
+#name_6, #level_6, #cost_6 { margin-top: 7px; }
+
+#cost, #cost_2, #cost_3,
+#cost_4, #cost_5, #cost_6 { margin-left: 10px; }
+
+.console-modal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+    pointer-events: none;
+}
+
+.console-modal:target {
+    display: block;
+    pointer-events: auto;
+}
+
+.console-modal > div {
+    width: 600px;
+    height: 500px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    background: #fff;
+}
+
+.close {
+    color: #000;
+    line-height: 25px;
+    position: absolute;
+    right: -1px;
+    text-align: center;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#input-command {
+    width: 150px;
+    height: 38px;
+    text-align: center;
+    outline: none;
+    margin-top: 3.5px;
+}
+
+#run-command { height: 38px; }
+
+#container-gH { margin-top: 10px; }
+
+#vk-link {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#img-hero-casino-1, #img-hero-casino-2, 
+#img-hero-casino-3 {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#change-bg-title, #change-bg-text, 
+#change-bg-cost { color: #000; }
+
+#shop-bg-slides {
+    width: 50%;
+    height: 50%;
+}
+
+#img-bg-1, #img-bg-2, #img-bg-3, 
+#img-bg-4, #img-bg-5, #shop-bg-slides {
+    border-radius: 10px;
+}
+
+#shop-bg-buy { margin-top: 3%; }
+
+#change-bg { margin-top: 2%; }
+
+#loading {
+    color: #fff;
+    font-size: 25px;
+}
+
+#spells {
+    width: 30rem;
+}
+
+@media screen and (max-width: 500px) {
+    #spells {
+        width: 20rem;
+    }
+}
+  

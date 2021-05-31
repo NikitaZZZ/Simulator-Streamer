@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a { text-decoration: none; }
+
+body {
+    background: url("../img/main.jpg");
+}
+
+#title {
+    color: #fff;
+    padding-top: 1%;
+    font-size: 25px;
+    text-align: center;
+}
+
+#main-background {
+    margin-top: 1%;
+    max-width: 100%;
+    height: auto;
+}
+
+#training-button {
+    width: 115px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#start-button {
+    width: 115px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 3%;
+}
