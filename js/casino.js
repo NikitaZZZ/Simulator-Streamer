@@ -1020,7 +1020,7 @@ function roundStart(round) {
                 firstSpell.type !== 'ImprovementHeal' || 
                 firstSpell.type !== 'ImprovementHeal' || 
                 firstSpell.type !== 'Escape' && randUseSpell === 0) {
-                firstSpell.level = 1;
+                firstSpell.level += 1;
                 hpUser -= firstSpell.damage1;
                 document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
                 document.getElementById('timerRound').innerHTML = `Противник использует: ${firstSpell.name}`;
@@ -1028,7 +1028,7 @@ function roundStart(round) {
                 secondSpell.type !== 'ImprovementHeal' || 
                 secondSpell.type !== 'ImprovementHeal' || 
                 secondSpell.type !== 'Escape' && randUseSpell === 1) {
-                secondSpell.level = 1;
+                secondSpell.level += 1;
                 hpUser -= secondSpell.damage1;
                 document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
                 document.getElementById('timerRound').innerHTML = `Противник использует: ${secondSpell.name}`;
@@ -1036,7 +1036,7 @@ function roundStart(round) {
                 thirdSpell.type !== 'ImprovementHeal' || 
                 thirdSpell.type !== 'ImprovementHeal' || 
                 thirdSpell.type !== 'Escape' && randUseSpell === 2) {
-                thirdSpell.level = 1;
+                thirdSpell.level += 1;
                 hpUser -= thirdSpell.damage1;
                 document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
                 document.getElementById('timerRound').innerHTML = `Противник использует: ${thirdSpell.name}`;
@@ -1044,7 +1044,7 @@ function roundStart(round) {
                 ultimateSpell.type !== 'ImprovementHeal' || 
                 ultimateSpell.type !== 'ImprovementHeal' || 
                 ultimateSpell.type !== 'Escape' && enemies[0].level >= 6 && randUseSpell === 3) {
-                ultimateSpell.level = 1;
+                ultimateSpell.level += 1;
                 hpUser -= ultimateSpell.damage1;
                 document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
                 document.getElementById('timerRound').innerHTML = `Противник использует: ${ultimateSpell.name}`;
