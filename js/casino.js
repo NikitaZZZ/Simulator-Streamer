@@ -1004,52 +1004,82 @@ function startRoundTimer() {
 }
 
 function roundStart(round) {
-    switch (round) {
-        case 1: 
-            const randUseSpell = getRandNumb(0, 3);
+    const randUseSpell = getRandNumb(0, 3);
 
-            const firstSpell = JSON.parse(enemies[0].spells.firstSpell);
-            const secondSpell = JSON.parse(enemies[0].spells.secondSpell);
-            const thirdSpell = JSON.parse(enemies[0].spells.thirdSpell);
-            const ultimateSpell = JSON.parse(enemies[0].spells.ultimate);
+    const firstSpell = JSON.parse(enemies[0].spells.firstSpell);
+    const secondSpell = JSON.parse(enemies[0].spells.secondSpell);
+    const thirdSpell = JSON.parse(enemies[0].spells.thirdSpell);
+    const ultimateSpell = JSON.parse(enemies[0].spells.ultimate);
 
-            let hpUser = heroUser[0].hp;
-            let startHp = heroUser[0].startHp;
+    let hpUser = heroUser[0].hp;
+    let startHp = heroUser[0].startHp;
 
-            if (firstSpell.type !== 'ImprovementDamage' || 
-                firstSpell.type !== 'ImprovementHeal' || 
-                firstSpell.type !== 'ImprovementHeal' || 
-                firstSpell.type !== 'Escape' && randUseSpell === 0) {
-                firstSpell.level += 1;
-                hpUser -= firstSpell.damage1;
-                document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
-                document.getElementById('timerRound').innerHTML = `Противник использует: ${firstSpell.name}`;
-            } else if (secondSpell.type !== 'ImprovementDamage' || 
-                secondSpell.type !== 'ImprovementHeal' || 
-                secondSpell.type !== 'ImprovementHeal' || 
-                secondSpell.type !== 'Escape' && randUseSpell === 1) {
-                secondSpell.level += 1;
-                hpUser -= secondSpell.damage1;
-                document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
-                document.getElementById('timerRound').innerHTML = `Противник использует: ${secondSpell.name}`;
-            } else if (thirdSpell.type !== 'ImprovementDamage' || 
-                thirdSpell.type !== 'ImprovementHeal' || 
-                thirdSpell.type !== 'ImprovementHeal' || 
-                thirdSpell.type !== 'Escape' && randUseSpell === 2) {
-                thirdSpell.level += 1;
-                hpUser -= thirdSpell.damage1;
-                document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
-                document.getElementById('timerRound').innerHTML = `Противник использует: ${thirdSpell.name}`;
-            } else if (ultimateSpell.type !== 'ImprovementDamage' || 
-                ultimateSpell.type !== 'ImprovementHeal' || 
-                ultimateSpell.type !== 'ImprovementHeal' || 
-                ultimateSpell.type !== 'Escape' && enemies[0].level >= 6 && randUseSpell === 3) {
-                ultimateSpell.level += 1;
-                hpUser -= ultimateSpell.damage1;
-                document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
-                document.getElementById('timerRound').innerHTML = `Противник использует: ${ultimateSpell.name}`;
-            }
-        ; break;
+    if (firstSpell.type !== 'ImprovementDamage' || 
+        firstSpell.type !== 'ImprovementHeal' || 
+        firstSpell.type !== 'ImprovementHeal' || 
+        firstSpell.type !== 'Escape' && randUseSpell === 0) {
+        firstSpell.level += 1;
+        if (round === 1) {
+            hpUser -= firstSpell.damage1;
+        } else if (round === 2) {
+            hpUser -= firstSpell.damage2;
+        } else if (round === 3) {
+            hpUser -= firstSpell.damage3;
+        } else if (round >= 4) {
+            hpUser -= firstSpell.damage4;
+        }
+
+        document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('timerRound').innerHTML = `Противник использует: ${firstSpell.name}`;
+    } else if (secondSpell.type !== 'ImprovementDamage' || 
+        secondSpell.type !== 'ImprovementHeal' || 
+        secondSpell.type !== 'ImprovementHeal' || 
+        secondSpell.type !== 'Escape' && randUseSpell === 1) {
+        secondSpell.level += 1;
+        if (round === 1) {
+            hpUser -= secondSpell.damage1;
+        } else if (round === 2) {
+            hpUser -= secondSpell.damage2;
+        } else if (round === 3) {
+            hpUser -= secondSpell.damage3;
+        } else if (round >= 4) {
+            hpUser -= secondSpell.damage4;
+        }
+
+        document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('timerRound').innerHTML = `Противник использует: ${secondSpell.name}`;
+    } else if (thirdSpell.type !== 'ImprovementDamage' || 
+        thirdSpell.type !== 'ImprovementHeal' || 
+        thirdSpell.type !== 'ImprovementHeal' || 
+        thirdSpell.type !== 'Escape' && randUseSpell === 2) {
+        thirdSpell.level += 1;
+        if (round === 1) {
+            hpUser -= thirdSpell.damage1;
+        } else if (round === 2) {
+            hpUser -= thirdSpell.damage2;
+        } else if (round === 3) {
+            hpUser -= thirdSpell.damage3;
+        } else if (round >= 4) {
+            hpUser -= thirdSpell.damage4;
+        }
+
+        document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('timerRound').innerHTML = `Противник использует: ${thirdSpell.name}`;
+    } else if (ultimateSpell.type !== 'ImprovementDamage' || 
+        ultimateSpell.type !== 'ImprovementHeal' || 
+        ultimateSpell.type !== 'ImprovementHeal' || 
+        ultimateSpell.type !== 'Escape' && enemies[0].level >= 6 && randUseSpell === 3) {
+        ultimateSpell.level += 1;
+        if (round === 1) {
+            hpUser -= ultimate.damage1;
+        } else if (round === 2) {
+            hpUser -= ultimate.damage2;
+        } else if (round >= 3) {
+            hpUser -= ultimate.damage3;
+        }
+
+        document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('timerRound').innerHTML = `Противник использует: ${ultimateSpell.name}`;
     }
 }
 
