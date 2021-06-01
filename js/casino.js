@@ -1,435 +1,7 @@
-let array_spells = [
-    'Fissure',
-    'Enchant Totem',
-    'Aftershock',
-    'Echo Slam',
-    'Storm Hammer',
-    'Great Cleave',
-    'Warcry',
-    "Gods Strength",
-    'Avalanche',
-    'Toss',
-    'Craggy Exterior',
-    'Grow',
-    'Torrent',
-    'Tidebringer',
-    'X Marks the Spot',
-    'Ghostship',
-    'Wild Axes',
-    'Call of the Wild',
-    'Inner Beast',
-    'Primal Roar',
-    'Breath Fire',
-    'Dragon Tail',
-    'Dragon Blood',
-    'Elder Dragon Form',
-    'Battery Assault',
-    'Power Cogs',
-    'Rocket Flare',
-    'Hookshot',
-    'Purification',
-    'Repel',
-    'Degen Aura',
-    'Guardian Angel',
-    'Inner Vitality',
-    'Burning Spear',
-    "Berserkers Blood",
-    'Life Break',
-    'Acid Spray',
-    'Unstable Concoction',
-    "Greevils Greed",
-    'Chemical Rage',
-    'Thunder Clap',
-    'Drunken Haze',
-    'Drunken Brawler',
-    'Primal Split',
-    "Natures Guise",
-    'Leech Seed',
-    'Living Armor',
-    'Overgrowth',
-    'Tether',
-    'Overcharge',
-    'Relocate',
-    'Hoof Stomp',
-    'Double Edge',
-    'Return',
-    'Stampede',
-    'Whirling Death',
-    'Timber Chain',
-    'Reactive Armor',
-    'Chakram',
-    'Viscous Nasal Goo',
-    'Quill Spray',
-    'Bristleback',
-    'Warpath',
-    'Ice Shards',
-    'Snowball',
-    'Frozen Sigil',
-    'Walrus PUNCH!',
-    'Echo Stomp',
-    'Astral Spirit',
-    'Natural Order',
-    'Overwhelming Odds',
-    'Press The Attack',
-    'Moment of Courage',
-    'Duel',
-    'Boulder Smash',
-    'Rolling Boulder',
-    'Geomagnetic Grip',
-    'Supernova',
-    'Launch Fire Spirit',
-    'Stop Icarus Dive',
-    'Stop Sun Ray',
-    'Toggle Movement',
-    'Icarus Dive',
-    'Fire Spirits',
-    'Sun Ray',
-    'Mana Break',
-    'Blink',
-    'Spell Shield',
-    'Mana Void',
-    'Frost Arrows',
-    'Gust',
-    'Precision Aura',
-    'Marksmanship',
-    'Blade Fury',
-    'Healing Ward',
-    'Blade Dance',
-    'Healing Ward',
-    'Blade Dance',
-    'Omnislash',
-    'Starstorm',
-    'Sacred Arrow',
-    'Leap',
-    'Moonlight Shadow',
-    'Waveform',
-    'Adaptive Strike',
-    'Morph (Agality Gain)',
-    'Morph (Strength Gain)',
-    'Replicate',
-    'Spirit Lance',
-    'Doopelwalk',
-    'Juxtapose',
-    'Phantom Edge',
-    'Magic Missile',
-    'Wave of Terror',
-    'Vengeance Aura',
-    'Nether Swap',
-    'Smoke Screen',
-    'Blink Strike',
-    'Backstab',
-    'Permanent Invisibility',
-    'Shrapnel',
-    'Headshot',
-    'Take Aim',
-    'Assassinate',
-    'Refraction',
-    'Meld',
-    'Psi Blades',
-    'Lucent Beam',
-    'Moon Glaive',
-    'Lunar Blessing',
-    'Eclipse',
-    'Shuriken Toss',
-    'Jinada',
-    'Shadow Walk',
-    'Track',
-    'Earthshock',
-    'Overpower',
-    'Fury Swipes',
-    'Enrage',
-    'Rocket Barrage',
-    'Homming Missile',
-    'Flak Cannon',
-    'Call Down',
-    'Summon Spirit Bear',
-    'Rabid',
-    'Synergy',
-    'Battle Cry',
-    'True Form',
-    'Mirror Image',
-    'Ensnare',
-    'Rip Tide',
-    'Song of the Siren',
-    'Berserkers Rage',
-    'Whirling Axes',
-    'Battle Trance',
-    'Crystal Nova',
-    'Frostbite',
-    'Acrane Aura',
-    'Freezing Field',
-    'Illusory Orb',
-    'Warning Rift',
-    'Phase Shift',
-    'Static Remnant',
-    'Electric Vortex',
-    'Overload',
-    'Ball Lightning',
-    'Arc Lightning',
-    'Shackleshot',
-    'Powershot',
-    'Windrun',
-    'Focus Fire',
-    'Arc Lightning',
-    'Lightning Bolt',
-    'Static Field',
-    'Thundergods Wrath',
-    'Dragon Slave',
-    'Light Strike Array',
-    'Fiery Soul',
-    'Laguna Blade',
-    'Ether Shock',
-    'Hex',
-    'Shackles',
-    'Mass Serpent Ward',
-    'Laser',
-    'Heat-Seeking Missile',
-    'March of the Machines',
-    'Rearm',
-    'Sprout',
-    'Teleportation',
-    'Natures Call',
-    'Wrath of Nature',
-    'Untouchable',
-    'Enchant',
-    'Natures Attendants',
-    'Impetus',
-    'Dual Breath',
-    'Ice Path',
-    'Liquid Fire',
-    'Macropyre',
-    'Penitence',
-    'Test of Faith',
-    'Hand of God',
-    'Curse of the Silent',
-    'Glaives of the Wisdom',
-    'Last Word',
-    'Global Silence',
-    'Fireblast',
-    'Ignite',
-    'Bloodlust',
-    'Unrefined Fireblase',
-    'Multicast',
-    'Telekinesis',
-    'Null Field',
-    'Spell Steal',
-    'Telekinesis Land',
-    'Fade Bolt',
-    'Thunder Strike',
-    'Glimpse',
-    'Kinetic Field',
-    'Static Storm',
-    'Illuminate',
-    'Mana Leak',
-    'Chakra Magic',
-    'Recall',
-    'Blinding Light',
-    'Spirit Form',
-    'Bersekers Call',
-    'Battle Hunger',
-    'Counter Helix',
-    'Culling Blade',
-    'Meat Hook',
-    'Rot',
-    'Flesh Heap',
-    'Dismember',
-    'Burrowstrike',
-    'Sand Storm',
-    'Caustic Final',
-    'Epicenter',
-    'Sprint',
-    'Slithereen Crush',
-    'Bash',
-    'Amplify Damage',
-    'Gush Kraken',
-    'Anchor Smash',
-    'Ravage',
-    'Wraithfire Blast',
-    'Vampiric Aura',
-    'Mortal Strike',
-    'Reincarnation',
-    'Rage',
-    'Feast',
-    'Open Wounds',
-    'Infest',
-    'Void',
-    'Crippling Fear',
-    'Hunter in the Night',
-    'Darkness',
-    'Devour',
-    'Scorched Earth',
-    'LVL? Death',
-    'Doom',
-    'Carge of Darkness',
-    'Empowering Haste',
-    'Greater Bash',
-    'Nether Strike',
-    'Summon Wolves',
-    'Howl',
-    'Feral Impulse',
-    'Shapeshift',
-    'Chaos Bolt',
-    'Reality Rift',
-    'Chaos Strike',
-    'Phantasm',
-    'Decay',
-    'Soul Rip',
-    'Tombstone',
-    'Flesh Golem',
-    'Shockwave',
-    'Empower',
-    'Skewer',
-    'Reverse Polarity',
-    'Bloodrage',
-    'Blood bath',
-    'Thirst',
-    'Rupture',
-    'Shadowraze (ZXC)',
-    'Necromastery',
-    'Presence of the Dark Lord',
-    'Requiem of Souls',
-    'Plasma Field',
-    'Static Link',
-    'Unstable Current',
-    'Eye of the Storm',
-    'Venomous Gale',
-    'Poison Sting',
-    'Plague Ward',
-    'Poison Nova',
-    'Time Walk',
-    'Backtrack',
-    'Time Lock',
-    'Chronosphere',
-    'Stifling Dagger',
-    'Phantom Strike',
-    'Blur',
-    'Coup de Grace',
-    'Posion Attack',
-    'Nethertoxin',
-    'Corrosive Skin',
-    'Viper Strike',
-    'Strafe',
-    'Searing Arrows',
-    'Skeleton Walk',
-    'Death Pact',
-    'Spawn Spiderlings',
-    'Spin Web',
-    'Incapacitating Bite',
-    'Insatiable Hunger',
-    'The Swarm',
-    'Shukuchi',
-    'Geminate Attack',
-    'Time Lapse',
-    'Spectral Dagger',
-    'Desolate',
-    'Dispersion',
-    'Reality',
-    'Haunt',
-    'Earthbind',
-    'Poof',
-    'Geostrike',
-    'Impale',
-    'Mana Burn',
-    'Spiked Carapace',
-    'Vendetta',
-    'Split Shot',
-    'Mystic Snake',
-    'Mana Shield',
-    'Stone Gaze',
-    'Reflection',
-    'Conjure Image',
-    'Sunder',
-    'Metamorphosis',
-    'Enfeeble',
-    'Brain Sap',
-    'Nightmare',
-    'Fiends Grip',
-    'Frost Blast',
-    'Ice Armor',
-    'Sacrifice',
-    'Chain Frost',
-    'Earth Spike',
-    'Hex',
-    'Mana Drain',
-    'Finger of Death',
-    'Paralyzing Cask',
-    'Voodoo Restoration',
-    'Maledict',
-    'Death Ward',
-    'Malefice',
-    'Demonic Conversion',
-    'Midnight Pulse',
-    'Black Hole',
-    'Death Pulse',
-    'Heartstopper Aura',
-    'Sadist',
-    'Reapers Scythe',
-    'Fatal Bonds',
-    'Shadow Word',
-    'Upheaval',
-    'Chaotic Offering',
-    'Shadow Strike',
-    'Blink',
-    'Scream of Pain',
-    'Sonic Wave',
-    'Crypt Swarm',
-    'Silence',
-    'Witchcraft',
-    'Exorcism',
-    'Nether Blast',
-    'Decrepify',
-    'Nether Ward',
-    'Life Drain',
-    'Poison Touch',
-    'Shallow Grave',
-    'Shadow Wave',
-    'Weave',
-    'Split Earth',
-    'Diabolic Edict',
-    'Lightning Storm',
-    'Pulse Nova',
-    'Vacuum',
-    'Ion Shell',
-    'Surge',
-    'Wall of Replica',
-    'Cold Feet',
-    'Ice Vortex',
-    'Chilling Touch',
-    'Ice Blast',
-    'Cold Snap',
-    'Ghost Walk',
-    'Tornado',
-    'EMP',
-    'Alacrity',
-    'Chaos Meteor',
-    'Sun strike',
-    'Forge Spirit',
-    'Ice Wall',
-    'Deafening Blast',
-    'Disruption',
-    'Soul Catcher',
-    'Shadow Poison',
-    'Grave Chill',
-    'Soul Assumption',
-    'Gravekeepers Cloak',
-    'Summon Familiars',
-];
-
-// for (let i = 0; i < array_spells.length; i++) {
-//     array_spells[i] = array_spells[i].toLowerCase();
-//     array_spells[i] = array_spells[i].split(' ').join('_');
-// }
-
-// for (let i = 0; i < array_heroes.length; i++) {
-//     array_heroes[i] = array_heroes[i].toLowerCase();
-// }
-
-// Spells images
-let array_spells_images = [];
-
 const choosenSpells = [];
 let selectSpells = 1;
 let spellsLeft = 4;
+let round = 0;
 
 // Heroes
 let random_hero1 = getRandNumb(0, 2);
@@ -753,46 +325,6 @@ let array_heroes_casino = [
         startHp: 560,
         startMana: 375,
     },
-
-    // Faceless_Void = {
-    //     firstSpell: {
-    //         type: 'DPS',
-    //         damage1: 20,
-    //         damage2: 25,
-    //         damage3: 30,
-    //         damage4: 35,
-    //         image: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_acid_spray.png',
-    //     },
-
-    //     secondSpell: {
-    //         type: 'Stun',
-    //         damage1: 150,
-    //         damage2: 220,
-    //         damage3: 290,
-    //         damage4: 360,
-    //         image: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_unstable_concoction.png',
-    //     },
-
-    //     thirdSpell: {
-    //         type: 'ImprovementGold',
-    //         extraGold1: 7,
-    //         extraGold2: 10,
-    //         extraGold3: 14,
-    //         extraGold4: 18,
-    //         image: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_goblins_greed.png',
-    //     },
-
-    //     fourthSpell: {
-    //         type: 'ImprovementDamage',
-    //         damagePlus1: 40,
-    //         damagePlus2: 60,
-    //         damagePlus3: 80,
-    //         damagePlus4: 100,
-    //         image: 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/abilities/alchemist_chemical_rage.png',
-    //     },
-
-    //     image: 'https://dota2.ru/img/heroes/faceless_void/portrait.jpg',
-    // },
 ];
 
 let enemies = [{
@@ -850,46 +382,46 @@ function counterPlus(numberSpell, random_spell1, random_spell2, random_spell3, r
     switch (selectSpells) {
         case 1: 
             if (numberSpell === 1) {
-                heroUser[0].spells.firstSpell = JSON.stringify(array_heroes_casino[random_spell1].firstSpell); 
+                heroUser[0].spells.firstSpell = array_heroes_casino[random_spell1].firstSpell; 
             } else if (numberSpell === 2) {
-                heroUser[0].spells.firstSpell = JSON.stringify(array_heroes_casino[random_spell2].secondSpell); 
+                heroUser[0].spells.firstSpell = array_heroes_casino[random_spell2].secondSpell; 
             } else if (numberSpell === 3) {
-                heroUser[0].spells.firstSpell = JSON.stringify(array_heroes_casino[random_spell3].thirdSpell); 
+                heroUser[0].spells.firstSpell = array_heroes_casino[random_spell3].thirdSpell; 
             } else if (numberSpell === 4) {
-                heroUser[0].spells.firstSpell = JSON.stringify(array_heroes_casino[random_spell4].ultimate); 
+                heroUser[0].spells.firstSpell = array_heroes_casino[random_spell4].ultimate; 
             }
         break;
         case 2: 
             if (numberSpell === 1) {
-                heroUser[0].spells.secondSpell = JSON.stringify(array_heroes_casino[random_spell1].firstSpell); 
+                heroUser[0].spells.secondSpell = array_heroes_casino[random_spell1].firstSpell; 
             } else if (numberSpell === 2) {
-                heroUser[0].spells.secondSpell = JSON.stringify(array_heroes_casino[random_spell2].secondSpell); 
+                heroUser[0].spells.secondSpell = array_heroes_casino[random_spell2].secondSpell; 
             } else if (numberSpell === 3) {
-                heroUser[0].spells.secondSpell = JSON.stringify(array_heroes_casino[random_spell3].thirdSpell); 
+                heroUser[0].spells.secondSpell = array_heroes_casino[random_spell3].thirdSpell; 
             } else if (numberSpell === 4) {
-                heroUser[0].spells.secondSpell = JSON.stringify(array_heroes_casino[random_spell4].ultimate); 
+                heroUser[0].spells.secondSpell = array_heroes_casino[random_spell4].ultimate; 
             }
         break;
         case 3: 
             if (numberSpell === 1) {
-                heroUser[0].spells.thirdSpell = JSON.stringify(array_heroes_casino[random_spell1].firstSpell); 
+                heroUser[0].spells.thirdSpell = array_heroes_casino[random_spell1].firstSpell; 
             } else if (numberSpell === 2) {
-                heroUser[0].spells.thirdSpell = JSON.stringify(array_heroes_casino[random_spell2].secondSpell); 
+                heroUser[0].spells.thirdSpell = array_heroes_casino[random_spell2].secondSpell; 
             } else if (numberSpell === 3) {
-                heroUser[0].spells.thirdSpell = JSON.stringify(array_heroes_casino[random_spell3].thirdSpell); 
+                heroUser[0].spells.thirdSpell = array_heroes_casino[random_spell3].thirdSpell; 
             } else if (numberSpell === 4) {
-                heroUser[0].spells.thirdSpell = JSON.stringify(array_heroes_casino[random_spell4].ultimate); 
+                heroUser[0].spells.thirdSpell = array_heroes_casino[random_spell4].ultimate; 
             }
         break;
         case 4: 
             if (numberSpell === 1) {
-                heroUser[0].spells.ultimate = JSON.stringify(array_heroes_casino[random_spell1].firstSpell); 
+                heroUser[0].spells.ultimate = array_heroes_casino[random_spell1].firstSpell; 
             } else if (numberSpell === 2) {
-                heroUser[0].spells.ultimate = JSON.stringify(array_heroes_casino[random_spell2].secondSpell); 
+                heroUser[0].spells.ultimate = array_heroes_casino[random_spell2].secondSpell; 
             } else if (numberSpell === 3) {
-                heroUser[0].spells.ultimate = JSON.stringify(array_heroes_casino[random_spell3].thirdSpell); 
+                heroUser[0].spells.ultimate = array_heroes_casino[random_spell3].thirdSpell; 
             } else if (numberSpell === 4) {
-                heroUser[0].spells.ultimate = JSON.stringify(array_heroes_casino[random_spell4].ultimate); 
+                heroUser[0].spells.ultimate = array_heroes_casino[random_spell4].ultimate; 
             }
         break;
     }
@@ -986,8 +518,6 @@ function choice_spell() {
     }
 }
 
-let round = 0;
-
 function startRoundTimer() {
     let time = 60;
     round += 1;
@@ -1006,10 +536,15 @@ function startRoundTimer() {
 function roundStart(round) {
     const randUseSpell = getRandNumb(0, 3);
 
-    const firstSpell = JSON.parse(enemies[0].spells.firstSpell);
-    const secondSpell = JSON.parse(enemies[0].spells.secondSpell);
-    const thirdSpell = JSON.parse(enemies[0].spells.thirdSpell);
-    const ultimateSpell = JSON.parse(enemies[0].spells.ultimate);
+    const firstSpell = enemies[0].spells.firstSpell;
+    const secondSpell = enemies[0].spells.secondSpell;
+    const thirdSpell = enemies[0].spells.thirdSpell;
+    const ultimateSpell = enemies[0].spells.ultimate;
+
+    const firstSpellUser = heroUser[0].spells.firstSpell;
+    const secondSpellUser = heroUser[0].spells.secondSpell;
+    const thirdSpellUser = heroUser[0].spells.thirdSpell;
+    const ultimateSpellUser = heroUser[0].spells.ultimate;
 
     let hpUser = heroUser[0].hp;
     let startHp = heroUser[0].startHp;
@@ -1072,11 +607,13 @@ function roundStart(round) {
         ultimateSpell.type !== 'Escape' && enemies[0].level >= 6 && randUseSpell === 3) {
         ultimateSpell.level += 1;
         if (round === 1) {
-            hpUser -= ultimate.damage1;
+            enemies[0].hp -= ultimateSpell.damage1;
         } else if (round === 2) {
-            hpUser -= ultimate.damage2;
-        } else if (round >= 3) {
-            hpUser -= ultimate.damage3;
+            enemies[0].hp -= ultimateSpell.damage2;
+        } else if (round === 3) {
+            enemies[0].hp -= ultimateSpell.damage3;
+        } else if (roudn >= 4) {
+            enemies[0].hp -= ultimateSpell.damage4;
         }
 
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
@@ -1084,35 +621,177 @@ function roundStart(round) {
     }
 
     setTimeout(() => {
-        document.getElementById('useUltimate').style.display = "block";
-
-        if (firstSpell.level >= 1) {
+        if (firstSpellUser.level >= 1) {
             document.getElementById('useSpell1').style.display = "block";
 
             document.getElementById('useSpell1').addEventListener('click', () => {
-                
+                if (round === 1) {
+                    if (heroUser[0].mana >= firstSpellUser.mana1) {
+                        enemies[0].hp -= firstSpellUser.damage1;
+                        heroUser[0].mana -= firstSpellUser.mana1;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell1').style.display = "none";
+                    }
+                } else if (round === 2) {
+                    if (heroUser[0].mana >= firstSpellUser.mana2) {
+                        enemies[0].hp -= firstSpellUser.damage2;
+                        heroUser[0].mana -= firstSpellUser.mana2;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell1').style.display = "none";
+                    }
+                } else if (round === 3) {
+                    if (heroUser[0].mana >= firstSpellUser.mana3) {
+                        enemies[0].hp -= firstSpellUser.damage3;
+                        heroUser[0].mana -= firstSpellUser.mana3;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell1').style.display = "none";
+                    }
+                } else if (round >= 4) {
+                    if (heroUser[0].mana >= firstSpellUser.mana4) {
+                        enemies[0].hp -= firstSpellUser.damage4;
+                        heroUser[0].mana -= firstSpellUser.mana4;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell1').style.display = "none";
+                    }
+                }
             });
         }
 
-        if (secondSpell >= 1) {
+        if (secondSpellUser.level >= 1) {
             document.getElementById('useSpell2').style.display = "block";
 
             document.getElementById('useSpell2').addEventListener('click', () => {
-                
+                if (round === 1) {
+                    if (heroUser[0].mana >= secondSpellUser.mana1) {
+                        enemies[0].hp -= secondSpellUser.damage1;
+                        heroUser[0].mana -= secondSpellUser.mana1;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell2').style.display = "none";
+                    }
+                } else if (round === 2) {
+                    if (heroUser[0].mana >= secondSpellUser.mana2) {
+                        enemies[0].hp -= secondSpellUser.damage2;
+                        heroUser[0].mana -= secondSpellUser.mana2;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell2').style.display = "none";
+                    }
+                } else if (round === 3) {
+                    if (heroUser[0].mana >= secondSpellUser.mana3) {
+                        enemies[0].hp -= secondSpellUser.damage3;
+                        heroUser[0].mana -= secondSpellUser.mana3;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell2').style.display = "none";
+                    }
+                } else if (round >= 4) {
+                    if (heroUser[0].mana >= secondSpellUser.mana4) {
+                        enemies[0].hp -= secondSpellUser.damage4;
+                        heroUser[0].mana -= secondSpellUser.mana4;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell2').style.display = "none";
+                    }
+                }
             });
         }
 
-        if (thirdSpell >= 1) {
+        if (thirdSpellUser.level >= 1) {
             document.getElementById('useSpell3').style.display = "block";
 
             document.getElementById('useSpell3').addEventListener('click', () => {
-               
+                if (round === 1) {
+                    if (heroUser[0].mana >= thirdSpellUser.mana1) {
+                        enemies[0].hp -= thirdSpellUser.damage1;
+                        heroUser[0].mana -= thirdSpellUser.mana1;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell3').style.display = "none";
+                    }
+                } else if (round === 2) {
+                    if (heroUser[0].mana >= thirdSpellUser.mana2) {
+                        enemies[0].hp -= thirdSpellUser.damage2;
+                        heroUser[0].mana -= thirdSpellUser.mana2;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell3').style.display = "none";
+                    }
+                } else if (round === 3) {
+                    if (heroUser[0].mana >= thirdSpellUser.mana3) {
+                        enemies[0].hp -= thirdSpellUser.damage3;
+                        heroUser[0].mana -= thirdSpellUser.mana3;
+                        
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell3').style.display = "none";
+                    }
+                } else if (round >= 4) {
+                    if (heroUser[0].mana >= thirdSpellUser.mana3) {
+                        enemies[0].hp -= thirdSpellUser.damage4;
+                        heroUser[0].mana -= thirdSpellUser.mana4;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useSpell3').style.display = "none";
+                    }
+                }
             });    
         }
 
-        if (ultimateSpell >= 1) {
+        if (ultimateSpellUser.level >= 1) {
             document.getElementById('useUltimate').addEventListener('click', () => {
-                
+                if (round === 1) {
+                    if (heroUser[0].mana >= ultimateSpellUser.mana1) {
+                        enemies[0].hp -= ultimateSpellUser.damage1;
+                        heroUser[0].mana -= ultimateSpellUser.mana1;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useUltimate').style.display = "none";
+                    }
+                } else if (round === 2) {
+                    if (heroUser[0].mana >= ultimateSpellUser.mana2) {
+                        enemies[0].hp -= ultimateSpellUser.damage2;
+                        heroUser[0].mana -= ultimateSpellUser.mana2;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useUltimate').style.display = "none";
+                    }
+                } else if (round === 3) {
+                    if (heroUser[0].mana >= ultimateSpellUser.mana3) {
+                        enemies[0].hp -= ultimateSpellUser.damage3;
+                        heroUser[0].mana -= ultimateSpellUser.mana3;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useUltimate').style.display = "none";
+                    }
+                } else if (round >= 4) {
+                    if (heroUser[0].mana >= ultimateSpellUser.mana4) {
+                        enemies[0].hp -= ultimateSpellUser.damage4;
+                        heroUser[0].mana -= ultimateSpellUser.mana4;
+
+                        document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
+                        document.getElementById('useUltimate').style.display = "none";
+                    }
+                }
             });   
         }
     }, 2000);
@@ -1128,18 +807,15 @@ function generationEnemy() {
 
     enemies[0].name = array_heroes_casino[random_enemy1].name;
     enemies[0].image = array_heroes_casino[random_enemy1].image;
-    enemies[0].hp = array_heroes_casino[random_enemy1].startHp;
-    enemies[0].mana = array_heroes_casino[random_enemy1].startMana;
+    enemies[0].startHp = array_heroes_casino[random_enemy1].startHp;
+    enemies[0].startMana = array_heroes_casino[random_enemy1].startMana;
+    enemies[0].hp = enemies[0].startHp;
+    enemies[0].startMana = enemies[0].startMana;
 
-    enemies[0].spells.firstSpell = JSON.stringify(array_heroes_casino[random_enemy_spell1].firstSpell);
-    enemies[0].spells.secondSpell = JSON.stringify(array_heroes_casino[random_enemy_spell2].secondSpell);
-    enemies[0].spells.thirdSpell = JSON.stringify(array_heroes_casino[random_enemy_spell3].thirdSpell);
-    enemies[0].spells.ultimate = JSON.stringify(array_heroes_casino[random_enemy_ultimate].ultimate);
-
-    const firstSpell = JSON.parse(enemies[0].spells.firstSpell);
-    const secondSpell = JSON.parse(enemies[0].spells.secondSpell);
-    const thirdSpell = JSON.parse(enemies[0].spells.thirdSpell);
-    const ultimate = JSON.parse(enemies[0].spells.ultimate);
+    let firstSpell = enemies[0].spells.firstSpell = array_heroes_casino[random_enemy_spell1].firstSpell;
+    let secondSpell = enemies[0].spells.secondSpell = array_heroes_casino[random_enemy_spell2].secondSpell;
+    let thirdSpell = enemies[0].spells.thirdSpell = array_heroes_casino[random_enemy_spell3].thirdSpell;
+    let ultimate = enemies[0].spells.ultimate = array_heroes_casino[random_enemy_ultimate].ultimate;
 
     document.getElementById('enemies').innerHTML = `
         <div class="d-flex justify-content-center">
@@ -1148,7 +824,7 @@ function generationEnemy() {
                     <div class="col-md-4" style="width: 160px; height: 212px;">
                         <img src="${enemies[0].image}" class="card-img-top" alt="${enemies[0].name}">
                         <div class="progress">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[0].hp}/${enemies[0].hp}</div>
+                            <div class="progress-bar bg-danger" id="enemyHp" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[0].hp}/${enemies[0].startHp}</div>
                         </div>
                         <div class="level-enemy bg-warning">
                             <span class="text-dark" style="padding-left: 0.5em;" id="level-text-enemy">Уровень: ${enemies[0].level}</span>
@@ -1217,10 +893,10 @@ function generationEnemy() {
 }
 
 function mainGame() {
-    const firstSpell = JSON.parse(heroUser[0].spells.firstSpell);
-    const secondSpell = JSON.parse(heroUser[0].spells.secondSpell);
-    const thirdSpell = JSON.parse(heroUser[0].spells.thirdSpell);
-    const ultimate = JSON.parse(heroUser[0].spells.ultimate);
+    const firstSpell = heroUser[0].spells.firstSpell;
+    const secondSpell = heroUser[0].spells.secondSpell;
+    const thirdSpell = heroUser[0].spells.thirdSpell;
+    const ultimate = heroUser[0].spells.ultimate;
     const heroName = heroUser[0].name;
     const heroImage = heroUser[0].image;
     const heroHp = heroUser[0].hp;
@@ -1347,10 +1023,10 @@ function upLevel() {
 }
 
 function spellLevelUp(spell) {
-    let firstSpell = JSON.parse(heroUser[0].spells.firstSpell);
-    let secondSpell = JSON.parse(heroUser[0].spells.secondSpell);
-    let thirdSpell = JSON.parse(heroUser[0].spells.thirdSpell);
-    let ultimateSpell = JSON.parse(heroUser[0].spells.ultimate);
+    let firstSpell = heroUser[0].spells.firstSpell;
+    let secondSpell = heroUser[0].spells.secondSpell;
+    let thirdSpell = heroUser[0].spells.thirdSpell;
+    let ultimateSpell = heroUser[0].spells.ultimate;
 
     let levelTextSpell1 = document.getElementById('level-text-1');
     let levelTextSpell2 = document.getElementById('level-text-2');
@@ -1368,6 +1044,11 @@ function spellLevelUp(spell) {
         case 3: thirdSpell.level += 1; levelTextSpell3.innerHTML = `Уровень: ${thirdSpell.level}`; levelImageSpell3.style.filter = "none"; break;
         case 4: ultimateSpell.level += 1; levelTextSpell4.innerHTML = `Уровень: ${ultimate.level}`; levelImageSpell4.style.filter = "none"; break;
     }
+
+    heroUser[0].spells.firstSpell = firstSpell;
+    heroUser[0].spells.secondSpell = secondSpell;
+    heroUser[0].spells.thirdSpell = thirdSpell;
+    heroUser[0].spells.ultimate = ultimateSpell;
 
     document.getElementById('levelUpSpell1').style.display = 'none';
     document.getElementById('levelUpSpell2').style.display = 'none';
