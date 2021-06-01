@@ -530,7 +530,7 @@ function startRoundTimer() {
     const timerRound1 = setTimeout(() => {
         clearInterval(timeBeforeStart);
         roundStart(round);
-    }, 3000);
+    }, 60000);
 }
 
 function roundStart(round) {
