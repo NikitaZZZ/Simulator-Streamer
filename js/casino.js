@@ -530,7 +530,7 @@ function startRoundTimer() {
     const timerRound1 = setTimeout(() => {
         clearInterval(timeBeforeStart);
         roundStart(round);
-    }, 60000);
+    }, 3000);
 }
 
 function roundStart(round) {
@@ -557,12 +557,16 @@ function roundStart(round) {
         firstSpell.level += 1;
         if (round === 1) {
             hpUser -= firstSpell.damage1;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage1 / enemies[0].spells.firstSpell.damage1)}%`;
         } else if (round === 2) {
             hpUser -= firstSpell.damage2;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage2 / enemies[0].spells.firstSpell.damage2)}%`;
         } else if (round === 3) {
             hpUser -= firstSpell.damage3;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage3 / enemies[0].spells.firstSpell.damage3)}%`;
         } else if (round >= 4) {
             hpUser -= firstSpell.damage4;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage4 / enemies[0].spells.firstSpell.damage4)}%`;
         }
 
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
@@ -574,15 +578,20 @@ function roundStart(round) {
         secondSpell.level += 1;
         if (round === 1) {
             hpUser -= secondSpell.damage1;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage1 / enemies[0].spells.secondSpell.damage1)}%`;
         } else if (round === 2) {
             hpUser -= secondSpell.damage2;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage2 / enemies[0].spells.secondSpell.damage2)}%`;
         } else if (round === 3) {
             hpUser -= secondSpell.damage3;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage3 / enemies[0].spells.secondSpell.damage3)}%`;
         } else if (round >= 4) {
             hpUser -= secondSpell.damage4;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage4 / enemies[0].spells.secondSpell.damage4)}%`;
         }
 
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('heroHp').style.width = `${hpUser}%`;
         document.getElementById('timerRound').innerHTML = `Противник использует: ${secondSpell.name}`;
     } else if (thirdSpell.type !== 'ImprovementDamage' || 
         thirdSpell.type !== 'ImprovementHeal' || 
@@ -591,15 +600,20 @@ function roundStart(round) {
         thirdSpell.level += 1;
         if (round === 1) {
             hpUser -= thirdSpell.damage1;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage1 / enemies[0].spells.thirdSpell.damage1)}%`;
         } else if (round === 2) {
             hpUser -= thirdSpell.damage2;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage2 / enemies[0].spells.thirdSpell.damage2)}%`;
         } else if (round === 3) {
             hpUser -= thirdSpell.damage3;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage3 / enemies[0].spells.thirdSpell.damage3)}%`;
         } else if (round >= 4) {
             hpUser -= thirdSpell.damage4;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage4 / enemies[0].spells.thirdSpell.damage4)}%`;
         }
 
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('heroHp').style.width = `${hpUser}%`;
         document.getElementById('timerRound').innerHTML = `Противник использует: ${thirdSpell.name}`;
     } else if (ultimateSpell.type !== 'ImprovementDamage' || 
         ultimateSpell.type !== 'ImprovementHeal' || 
@@ -608,15 +622,20 @@ function roundStart(round) {
         ultimateSpell.level += 1;
         if (round === 1) {
             enemies[0].hp -= ultimateSpell.damage1;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage1 / enemies[0].spells.ultimate.damage1)}%`;
         } else if (round === 2) {
             enemies[0].hp -= ultimateSpell.damage2;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage2 / enemies[0].spells.ultimate.damage2)}%`;
         } else if (round === 3) {
             enemies[0].hp -= ultimateSpell.damage3;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage3 / enemies[0].spells.ultimate.damage3)}%`;
         } else if (roudn >= 4) {
             enemies[0].hp -= ultimateSpell.damage4;
+            document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage4 / enemies[0].spells.ultimate.damage4)}%`;
         }
 
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
+        document.getElementById('heroHp').style.width = `${hpUser}%`;
         document.getElementById('timerRound').innerHTML = `Противник использует: ${ultimateSpell.name}`;
     }
 
@@ -631,6 +650,8 @@ function roundStart(round) {
                         heroUser[0].mana -= firstSpellUser.mana1;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage1 / enemies[0].spells.firstSpell.damage1)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
                     }
@@ -640,6 +661,8 @@ function roundStart(round) {
                         heroUser[0].mana -= firstSpellUser.mana2;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage2 / enemies[0].spells.firstSpell.damage2)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
                     }
@@ -649,6 +672,8 @@ function roundStart(round) {
                         heroUser[0].mana -= firstSpellUser.mana3;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage3 / enemies[0].spells.firstSpell.damage3)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
                     }
@@ -658,6 +683,8 @@ function roundStart(round) {
                         heroUser[0].mana -= firstSpellUser.mana4;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.firstSpell.damage3 / enemies[0].spells.firstSpell.damage4)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
                     }
@@ -675,6 +702,8 @@ function roundStart(round) {
                         heroUser[0].mana -= secondSpellUser.mana1;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage1 / enemies[0].spells.secondSpell.damage1)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
                     }
@@ -684,6 +713,8 @@ function roundStart(round) {
                         heroUser[0].mana -= secondSpellUser.mana2;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage2 / enemies[0].spells.secondSpell.damage2)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
                     }
@@ -693,6 +724,8 @@ function roundStart(round) {
                         heroUser[0].mana -= secondSpellUser.mana3;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage3 / enemies[0].spells.secondSpell.damage3)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
                     }
@@ -702,6 +735,8 @@ function roundStart(round) {
                         heroUser[0].mana -= secondSpellUser.mana4;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.secondSpell.damage4 / enemies[0].spells.secondSpell.damage4)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
                     }
@@ -719,6 +754,8 @@ function roundStart(round) {
                         heroUser[0].mana -= thirdSpellUser.mana1;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage1 / enemies[0].spells.thirdSpell.damage1)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
                     }
@@ -728,6 +765,8 @@ function roundStart(round) {
                         heroUser[0].mana -= thirdSpellUser.mana2;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage2 / enemies[0].spells.thirdSpell.damage2)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
                     }
@@ -737,6 +776,8 @@ function roundStart(round) {
                         heroUser[0].mana -= thirdSpellUser.mana3;
                         
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage3 / enemies[0].spells.thirdSpell.damage3)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
                     }
@@ -746,6 +787,10 @@ function roundStart(round) {
                         heroUser[0].mana -= thirdSpellUser.mana4;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.thirdSpell.damage4 / enemies[0].spells.thirdSpell.damage4)}%`;
+
+                        document.getElementById('enemyHp').style.width -= `${thirdSpellUser.damage4}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
                     }
@@ -761,6 +806,8 @@ function roundStart(round) {
                         heroUser[0].mana -= ultimateSpellUser.mana1;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage1 / enemies[0].spells.ultimate.damage1)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
                     }
@@ -770,6 +817,8 @@ function roundStart(round) {
                         heroUser[0].mana -= ultimateSpellUser.mana2;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage2 / enemies[0].spells.ultimate.damage2)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
                     }
@@ -779,6 +828,8 @@ function roundStart(round) {
                         heroUser[0].mana -= ultimateSpellUser.mana3;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage3 / enemies[0].spells.ultimate.damage3)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
                     }
@@ -788,6 +839,8 @@ function roundStart(round) {
                         heroUser[0].mana -= ultimateSpellUser.mana4;
 
                         document.getElementById('enemyHp').innerHTML = `${enemies[0].hp}/${enemies[0].startHp}`;
+                        document.getElementById('enemyHp').style.width = `${parseInt(document.getElementById('enemyHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage4 / enemies[0].spells.ultimate.damage4)}%`;
+
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
                     }
@@ -982,7 +1035,7 @@ function mainGame() {
                     </div>
         
                     <div class="card" style="background: none; border: none;" id="spell4">
-                        <button class="btn btn-outline-warning" style="display: none;" id="ultimate" onclick="spellLevelUp(4)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-outline-warning" style="display: none;" id="levelUpUltimate" onclick="spellLevelUp(4)"><i class="fas fa-plus"></i></button>
                         <button class="btn btn-outline-success" style="display: none;" id="useUltimate"><i class="fas fa-mouse"></i></button>
                         <img src="${ultimate.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" id="level-image-4" class="card-img-top" alt="${ultimate.name}" data-bs-toggle="collapse" data-bs-target="#ultimate">
                         <span class="bg-dark" style="padding-left: 0.5em;" id="level-text-4">Уровень: ${ultimate.level}</span>
@@ -1012,7 +1065,7 @@ function upLevel() {
         document.getElementById('levelUpSpell2').style.display = 'block';
         document.getElementById('levelUpSpell3').style.display = 'block';    
 
-        const ultimate = document.getElementById('ultimate');
+        const ultimate = document.getElementById('levelUpUltimate');
         ultimate.style.display = 'block';
         ultimate.disabled = true;
     
@@ -1022,7 +1075,7 @@ function upLevel() {
     }
 }
 
-function spellLevelUp(spell) {
+function spellLevelUp(spellUp) {
     let firstSpell = heroUser[0].spells.firstSpell;
     let secondSpell = heroUser[0].spells.secondSpell;
     let thirdSpell = heroUser[0].spells.thirdSpell;
@@ -1038,22 +1091,17 @@ function spellLevelUp(spell) {
     let levelImageSpell3 = document.getElementById('level-image-3');
     let levelImageSpell4 = document.getElementById('level-image-4');
 
-    switch (spell) {
+    switch (spellUp) {
         case 1: firstSpell.level += 1; levelTextSpell1.innerHTML = `Уровень: ${firstSpell.level}`; levelImageSpell1.style.filter = "none"; break;
         case 2: secondSpell.level += 1; levelTextSpell2.innerHTML = `Уровень: ${secondSpell.level}`; levelImageSpell2.style.filter = "none"; break;
         case 3: thirdSpell.level += 1; levelTextSpell3.innerHTML = `Уровень: ${thirdSpell.level}`; levelImageSpell3.style.filter = "none"; break;
         case 4: ultimateSpell.level += 1; levelTextSpell4.innerHTML = `Уровень: ${ultimate.level}`; levelImageSpell4.style.filter = "none"; break;
     }
 
-    heroUser[0].spells.firstSpell = firstSpell;
-    heroUser[0].spells.secondSpell = secondSpell;
-    heroUser[0].spells.thirdSpell = thirdSpell;
-    heroUser[0].spells.ultimate = ultimateSpell;
-
     document.getElementById('levelUpSpell1').style.display = 'none';
     document.getElementById('levelUpSpell2').style.display = 'none';
     document.getElementById('levelUpSpell3').style.display = 'none';
-    document.getElementById('ultimate').style.display = 'none';
+    document.getElementById('levelUpUltimate').style.display = 'none';
 
     heroUser[0].spellPoints -= 1;
 }
