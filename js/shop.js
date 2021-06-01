@@ -44,7 +44,7 @@ function shop() {
     } else { }
 
     if (bg != null) {
-        settings_div.innerHTML = `
+        document.getElementById('change-background-product').innerHTML = `
             <div id="bg-slides" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">

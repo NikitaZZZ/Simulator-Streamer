@@ -1014,6 +1014,7 @@ function roundStart(round) {
     let hpUser = heroUser[0].hp;
     let startHp = heroUser[0].startHp;
 
+    // Enemy Attack
     if (firstSpell.type !== 'ImprovementDamage' || 
         firstSpell.type !== 'ImprovementHeal' || 
         firstSpell.type !== 'ImprovementHeal' || 
@@ -1081,6 +1082,40 @@ function roundStart(round) {
         document.getElementById('heroHp').innerHTML = `${hpUser}/${startHp}`;
         document.getElementById('timerRound').innerHTML = `Противник использует: ${ultimateSpell.name}`;
     }
+
+    setTimeout(() => {
+        document.getElementById('useUltimate').style.display = "block";
+
+        if (firstSpell.level >= 1) {
+            document.getElementById('useSpell1').style.display = "block";
+
+            document.getElementById('useSpell1').addEventListener('click', () => {
+                
+            });
+        }
+
+        if (secondSpell >= 1) {
+            document.getElementById('useSpell2').style.display = "block";
+
+            document.getElementById('useSpell2').addEventListener('click', () => {
+                
+            });
+        }
+
+        if (thirdSpell >= 1) {
+            document.getElementById('useSpell3').style.display = "block";
+
+            document.getElementById('useSpell3').addEventListener('click', () => {
+               
+            });    
+        }
+
+        if (ultimateSpell >= 1) {
+            document.getElementById('useUltimate').addEventListener('click', () => {
+                
+            });   
+        }
+    }, 2000);
 }
 
 function generationEnemy() {
@@ -1221,6 +1256,7 @@ function mainGame() {
         
                     <div class="card" style="background: none; border: none;" id="spell1">
                         <button class="btn btn-outline-warning" style="display: none;" id="levelUpSpell1" onclick="spellLevelUp(1)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-outline-success" style="display: none;" id="useSpell1"><i class="fas fa-mouse"></i></button>
                         <img src="${firstSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" id="level-image-1" class="card-img-top" alt="${firstSpell.name}" data-bs-toggle="collapse" data-bs-target="#firstSpell">
                         <span class="bg-dark" style="padding-left: 0.5em;" id="level-text-1">Уровень: ${firstSpell.level}</span>
         
@@ -1237,6 +1273,7 @@ function mainGame() {
                 
                     <div class="card" style="background: none; border: none;" id="spell2">
                         <button class="btn btn-outline-warning" style="display: none;" id="levelUpSpell2" onclick="spellLevelUp(2)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-outline-success" style="display: none;" id="useSpell2"><i class="fas fa-mouse"></i></button>
                         <img src="${secondSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" id="level-image-2" class="card-img-top" alt="${secondSpell.name}" data-bs-toggle="collapse" data-bs-target="#secondSpell">
                         <span class="bg-dark" style="padding-left: 0.5em;" id="level-text-2">Уровень: ${secondSpell.level}</span>
         
@@ -1253,6 +1290,7 @@ function mainGame() {
         
                     <div class="card" style="background: none; border: none;" id="spell3">
                         <button class="btn btn-outline-warning" style="display: none;" id="levelUpSpell3" onclick="spellLevelUp(3)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-outline-success" style="display: none;" id="useSpell3"><i class="fas fa-mouse"></i></button>
                         <img src="${thirdSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" id="level-image-3" class="card-img-top" alt="${thirdSpell.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpell">
                         <span class="bg-dark" style="padding-left: 0.5em;" id="level-text-3">Уровень: ${thirdSpell.level}</span>
         
@@ -1269,6 +1307,7 @@ function mainGame() {
         
                     <div class="card" style="background: none; border: none;" id="spell4">
                         <button class="btn btn-outline-warning" style="display: none;" id="ultimate" onclick="spellLevelUp(4)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-outline-success" style="display: none;" id="useUltimate"><i class="fas fa-mouse"></i></button>
                         <img src="${ultimate.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" id="level-image-4" class="card-img-top" alt="${ultimate.name}" data-bs-toggle="collapse" data-bs-target="#ultimate">
                         <span class="bg-dark" style="padding-left: 0.5em;" id="level-text-4">Уровень: ${ultimate.level}</span>
         
