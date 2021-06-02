@@ -654,6 +654,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= firstSpellUser.mana2) {
@@ -665,6 +669,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= firstSpellUser.mana3) {
@@ -676,6 +684,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= firstSpellUser.mana4) {
@@ -687,6 +699,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell1').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 }
             });
@@ -706,6 +722,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= secondSpellUser.mana2) {
@@ -717,6 +737,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= secondSpellUser.mana3) {
@@ -728,6 +752,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= secondSpellUser.mana4) {
@@ -739,6 +767,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell2').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 }
             });
@@ -758,6 +790,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= thirdSpellUser.mana2) {
@@ -769,6 +805,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= thirdSpellUser.mana3) {
@@ -780,6 +820,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= thirdSpellUser.mana3) {
@@ -793,6 +837,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useSpell3').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 }
             });    
@@ -810,6 +858,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana2) {
@@ -821,6 +873,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana3) {
@@ -832,6 +888,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana4) {
@@ -843,6 +903,10 @@ function roundStart(round) {
 
                         document.getElementById('heroMana').innerHTML = `${heroUser[0].mana}/${heroUser[0].startMana}`;
                         document.getElementById('useUltimate').style.display = "none";
+
+                        setTimeout(() => {
+                            mainGame();
+                        }, 3000);
                     }
                 }
             });   
@@ -959,7 +1023,7 @@ function mainGame() {
     const heroLevel = heroUser[0].level;
     
     heroes.innerHTML = `
-        <div class="card text-center bg-dark">
+        <div class="card text-center" style="background: none; border: none;">
             <div class="card-body">
                 <div class="d-flex justify-content-center" id="enemies"></div>
 
@@ -1052,7 +1116,7 @@ function mainGame() {
                     </div>
                 </div>
             </div>
-            <div class="card-footer text-muted" id="timerRound">
+            <div class="card-footer" style="color: #fff; border: none;" id="timerRound">
                 60 секунд до начала - Раунд 1
             </div>
         </div>
