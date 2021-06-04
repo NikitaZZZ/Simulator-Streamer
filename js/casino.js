@@ -1,7 +1,7 @@
-const choosenSpells = [];
 let selectSpells = 1;
 let spellsLeft = 4;
 let round = 0;
+let counterEnemy = 1;
 
 // Heroes
 let random_hero1 = getRandNumb(0, 2);
@@ -327,20 +327,50 @@ let array_heroes_casino = [
     },
 ];
 
-let enemies = [{
-    name: '',
-    image: '',
-    hp: 0,
-    startHp: 0,
-    mana: 0,
-    startMana: 0,
-    level: 1,
-    spellPoints: 1,
+let enemies = [
+    {
+        name: '',
+        image: '',
+        hp: 0,
+        startHp: 0,
+        mana: 0,
+        startMana: 0,
+        level: 1,
+        spellPoints: 1,
 
-    spells: {
+        spells: {
 
+        },
     },
-}];
+    {
+        name: '',
+        image: '',
+        hp: 0,
+        startHp: 0,
+        mana: 0,
+        startMana: 0,
+        level: 1,
+        spellPoints: 1,
+
+        spells: {
+
+        },
+    },
+    {
+        name: '',
+        image: '',
+        hp: 0,
+        startHp: 0,
+        mana: 0,
+        startMana: 0,
+        level: 1,
+        spellPoints: 1,
+
+        spells: {
+
+        },
+    }
+];
 
 function heroName(name, image, startHp, startMana) {
     heroUser[0].name = name;
@@ -527,13 +557,15 @@ function startRoundTimer() {
         document.getElementById('timerRound').innerHTML = `${time} секунд до начала - Раунд ${round}`;
     }, 1000);
 
-    const timerRound1 = setTimeout(() => {
+    setTimeout(() => {
         clearInterval(timeBeforeStart);
         roundStart(round);
     }, 60000);
 }
 
 function roundStart(round) {
+    document.getElementById('music').src = "music/roundCasino.mp3";
+
     const randUseSpell = getRandNumb(0, 3);
 
     const firstSpell = enemies[0].spells.firstSpell;
@@ -629,7 +661,7 @@ function roundStart(round) {
         } else if (round === 3) {
             enemies[0].hp -= ultimateSpell.damage3;
             document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage3 / enemies[0].spells.ultimate.damage3)}%`;
-        } else if (roudn >= 4) {
+        } else if (round >= 4) {
             enemies[0].hp -= ultimateSpell.damage4;
             document.getElementById('heroHp').style.width = `${parseInt(document.getElementById('heroHp').style.width) - Math.round(heroUser[0].spells.ultimate.damage4 / enemies[0].spells.ultimate.damage4)}%`;
         }
@@ -656,8 +688,9 @@ function roundStart(round) {
                         document.getElementById('useSpell1').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= firstSpellUser.mana2) {
@@ -671,8 +704,9 @@ function roundStart(round) {
                         document.getElementById('useSpell1').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= firstSpellUser.mana3) {
@@ -686,8 +720,9 @@ function roundStart(round) {
                         document.getElementById('useSpell1').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= firstSpellUser.mana4) {
@@ -701,8 +736,9 @@ function roundStart(round) {
                         document.getElementById('useSpell1').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 }
             });
@@ -724,8 +760,9 @@ function roundStart(round) {
                         document.getElementById('useSpell2').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= secondSpellUser.mana2) {
@@ -739,8 +776,9 @@ function roundStart(round) {
                         document.getElementById('useSpell2').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= secondSpellUser.mana3) {
@@ -754,8 +792,9 @@ function roundStart(round) {
                         document.getElementById('useSpell2').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= secondSpellUser.mana4) {
@@ -769,8 +808,9 @@ function roundStart(round) {
                         document.getElementById('useSpell2').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 }
             });
@@ -792,8 +832,9 @@ function roundStart(round) {
                         document.getElementById('useSpell3').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= thirdSpellUser.mana2) {
@@ -807,8 +848,9 @@ function roundStart(round) {
                         document.getElementById('useSpell3').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= thirdSpellUser.mana3) {
@@ -822,8 +864,9 @@ function roundStart(round) {
                         document.getElementById('useSpell3').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= thirdSpellUser.mana3) {
@@ -839,8 +882,9 @@ function roundStart(round) {
                         document.getElementById('useSpell3').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 }
             });    
@@ -860,8 +904,9 @@ function roundStart(round) {
                         document.getElementById('useUltimate').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana2) {
@@ -875,8 +920,9 @@ function roundStart(round) {
                         document.getElementById('useUltimate').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana3) {
@@ -890,8 +936,9 @@ function roundStart(round) {
                         document.getElementById('useUltimate').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana4) {
@@ -905,8 +952,9 @@ function roundStart(round) {
                         document.getElementById('useUltimate').style.display = "none";
 
                         setTimeout(() => {
+                            counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
                             mainGame();
-                        }, 3000);
+                        }, 10000);
                     }
                 }
             });   
@@ -915,98 +963,300 @@ function roundStart(round) {
 }
 
 function generationEnemy() {
+    // Генерируем рандомное число для создания врага
     let random_enemy1 = getRandNumb(0, 2);
+    let random_enemy2 = getRandNumb(0, 2);
+    let random_enemy3 = getRandNumb(0, 2);
 
+    // Генерируем рандомное число для создания скиллов врага 1
     let random_enemy_spell1 = getRandNumb(0, 2);
     let random_enemy_spell2 = getRandNumb(0, 2);
     let random_enemy_spell3 = getRandNumb(0, 2);
     let random_enemy_ultimate = getRandNumb(0, 2);
 
+    // Генерируем рандомное число для создания скиллов врага 2 
+    let random_enemy2_spell1 = getRandNumb(0, 2);
+    let random_enemy2_spell2 = getRandNumb(0, 2);
+    let random_enemy2_spell3 = getRandNumb(0, 2);
+    let random_enemy2_ultimate = getRandNumb(0, 2);
+
+    // Генерируем рандомное число для создания скиллов врага 3
+    let random_enemy3_spell1 = getRandNumb(0, 2);
+    let random_enemy3_spell2 = getRandNumb(0, 2);
+    let random_enemy3_spell3 = getRandNumb(0, 2);
+    let random_enemy3_ultimate = getRandNumb(0, 2);
+
+    // Первый враг
     enemies[0].name = array_heroes_casino[random_enemy1].name;
     enemies[0].image = array_heroes_casino[random_enemy1].image;
     enemies[0].startHp = array_heroes_casino[random_enemy1].startHp;
     enemies[0].startMana = array_heroes_casino[random_enemy1].startMana;
     enemies[0].hp = enemies[0].startHp;
-    enemies[0].startMana = enemies[0].startMana;
+    enemies[0].mana = enemies[0].startMana;
 
+    // Второй враг
+    enemies[1].name = array_heroes_casino[random_enemy2].name;
+    enemies[1].image = array_heroes_casino[random_enemy2].image;
+    enemies[1].startHp = array_heroes_casino[random_enemy2].startHp;
+    enemies[1].startMana = array_heroes_casino[random_enemy2].startMana;
+    enemies[1].hp = enemies[1].startHp;
+    enemies[0].mana = enemies[0].startMana;
+
+    // Третий враг
+    enemies[2].name = array_heroes_casino[random_enemy3].name;
+    enemies[2].image = array_heroes_casino[random_enemy3].image;
+    enemies[2].startHp = array_heroes_casino[random_enemy3].startHp;
+    enemies[2].startMana = array_heroes_casino[random_enemy3].startMana;
+    enemies[2].hp = enemies[2].startHp;
+    enemies[0].mana = enemies[0].startMana;
+
+    // Скиллы первого врага
     let firstSpell = enemies[0].spells.firstSpell = array_heroes_casino[random_enemy_spell1].firstSpell;
     let secondSpell = enemies[0].spells.secondSpell = array_heroes_casino[random_enemy_spell2].secondSpell;
     let thirdSpell = enemies[0].spells.thirdSpell = array_heroes_casino[random_enemy_spell3].thirdSpell;
     let ultimate = enemies[0].spells.ultimate = array_heroes_casino[random_enemy_ultimate].ultimate;
 
-    document.getElementById('enemies').innerHTML = `
-        <div class="d-flex justify-content-center">
-            <div class="card mb-3" style="background: none; border: none;" id="enemy-hero">
-                <div class="row g-0">
-                    <div class="col-md-4" style="width: 160px; height: 212px;">
-                        <img src="${enemies[0].image}" class="card-img-top" alt="${enemies[0].name}">
-                        <div class="progress">
-                            <div class="progress-bar bg-danger" id="enemyHp" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[0].hp}/${enemies[0].startHp}</div>
+    // Скиллы второго врага
+    let firstSpell2 = enemies[1].spells.firstSpell = array_heroes_casino[random_enemy2_spell1].firstSpell;
+    let secondSpell2 = enemies[1].spells.secondSpell = array_heroes_casino[random_enemy2_spell2].secondSpell;
+    let thirdSpell2 = enemies[1].spells.thirdSpell = array_heroes_casino[random_enemy2_spell3].thirdSpell;
+    let ultimateSpell2 = enemies[1].spells.ultimate = array_heroes_casino[random_enemy2_ultimate].ultimate;
+
+    // Скиллы третьего врага
+    let firstSpell3 = enemies[2].spells.firstSpell = array_heroes_casino[random_enemy3_spell1].firstSpell;
+    let secondSpell3 = enemies[2].spells.secondSpell = array_heroes_casino[random_enemy3_spell2].secondSpell;
+    let thirdSpell3 = enemies[2].spells.thirdSpell = array_heroes_casino[random_enemy3_spell3].thirdSpell;
+    let ultimateSpell3 = enemies[2].spells.ultimate = array_heroes_casino[random_enemy3_ultimate].ultimate;
+
+    switch (counterEnemy) {
+        case 1: 
+            document.getElementById('enemies').innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <div class="card mb-3" style="background: none; border: none;" id="enemy-hero">
+                        <div class="row g-0">
+                            <div class="col-md-4" style="width: 160px; height: 212px;">
+                                <img src="${enemies[0].image}" class="card-img-top" alt="${enemies[0].name}">
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" id="enemyHp" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[0].hp}/${enemies[0].startHp}</div>
+                                </div>
+                                <div class="level-enemy bg-warning">
+                                    <span class="text-dark" style="padding-left: 0.5em;" id="level-text-enemy">Уровень: ${enemies[0].level}</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="level-enemy bg-warning">
-                            <span class="text-dark" style="padding-left: 0.5em;" id="level-text-enemy">Уровень: ${enemies[0].level}</span>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell1">
+                        <img src="${firstSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${firstSpell.name}" data-bs-toggle="collapse" data-bs-target="#firstSpellEnemy">
+
+                        <div id="firstSpellEnemy" class="accordion-collapse collapse" aria-labelledby="firstSpell" data-bs-parent="#firstSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${firstSpell.name}</h5>
+                                <p class="card-text">${firstSpell.description}</p>
+                                <p class="card-text text-warning">${firstSpell.chance1 !== undefined ? `\ Шанс: ${firstSpell.chance1}% / ${firstSpell.chance2}% / ${firstSpell.chance3}% / ${firstSpell.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${firstSpell.mana4 !== undefined ? `\ Мана: ${firstSpell.mana1} / ${firstSpell.mana2} / ${firstSpell.mana3} / ${firstSpell.mana4} ` : `Мана: ${firstSpell.mana1} / ${firstSpell.mana2} / ${firstSpell.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${firstSpell.cooldown4 !== undefined ? `\ Перезарядка: ${firstSpell.cooldown1}/${firstSpell.cooldown2}/${firstSpell.cooldown3}/${firstSpell.cooldown4}` : `Перезарядка: ${firstSpell.cooldown1}/${firstSpell.cooldown2}/${firstSpell.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell2">
+                        <img src="${secondSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${secondSpell.name}" data-bs-toggle="collapse" data-bs-target="#secondSpellEnemy">
+
+                        <div id="secondSpellEnemy" class="accordion-collapse collapse" aria-labelledby="secondSpell" data-bs-parent="#secondSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${secondSpell.name}</h5>
+                                <p class="card-text">${secondSpell.description}</p>
+                                <p class="card-text text-warning">${secondSpell.chance1 !== undefined ? `\ Шанс: ${secondSpell.chance1}% / ${secondSpell.chance2}% / ${secondSpell.chance3}% / ${secondSpell.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${secondSpell.mana4 !== undefined ? `\ Мана: ${secondSpell.mana1} / ${secondSpell.mana2} / ${secondSpell.mana3} / ${secondSpell.mana4} ` : `Мана: ${secondSpell.mana1} / ${secondSpell.mana2} / ${secondSpell.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${secondSpell.cooldown4 !== undefined ? `\ Перезарядка: ${secondSpell.cooldown1}/${secondSpell.cooldown2}/${secondSpell.cooldown3}/${secondSpell.cooldown4}` : `Перезарядка: ${secondSpell.cooldown1}/${secondSpell.cooldown2}/${secondSpell.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell3">
+                        <img src="${thirdSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${thirdSpell.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpellEnemy">
+
+                        <div id="thirdSpellEnemy" class="accordion-collapse collapse" aria-labelledby="thirdSpell" data-bs-parent="#thirdSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${thirdSpell.name}</h5>
+                                <p class="card-text">${thirdSpell.description}</p>
+                                <p class="card-text text-warning">${thirdSpell.chance1 !== undefined ? `\ Шанс: ${thirdSpell.chance1}% / ${thirdSpell.chance2}% / ${thirdSpell.chance3}% / ${thirdSpell.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${thirdSpell.mana4 !== undefined ? `\ Мана: ${thirdSpell.mana1} / ${thirdSpell.mana2} / ${thirdSpell.mana3} / ${thirdSpell.mana4} ` : `Мана: ${thirdSpell.mana1} / ${thirdSpell.mana2} / ${thirdSpell.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${thirdSpell.cooldown4 !== undefined ? `\ Перезарядка: ${thirdSpell.cooldown1}/${thirdSpell.cooldown2}/${thirdSpell.cooldown3}/${thirdSpell.cooldown4}` : `Перезарядка: ${thirdSpell.cooldown1}/${thirdSpell.cooldown2}/${thirdSpell.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell4">
+                        <img src="${ultimate.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${ultimate.name}" data-bs-toggle="collapse" data-bs-target="#ultimateEnemy">
+
+                        <div id="ultimateEnemy" class="accordion-collapse collapse" aria-labelledby="ultimateEnemy" data-bs-parent="#ultimateEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${ultimate.name}</h5>
+                                <p class="card-text">${ultimate.description}</p>
+                                <p class="card-text text-warning">${ultimate.chance1 !== undefined ? `\ Шанс: ${ultimate.chance1}% / ${ultimate.chance2}% / ${ultimate.chance3}%` : ''}</p>
+                                <p class="card-text text-primary">${ultimate.mana4 !== undefined ? `\ Мана: ${ultimate.mana1} / ${ultimate.mana2} / ${ultimate.mana3} / ${ultimate.mana4} ` : `Мана: ${ultimate.mana1} / ${ultimate.mana2} / ${ultimate.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${ultimate.cooldown4 !== undefined ? `\ Перезарядка: ${ultimate.cooldown1}/${ultimate.cooldown2}/${ultimate.cooldown3}/${ultimate.cooldown4}` : `Перезарядка: ${ultimate.cooldown1}/${ultimate.cooldown2}/${ultimate.cooldown3}`}</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            `;   
+        ; break;
 
-            <div class="card" style="background: none; border: none;" id="spell1">
-                <img src="${firstSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${firstSpell.name}" data-bs-toggle="collapse" data-bs-target="#firstSpellEnemy">
+        case 2: 
+            document.getElementById('enemies').innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <div class="card mb-3" style="background: none; border: none;" id="enemy-hero">
+                        <div class="row g-0">
+                            <div class="col-md-4" style="width: 160px; height: 212px;">
+                                <img src="${enemies[0].image}" class="card-img-top" alt="${enemies[0].name}">
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" id="enemyHp" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[0].hp}/${enemies[0].startHp}</div>
+                                </div>
+                                <div class="level-enemy bg-warning">
+                                    <span class="text-dark" style="padding-left: 0.5em;" id="level-text-enemy">Уровень: ${enemies[0].level}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div id="firstSpellEnemy" class="accordion-collapse collapse" aria-labelledby="firstSpell" data-bs-parent="#firstSpellEnemy">
-                    <div class="accordion-body bg-dark" style="width: 15rem;">
-                        <h5 class="card-title">${firstSpell.name}</h5>
-                        <p class="card-text">${firstSpell.description}</p>
-                        <p class="card-text text-warning">${firstSpell.chance1 !== undefined ? `\ Шанс: ${firstSpell.chance1}% / ${firstSpell.chance2}% / ${firstSpell.chance3}% / ${firstSpell.chance4}% ` : ''}</p>
-                        <p class="card-text text-primary">${firstSpell.mana4 !== undefined ? `\ Мана: ${firstSpell.mana1} / ${firstSpell.mana2} / ${firstSpell.mana3} / ${firstSpell.mana4} ` : `Мана: ${firstSpell.mana1} / ${firstSpell.mana2} / ${firstSpell.mana3} ` }</p>
-                        <p class="card-text"><small class="text-muted">${firstSpell.cooldown4 !== undefined ? `\ Перезарядка: ${firstSpell.cooldown1}/${firstSpell.cooldown2}/${firstSpell.cooldown3}/${firstSpell.cooldown4}` : `Перезарядка: ${firstSpell.cooldown1}/${firstSpell.cooldown2}/${firstSpell.cooldown3}`}</small></p>
+                    <div class="card" style="background: none; border: none;" id="spell1">
+                        <img src="${firstSpell2.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${firstSpell2.name}" data-bs-toggle="collapse" data-bs-target="#firstSpell2Enemy">
+
+                        <div id="firstSpell2Enemy" class="accordion-collapse collapse" aria-labelledby="firstSpell" data-bs-parent="#firstSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${firstSpell2.name}</h5>
+                                <p class="card-text">${firstSpell2.description}</p>
+                                <p class="card-text text-warning">${firstSpell2.chance1 !== undefined ? `\ Шанс: ${firstSpell2.chance1}% / ${firstSpell2.chance2}% / ${firstSpell2.chance3}% / ${firstSpell2.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${firstSpell2.mana4 !== undefined ? `\ Мана: ${firstSpell2.mana1} / ${firstSpell2.mana2} / ${firstSpell2.mana3} / ${firstSpell2.mana4} ` : `Мана: ${firstSpell2.mana1} / ${firstSpell2.mana2} / ${firstSpell2.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${firstSpell2.cooldown4 !== undefined ? `\ Перезарядка: ${firstSpell2.cooldown1}/${firstSpell2.cooldown2}/${firstSpell2.cooldown3}/${firstSpell2.cooldown4}` : `Перезарядка: ${firstSpell2.cooldown1}/${firstSpell2.cooldown2}/${firstSpell2.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell2">
+                        <img src="${secondSpell2.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${secondSpell2.name}" data-bs-toggle="collapse" data-bs-target="#secondSpell2Enemy">
+
+                        <div id="secondSpell2Enemy" class="accordion-collapse collapse" aria-labelledby="secondSpell" data-bs-parent="#secondSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${secondSpell2.name}</h5>
+                                <p class="card-text">${secondSpell2.description}</p>
+                                <p class="card-text text-warning">${secondSpell2.chance1 !== undefined ? `\ Шанс: ${secondSpell2.chance1}% / ${secondSpell2.chance2}% / ${secondSpell2.chance3}% / ${secondSpell2.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${secondSpell2.mana4 !== undefined ? `\ Мана: ${secondSpell2.mana1} / ${secondSpell2.mana2} / ${secondSpell2.mana3} / ${secondSpell2.mana4} ` : `Мана: ${secondSpell2.mana1} / ${secondSpell2.mana2} / ${secondSpell2.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${secondSpell2.cooldown4 !== undefined ? `\ Перезарядка: ${secondSpell2.cooldown1}/${secondSpell2.cooldown2}/${secondSpell2.cooldown3}/${secondSpell2.cooldown4}` : `Перезарядка: ${secondSpell2.cooldown1}/${secondSpell2.cooldown2}/${secondSpell2.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell3">
+                        <img src="${thirdSpell2.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${thirdSpell2.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpell2Enemy">
+
+                        <div id="thirdSpell2Enemy" class="accordion-collapse collapse" aria-labelledby="thirdSpell" data-bs-parent="#thirdSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${thirdSpell2.name}</h5>
+                                <p class="card-text">${thirdSpell2.description}</p>
+                                <p class="card-text text-warning">${thirdSpell2.chance1 !== undefined ? `\ Шанс: ${thirdSpell2.chance1}% / ${thirdSpell2.chance2}% / ${thirdSpell2.chance3}% / ${thirdSpell2.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${thirdSpell2.mana4 !== undefined ? `\ Мана: ${thirdSpell2.mana1} / ${thirdSpell2.mana2} / ${thirdSpell2.mana3} / ${thirdSpell2.mana4} ` : `Мана: ${thirdSpell2.mana1} / ${thirdSpell2.mana2} / ${thirdSpell2.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${thirdSpell2.cooldown4 !== undefined ? `\ Перезарядка: ${thirdSpell2.cooldown1}/${thirdSpell2.cooldown2}/${thirdSpell2.cooldown3}/${thirdSpell2.cooldown4}` : `Перезарядка: ${thirdSpell2.cooldown1}/${thirdSpell2.cooldown2}/${thirdSpell2.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell4">
+                        <img src="${ultimateSpell2.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${ultimateSpell2.name}" data-bs-toggle="collapse" data-bs-target="#ultimate2Enemy">
+
+                        <div id="ultimate2Enemy" class="accordion-collapse collapse" aria-labelledby="ultimateEnemy" data-bs-parent="#ultimateEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${ultimateSpell2.name}</h5>
+                                <p class="card-text">${ultimateSpell2.description}</p>
+                                <p class="card-text text-warning">${ultimateSpell2.chance1 !== undefined ? `\ Шанс: ${ultimateSpell2.chance1}% / ${ultimateSpell2.chance2}% / ${ultimateSpell2.chance3}%` : ''}</p>
+                                <p class="card-text text-primary">${ultimateSpell2.mana4 !== undefined ? `\ Мана: ${ultimateSpell2.mana1} / ${ultimateSpell2.mana2} / ${ultimateSpell2.mana3} / ${ultimateSpell2.mana4} ` : `Мана: ${ultimateSpell2.mana1} / ${ultimateSpell2.mana2} / ${ultimateSpell2.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${ultimateSpell2.cooldown4 !== undefined ? `\ Перезарядка: ${ultimateSpell2.cooldown1}/${ultimateSpell2.cooldown2}/${ultimateSpell2.cooldown3}/${ultimateSpell2.cooldown4}` : `Перезарядка: ${ultimateSpell2.cooldown1}/${ultimateSpell2.cooldown2}/${ultimateSpell2.cooldown3}`}</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            `;   
+        ; break;
 
-            <div class="card" style="background: none; border: none;" id="spell2">
-                <img src="${secondSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${secondSpell.name}" data-bs-toggle="collapse" data-bs-target="#secondSpellEnemy">
+        case 3: 
+            document.getElementById('enemies').innerHTML = `
+                <div class="d-flex justify-content-center">
+                    <div class="card mb-3" style="background: none; border: none;" id="enemy-hero">
+                        <div class="row g-0">
+                            <div class="col-md-4" style="width: 160px; height: 212px;">
+                                <img src="${enemies[2].image}" class="card-img-top" alt="${enemies[2].name}">
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" id="enemyHp" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">${enemies[2].hp}/${enemies[2].startHp}</div>
+                                </div>
+                                <div class="level-enemy bg-warning">
+                                    <span class="text-dark" style="padding-left: 0.5em;" id="level-text-enemy">Уровень: ${enemies[2].level}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div id="secondSpellEnemy" class="accordion-collapse collapse" aria-labelledby="secondSpell" data-bs-parent="#secondSpellEnemy">
-                    <div class="accordion-body bg-dark" style="width: 15rem;">
-                        <h5 class="card-title">${secondSpell.name}</h5>
-                        <p class="card-text">${secondSpell.description}</p>
-                        <p class="card-text text-warning">${secondSpell.chance1 !== undefined ? `\ Шанс: ${secondSpell.chance1}% / ${secondSpell.chance2}% / ${secondSpell.chance3}% / ${secondSpell.chance4}% ` : ''}</p>
-                        <p class="card-text text-primary">${secondSpell.mana4 !== undefined ? `\ Мана: ${secondSpell.mana1} / ${secondSpell.mana2} / ${secondSpell.mana3} / ${secondSpell.mana4} ` : `Мана: ${secondSpell.mana1} / ${secondSpell.mana2} / ${secondSpell.mana3} ` }</p>
-                        <p class="card-text"><small class="text-muted">${secondSpell.cooldown4 !== undefined ? `\ Перезарядка: ${secondSpell.cooldown1}/${secondSpell.cooldown2}/${secondSpell.cooldown3}/${secondSpell.cooldown4}` : `Перезарядка: ${secondSpell.cooldown1}/${secondSpell.cooldown2}/${secondSpell.cooldown3}`}</small></p>
+                    <div class="card" style="background: none; border: none;" id="spell1">
+                        <img src="${firstSpell3.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${firstSpell3.name}" data-bs-toggle="collapse" data-bs-target="#firstSpell3Enemy">
+
+                        <div id="firstSpell3Enemy" class="accordion-collapse collapse" aria-labelledby="firstSpell" data-bs-parent="#firstSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${firstSpell3.name}</h5>
+                                <p class="card-text">${firstSpell3.description}</p>
+                                <p class="card-text text-warning">${firstSpell3.chance1 !== undefined ? `\ Шанс: ${firstSpell3.chance1}% / ${firstSpell3.chance2}% / ${firstSpell3.chance3}% / ${firstSpell3.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${firstSpell3.mana4 !== undefined ? `\ Мана: ${firstSpell3.mana1} / ${firstSpell3.mana2} / ${firstSpell3.mana3} / ${firstSpell3.mana4} ` : `Мана: ${firstSpell3.mana1} / ${firstSpell3.mana2} / ${firstSpell3.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${firstSpell3.cooldown4 !== undefined ? `\ Перезарядка: ${firstSpell3.cooldown1}/${firstSpell3.cooldown2}/${firstSpell3.cooldown3}/${firstSpell3.cooldown4}` : `Перезарядка: ${firstSpell.cooldown1}/${firstSpell3.cooldown2}/${firstSpell3.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell2">
+                        <img src="${secondSpell3.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${secondSpell3.name}" data-bs-toggle="collapse" data-bs-target="#secondSpell3Enemy">
+
+                        <div id="secondSpell3Enemy" class="accordion-collapse collapse" aria-labelledby="secondSpell" data-bs-parent="#secondSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${secondSpell3.name}</h5>
+                                <p class="card-text">${secondSpell3.description}</p>
+                                <p class="card-text text-warning">${secondSpell3.chance1 !== undefined ? `\ Шанс: ${secondSpell3.chance1}% / ${secondSpell3.chance2}% / ${secondSpell3.chance3}% / ${secondSpell3.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${secondSpell3.mana4 !== undefined ? `\ Мана: ${secondSpell3.mana1} / ${secondSpell3.mana2} / ${secondSpell3.mana3} / ${secondSpell3.mana4} ` : `Мана: ${secondSpell3.mana1} / ${secondSpell3.mana2} / ${secondSpell3.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${secondSpell3.cooldown4 !== undefined ? `\ Перезарядка: ${secondSpell3.cooldown1}/${secondSpell3.cooldown2}/${secondSpell3.cooldown3}/${secondSpell3.cooldown4}` : `Перезарядка: ${secondSpell3.cooldown1}/${secondSpell3.cooldown2}/${secondSpell3.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell3">
+                        <img src="${thirdSpell3.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${thirdSpell3.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpell3Enemy">
+
+                        <div id="thirdSpell3Enemy" class="accordion-collapse collapse" aria-labelledby="thirdSpell" data-bs-parent="#thirdSpellEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${thirdSpell3.name}</h5>
+                                <p class="card-text">${thirdSpell3.description}</p>
+                                <p class="card-text text-warning">${thirdSpell3.chance1 !== undefined ? `\ Шанс: ${thirdSpell3.chance1}% / ${thirdSpell3.chance2}% / ${thirdSpell3.chance3}% / ${thirdSpell3.chance4}% ` : ''}</p>
+                                <p class="card-text text-primary">${thirdSpell3.mana4 !== undefined ? `\ Мана: ${thirdSpell3.mana1} / ${thirdSpell3.mana2} / ${thirdSpell3.mana3} / ${thirdSpell3.mana4} ` : `Мана: ${thirdSpell3.mana1} / ${thirdSpell3.mana2} / ${thirdSpell3.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${thirdSpell3.cooldown4 !== undefined ? `\ Перезарядка: ${thirdSpell3.cooldown1}/${thirdSpell3.cooldown2}/${thirdSpell3.cooldown3}/${thirdSpell3.cooldown4}` : `Перезарядка: ${thirdSpell3.cooldown1}/${thirdSpell3.cooldown2}/${thirdSpell3.cooldown3}`}</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background: none; border: none;" id="spell4">
+                        <img src="${ultimateSpell3.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${ultimateSpell3.name}" data-bs-toggle="collapse" data-bs-target="#ultimate3Enemy">
+
+                        <div id="ultimate3Enemy" class="accordion-collapse collapse" aria-labelledby="ultimateEnemy" data-bs-parent="#ultimateEnemy">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                                <h5 class="card-title">${ultimateSpell3.name}</h5>
+                                <p class="card-text">${ultimateSpell3.description}</p>
+                                <p class="card-text text-warning">${ultimateSpell3.chance1 !== undefined ? `\ Шанс: ${ultimateSpell3.chance1}% / ${ultimateSpell3.chance2}% / ${ultimateSpell3.chance3}%` : ''}</p>
+                                <p class="card-text text-primary">${ultimateSpell3.mana4 !== undefined ? `\ Мана: ${ultimateSpell3.mana1} / ${ultimateSpell3.mana2} / ${ultimateSpell3.mana3} / ${ultimateSpell3.mana4} ` : `Мана: ${ultimateSpell3.mana1} / ${ultimateSpell3.mana2} / ${ultimateSpell3.mana3} ` }</p>
+                                <p class="card-text"><small class="text-muted">${ultimateSpell3.cooldown4 !== undefined ? `\ Перезарядка: ${ultimateSpell3.cooldown1}/${ultimateSpell3.cooldown2}/${ultimateSpell3.cooldown3}/${ultimateSpell3.cooldown4}` : `Перезарядка: ${ultimateSpell3.cooldown1}/${ultimateSpell3.cooldown2}/${ultimateSpell3.cooldown3}`}</small></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="card" style="background: none; border: none;" id="spell3">
-                <img src="${thirdSpell.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${thirdSpell.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpellEnemy">
-
-                <div id="thirdSpellEnemy" class="accordion-collapse collapse" aria-labelledby="thirdSpell" data-bs-parent="#thirdSpellEnemy">
-                    <div class="accordion-body bg-dark" style="width: 15rem;">
-                        <h5 class="card-title">${thirdSpell.name}</h5>
-                        <p class="card-text">${thirdSpell.description}</p>
-                        <p class="card-text text-warning">${thirdSpell.chance1 !== undefined ? `\ Шанс: ${thirdSpell.chance1}% / ${thirdSpell.chance2}% / ${thirdSpell.chance3}% / ${thirdSpell.chance4}% ` : ''}</p>
-                        <p class="card-text text-primary">${thirdSpell.mana4 !== undefined ? `\ Мана: ${thirdSpell.mana1} / ${thirdSpell.mana2} / ${thirdSpell.mana3} / ${thirdSpell.mana4} ` : `Мана: ${thirdSpell.mana1} / ${thirdSpell.mana2} / ${thirdSpell.mana3} ` }</p>
-                        <p class="card-text"><small class="text-muted">${thirdSpell.cooldown4 !== undefined ? `\ Перезарядка: ${thirdSpell.cooldown1}/${thirdSpell.cooldown2}/${thirdSpell.cooldown3}/${thirdSpell.cooldown4}` : `Перезарядка: ${thirdSpell.cooldown1}/${thirdSpell.cooldown2}/${thirdSpell.cooldown3}`}</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="background: none; border: none;" id="spell4">
-                <img src="${ultimate.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${ultimate.name}" data-bs-toggle="collapse" data-bs-target="#ultimateEnemy">
-
-                <div id="ultimateEnemy" class="accordion-collapse collapse" aria-labelledby="ultimateEnemy" data-bs-parent="#ultimateEnemy">
-                    <div class="accordion-body bg-dark" style="width: 15rem;">
-                        <h5 class="card-title">${ultimate.name}</h5>
-                        <p class="card-text">${ultimate.description}</p>
-                        <p class="card-text text-warning">${ultimate.chance1 !== undefined ? `\ Шанс: ${ultimate.chance1}% / ${ultimate.chance2}% / ${ultimate.chance3}%` : ''}</p>
-                        <p class="card-text text-primary">${ultimate.mana4 !== undefined ? `\ Мана: ${ultimate.mana1} / ${ultimate.mana2} / ${ultimate.mana3} / ${ultimate.mana4} ` : `Мана: ${ultimate.mana1} / ${ultimate.mana2} / ${ultimate.mana3} ` }</p>
-                        <p class="card-text"><small class="text-muted">${ultimate.cooldown4 !== undefined ? `\ Перезарядка: ${ultimate.cooldown1}/${ultimate.cooldown2}/${ultimate.cooldown3}/${ultimate.cooldown4}` : `Перезарядка: ${ultimate.cooldown1}/${ultimate.cooldown2}/${ultimate.cooldown3}`}</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
+            `;   
+        ; break;
+    }
 }
 
 function mainGame() {
@@ -1021,6 +1271,8 @@ function mainGame() {
     const heroMana = heroUser[0].mana;
     const heroStartMana = heroUser[0].startMana;
     const heroLevel = heroUser[0].level;
+
+    document.getElementById('music').src = "music/mainCasino.mp3";
     
     heroes.innerHTML = `
         <div class="card text-center" style="background: none; border: none;">
@@ -1131,11 +1383,8 @@ function upLevel() {
 
         const ultimate = document.getElementById('levelUpUltimate');
         ultimate.style.display = 'block';
-        ultimate.disabled = true;
-    
-        if (heroUser.level === 6) {
-            ultimate.disabled = false;
-        }
+
+        ultimate.disabled = heroUser.level !== 6;
     }
 }
 
@@ -1159,7 +1408,7 @@ function spellLevelUp(spellUp) {
         case 1: firstSpell.level += 1; levelTextSpell1.innerHTML = `Уровень: ${firstSpell.level}`; levelImageSpell1.style.filter = "none"; break;
         case 2: secondSpell.level += 1; levelTextSpell2.innerHTML = `Уровень: ${secondSpell.level}`; levelImageSpell2.style.filter = "none"; break;
         case 3: thirdSpell.level += 1; levelTextSpell3.innerHTML = `Уровень: ${thirdSpell.level}`; levelImageSpell3.style.filter = "none"; break;
-        case 4: ultimateSpell.level += 1; levelTextSpell4.innerHTML = `Уровень: ${ultimate.level}`; levelImageSpell4.style.filter = "none"; break;
+        case 4: ultimateSpell.level += 1; levelTextSpell4.innerHTML = `Уровень: ${ultimateSpell.level}`; levelImageSpell4.style.filter = "none"; break;
     }
 
     document.getElementById('levelUpSpell1').style.display = 'none';

@@ -235,12 +235,14 @@ function func_time() {
     // Проверки (Случайные события)
     if (hour == 12 && minutes == 30){
         // Генераторы цифр
-        let randomize_sl_sob = getRandNumb(0, 1);
+        let isRandomEvent = getRandNumb(0, 1);
 
-        if (randomize_sl_sob == 1){
-            let randomize_theme = getRandNumb(0, 4);
+        isRandomEvent === 0 ? console.log('Ивента не будет') : console.log('Ивент будет');
 
-            if (randomize_theme == 0){
+        if (isRandomEvent == 1){
+            let randomEvent = getRandNumb(0, 3);
+
+            if (randomEvent == 0){
                 health -= 50;
                 water -= 25;
                 energy -= 50;
@@ -258,7 +260,7 @@ function func_time() {
                 });
             }
     
-            if (randomize_theme == 1) {
+            if (randomEvent == 1) {
                 cpu = localStorage.getItem("cpu_level");
                 gpu = localStorage.getItem("gpu_level");
                 ram = localStorage.getItem("ram_level");
@@ -297,7 +299,7 @@ function func_time() {
                 });
             }
     
-            if (randomize_theme == 2) {
+            if (randomEvent == 2) {
                 stream_no = true;
                 task6.innerHTML = ``;
 
@@ -313,7 +315,7 @@ function func_time() {
                 });
             }
     
-            if (randomize_theme == 3) {
+            if (randomEvent == 3) {
                 health -= 40;
                 
                 reloadStats();
