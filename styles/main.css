@@ -9,6 +9,23 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+#assistant {
+    position: fixed;
+    bottom: 0; 
+    right: 0; 
+    margin: 2em;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+#assistantDiv {
+    position: fixed;
+    bottom: 10em;
+    right: 0;
+    width: 250px;
+}
+
 .col-sm {
     border-radius: 10px;
 }
@@ -24,11 +41,9 @@ body {
     margin-top: 2%;
 }
 
-#List-Text1 {
-    font-size: 20px;
-}
-
-#List-Text3 {
+#List-Text1, #List-Text2, #List-Text3,
+#List-Text4, #List-Text5, #List-Text6,
+#List-Text7 {
     font-size: 20px;
 }
 

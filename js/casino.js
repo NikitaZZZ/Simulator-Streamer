@@ -105,6 +105,7 @@ let array_heroes_casino = [
         ultimate: {
             name: 'Chemical Rage',
             type: 'ImprovementDamage',
+            ultimate: true,
             damagePlus1: 40,
             damagePlus2: 80,
             damagePlus3: 110,
@@ -208,6 +209,7 @@ let array_heroes_casino = [
         ultimate: {
             name: 'Omnislash',
             type: 'DPS',
+            ultimate: true,
             damagePlus1: 200,
             damagePlus2: 220,
             damagePlus3: 240,
@@ -303,6 +305,7 @@ let array_heroes_casino = [
         ultimate: {
             name: 'Sonic Wave',
             type: 'Damage',
+            ultimate: true,
             damage1: 100,
             damage2: 150,
             damage3: 200,
@@ -372,15 +375,6 @@ let enemies = [
     }
 ];
 
-function heroName(name, image, startHp, startMana) {
-    heroUser[0].name = name;
-    heroUser[0].image = image;
-    heroUser[0].hp = startHp;
-    heroUser[0].mana = startMana;
-    heroUser[0].startHp = startHp;
-    heroUser[0].startMana = startMana;
-}
-
 heroes.innerHTML = `
     <p class="lead text-center" id="choice-hero-casino">Выберите героя: </p>
 
@@ -407,6 +401,15 @@ heroes.innerHTML = `
         </div>
     </div>
 `;
+
+function heroName(name, image, startHp, startMana) {
+    heroUser[0].name = name;
+    heroUser[0].image = image;
+    heroUser[0].hp = startHp;
+    heroUser[0].mana = startMana;
+    heroUser[0].startHp = startHp;
+    heroUser[0].startMana = startMana;
+}
 
 function counterPlus(numberSpell, random_spell1, random_spell2, random_spell3, random_spell4) {
     switch (selectSpells) {
@@ -543,13 +546,11 @@ function choice_spell() {
         `;
     } else {
         mainGame();
-        generationEnemy();
-        startRoundTimer();
     }
 }
 
 function startRoundTimer() {
-    let time = 60;
+    let time = 30;
     round += 1;
 
     const timeBeforeStart = setInterval(() => {
@@ -560,7 +561,7 @@ function startRoundTimer() {
     setTimeout(() => {
         clearInterval(timeBeforeStart);
         roundStart(round);
-    }, 60000);
+    }, 30000);
 }
 
 function roundStart(round) {
@@ -673,7 +674,11 @@ function roundStart(round) {
 
     setTimeout(() => {
         if (firstSpellUser.level >= 1) {
-            document.getElementById('useSpell1').style.display = "block";
+            if (firstSpellUser.ultimate !== true) {
+                document.getElementById('useSpell1').style.display = "block";
+            } else if (firstSpellUser.ultimate === true && heroUser[0].level >= 6) {
+                document.getElementById('useSpell1').style.display = "block";
+            }
 
             document.getElementById('useSpell1').addEventListener('click', () => {
                 if (round === 1) {
@@ -689,8 +694,10 @@ function roundStart(round) {
 
                         setTimeout(() => {
                             counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
+                            heroUser[0].level += 1;
+                            heroUser[0].spellPoints += 1;
                             mainGame();
-                        }, 10000);
+                        }, 5000);
                     }
                 } else if (round === 2) {
                     if (heroUser[0].mana >= firstSpellUser.mana2) {
@@ -705,8 +712,10 @@ function roundStart(round) {
 
                         setTimeout(() => {
                             counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
+                            heroUser[0].level += 1;
+                            heroUser[0].spellPoints += 1;
                             mainGame();
-                        }, 10000);
+                        }, 5000);
                     }
                 } else if (round === 3) {
                     if (heroUser[0].mana >= firstSpellUser.mana3) {
@@ -721,8 +730,10 @@ function roundStart(round) {
 
                         setTimeout(() => {
                             counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
+                            heroUser[0].level += 1;
+                            heroUser[0].spellPoints += 1;
                             mainGame();
-                        }, 10000);
+                        }, 5000);
                     }
                 } else if (round >= 4) {
                     if (heroUser[0].mana >= firstSpellUser.mana4) {
@@ -737,15 +748,21 @@ function roundStart(round) {
 
                         setTimeout(() => {
                             counterEnemy === 4 ? counterEnemy = 1 : counterEnemy++;
+                            heroUser[0].level += 1;
+                            heroUser[0].spellPoints += 1;
                             mainGame();
-                        }, 10000);
+                        }, 5000);
                     }
                 }
             });
         }
 
         if (secondSpellUser.level >= 1) {
-            document.getElementById('useSpell2').style.display = "block";
+            if (secondSpellUser.ultimate !== true) {
+                document.getElementById('useSpell2').style.display = "block";
+            } else if (secondSpellUser.ultimate === true && heroUser[0].level >= 6) {
+                document.getElementById('useSpell2').style.display = "block";
+            }
 
             document.getElementById('useSpell2').addEventListener('click', () => {
                 if (round === 1) {
@@ -817,7 +834,11 @@ function roundStart(round) {
         }
 
         if (thirdSpellUser.level >= 1) {
-            document.getElementById('useSpell3').style.display = "block";
+            if (thirdSpellUser.ultimate !== true) {
+                document.getElementById('useSpell3').style.display = "block";
+            } else if (thirdSpellUser.ultimate === true && heroUser[0].level >= 6) {
+                document.getElementById('useSpell3').style.display = "block";
+            }
 
             document.getElementById('useSpell3').addEventListener('click', () => {
                 if (round === 1) {
@@ -891,6 +912,12 @@ function roundStart(round) {
         }
 
         if (ultimateSpellUser.level >= 1) {
+            if (ultimateSpellUser.ultimate !== true) {
+                document.getElementById('useUltimate').style.display = "block";
+            } else if (ultimateSpellUser.ultimate === true && heroUser[0].level >= 6) {
+                document.getElementById('useUltimate').style.display = "block";
+            }
+
             document.getElementById('useUltimate').addEventListener('click', () => {
                 if (round === 1) {
                     if (heroUser[0].mana >= ultimateSpellUser.mana1) {
@@ -1102,7 +1129,7 @@ function generationEnemy() {
                         </div>
                     </div>
                 </div>
-            `;   
+            `
         ; break;
 
         case 2: 
@@ -1178,7 +1205,7 @@ function generationEnemy() {
                         </div>
                     </div>
                 </div>
-            `;   
+            `
         ; break;
 
         case 3: 
@@ -1254,12 +1281,12 @@ function generationEnemy() {
                         </div>
                     </div>
                 </div>
-            `;   
+            `
         ; break;
     }
 }
 
-function mainGame() {
+function mainGame() {    
     const firstSpell = heroUser[0].spells.firstSpell;
     const secondSpell = heroUser[0].spells.secondSpell;
     const thirdSpell = heroUser[0].spells.thirdSpell;
@@ -1287,7 +1314,7 @@ function mainGame() {
                             <div class="col-md-4" style="width: 160px; height: 212px;">
                                 <img src="${heroImage}" class="card-img-top" alt="${heroName}">
                                 <div class="card-img-overlay">
-                                    <span class="badge bg-warning text-dark" style="cursor: pointer;" onclick="upLevel()">${heroLevel}</span>
+                                    <span class="badge bg-warning text-dark" style="cursor: pointer;" onclick="upLevel()">Уровень: ${heroLevel}</span>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" id="heroHp">${heroHp}/${heroStartHp}</div>
@@ -1369,22 +1396,40 @@ function mainGame() {
                 </div>
             </div>
             <div class="card-footer" style="color: #fff; border: none;" id="timerRound">
-                60 секунд до начала - Раунд 1
+                30 секунд до начала - Раунд 1
             </div>
         </div>
     `;
+
+    generationEnemy();
+    startRoundTimer();
 }
 
 function upLevel() {
     if (heroUser[0].spellPoints > 0) {
-        document.getElementById('levelUpSpell1').style.display = 'block';
-        document.getElementById('levelUpSpell2').style.display = 'block';
-        document.getElementById('levelUpSpell3').style.display = 'block';    
+        if (heroUser[0].spells.firstSpell.ultimate !== true) {
+            document.getElementById('levelUpSpell1').style.display = 'block'
+        } else if (heroUser[0].spells.firstSpell.ultimate === true && heroUser[0].level >= 6) {
+            document.getElementById('levelUpSpell1').style.display = 'block'
+        }
 
-        const ultimate = document.getElementById('levelUpUltimate');
-        ultimate.style.display = 'block';
+        if (heroUser[0].spells.secondSpell.ultimate !== true) {
+            document.getElementById('levelUpSpell2').style.display = 'block'
+        } else if (heroUser[0].spells.secondSpell.ultimate === true && heroUser[0].level >= 6) {
+            document.getElementById('levelUpSpell2').style.display = 'block'
+        }
 
-        ultimate.disabled = heroUser.level !== 6;
+        if (heroUser[0].spells.thirdSpell.ultimate !== true) {
+            document.getElementById('levelUpSpell3').style.display = 'block'
+        } else if (heroUser[0].spells.thirdSpell.ultimate === true && heroUser[0].level >= 6) {
+            document.getElementById('levelUpSpell3').style.display = 'block'
+        }
+
+        if (heroUser[0].spells.ultimate.ultimate !== true) {
+            document.getElementById('levelUpUltimate').style.display = 'block'
+        } else if (heroUser[0].spells.ultimate.ultimate === true && heroUser[0].level >= 6) {
+            document.getElementById('levelUpUltimate').style.display = 'block'
+        }
     }
 }
 
