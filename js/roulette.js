@@ -171,6 +171,9 @@ function roulette_items() {
         let timerInterval;
         Swal.fire({
             title: 'Крутим рулетку предметов...',
+            imageUrl: '../img/lina.png',
+            imageWidth: 300,
+            imageHeight: 200,
             timer: 2000,
             allowOutsideClick: false,
             timerProgressBar: true,
@@ -217,6 +220,9 @@ function roulette_heroes() {
         let timerInterval;
         Swal.fire({
             title: 'Крутим рулетку героев...',
+            imageUrl: '../img/lina.png',
+            imageWidth: 300,
+            imageHeight: 200,
             timer: 2000,
             allowOutsideClick: false,
             timerProgressBar: true,

@@ -15,17 +15,16 @@
     <audio src="" id="sound"></audio>
 
     <div class="collapse" id="assistantDiv">
-        <div class="card card-body" style="padding: 0;">
-            <div class="btn-group-vertical">
-                <button type="button" class="btn btn-dark">Привет, Лина!</button>
-                <button type="button" class="btn btn-dark">2</button>
-                <button type="button" class="btn btn-dark">1</button>
-                <button type="button" class="btn btn-dark">2</button>
-            </div>
+        <div class="lina-user">
+            <img src="img/lina.png" style="width: 25px; height: 20px;" alt="lina">
+            Lina
         </div>
+
+        <div class="lina">Привет!</div>
+        <div class="user">Здравствуй!</div>
     </div>
 
-    <button type="button" id="assistant" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
+    <button type="button" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
         <img src="img/icon-streamer.jpg" id="assistant" alt="assistant" />
     </button>
 
@@ -75,7 +74,7 @@
 
                 <div class="col-sm">
                     <div class="btn-group-vertical text-center mt-3">
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-up" class="btn btn-dark" onclick="update_money()">Прокачка</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-up" class="btn btn-dark" onclick="update_money()">Компьютер</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-shop" class="btn btn-dark">Магазин</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-roulette" class="btn btn-dark">Рулетка Лины</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-guessHero" class="btn btn-dark" onclick="update_money()">Угадай героя</button>
@@ -123,6 +122,15 @@
                                         </div>
                                         <div class="carousel-item">
                                             <img src="img/forest.jpg" id="img-bg-5" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/neon.jpg" id="img-bg-6" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/night-cyberpunk.jpg" id="img-bg-7" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/main.jpg" id="img-bg-8" class="d-block w-100" alt="...">
                                         </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#shop-bg-slides" data-bs-slide="prev" style="background: none; border: none;">

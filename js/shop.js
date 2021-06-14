@@ -63,7 +63,13 @@ function shop() {
                         <img src="img/forest.jpg" id="img-bg-5" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="img/main.jpg" id="img-bg-5" class="d-block w-100" alt="...">
+                        <img src="img/neon.jpg" id="img-bg-6" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/night-cyberpunk.jpg" id="img-bg-7" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/main.jpg" id="img-bg-8" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#bg-slides" data-bs-slide="prev" style="background: none; border: none;">
@@ -79,6 +85,8 @@ function shop() {
             <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('morning')">Рассвет</button>
             <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('night')">Ночной лес</button>
             <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('forest')">Лес на фоне гор</button>
+            <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('neon')">Неон</button>
+            <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('night-cyberpunk')">Девушка и горы</button>
             <button class="btn btn-outline-success" id="change-bg" onclick="change_bg('main')">Стандартный фон</button>
         `;
     } else { }
