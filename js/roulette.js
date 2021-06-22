@@ -124,6 +124,36 @@ array_heroes = [
     'Grimstroke',
 ];
 
+let array_items = ['Town Portal Scroll', 'Glimmer Cape', 'Hood of Defiance',
+    'Hurricane Pike', 'Blade Mail', 'Necronomicon', 'Aeon Disk', 'Silver Edge', 'Kaya',
+    'Moon Shard', 'Power Treads', 'Arcane Boots', 'Diffusal Blade', 'Daedalus', "Linken's Sphere",
+    'Mask of Madness', 'Animal Courier', "Aghanim's Scepter", 'Mekansm', 'Bloodstone',
+    'Abyssal Blade', 'Heart of Tarrasque', 'Eye of Skadi', 'Butterfly', 'Crystalys', 'Dragon Lance',
+    'Soul Booster', 'Veil of Discord', 'Vanguard', 'Armlet of Mordiggian', 'Sange', 'Aether Lens',
+    'Meteor Hammer', 'Yasha', 'Urn of Shadows', 'Force Staff', 'Shadow Blade', 'Assault Cuirass',
+    'Tranquil Boots', 'Crimson Guard', 'Skull Basher', 'Echo Sabre', 'Phase Boots',
+    'Medallion of Courage', 'Solar Crest', 'Battle Fury', 'Maelstrom', 'Dagon', 'Black king Bar',
+    'Monkey king Bar', 'Drum of Endurance', "Eul's Scepter of Divinity", 'Lotus Orb', 'Ethereal Blade',
+    "Heaven's Halberd", "Vladmir's Offering", 'Rod of Atos', "Shiva's Guard", 'Radiance', 'Desolator',
+    'Hand of Midas', 'Orchid Malevolence', 'Kaya and Sange', 'Spirit Vessel', 'Sange and Yasha',
+    'Helm of the Dominator', 'Holy Locket', 'Nullifier', 'Yasha and Kaya', 'Boots of Travel',
+    'Pipe of Insight', 'Refresher Orb', 'Manta Style', 'Divine Rapier', 'Ghost Scepter',
+    'Guardian Greaves', 'Scythe of Vyse', 'Satanic', 'Blink Dagger', 'Octarine Core', 'Bloodthorn',
+    'Mjollnir', 'Energy Booster', 'Vitality Booster', 'Point Booster', 'Platemail',
+    'Talisman of Evasion', 'Hyperstone', 'Ultimate Orb', 'Demon Edge', 'Mystic Staff', 'Reaver',
+    'Eaglesong', 'Sacred Relic', 'Town Portal Scroll', 'Iron Branch', 'Ring of Protection',
+    'Magic Stick', 'Magic Wand', 'Ring of Basilius', 'Clarity', 'Gauntlets of Strength',
+    'Stout Shield', 'Wind Lace', 'Null Talisman', 'Headdress', 'Faerie Fire', 'Slippers of Agility',
+    'Quelling Blade', 'Ring of Regen', 'Wraith Band', 'Buckler', 'Smoke of Deceit',
+    'Mantle of Intelligence', 'Infused Raindrops', "Sage's Mask", 'Bracer', 'Observer Ward', 'Circlet',
+    'Orb of Venom', 'Boots of Speed', 'Soul Ring', 'Sentry Ward', 'Belt of Strength', 'Blight Stone',
+    'Gloves of Haste', 'Enchanted Mango', 'Band of Elvenskin', 'Blades of Attack', 'Cloak',
+    'Healing Salve', 'Robe of the Magi', 'Chainmail', 'Ring of Tarrasque', 'Oblivion Staff', 'Tango',
+    'Crown', 'Quarterstaff', 'Ring of Health', 'Perseverance', 'Tome of Knowledge', 'Ogre Axe',
+    'Helm of Iron Will', 'Void Stone', 'Dust of Appearance', 'Blade of Alacrity', 'Javelin',
+    'Gem of True Sight', 'Animal Courier', 'Staff of Wizardry', 'Broadsword', 'Morbid Mask',
+    'Bottle', 'Claymore', 'Shadow Amulet', 'Mithril Hammer'];
+
 // Рулетка Предметов
 function roulette_items() {
     if (energy < 50) {
@@ -137,35 +167,6 @@ function roulette_items() {
         energy -= 10;
         reloadStats();
 
-        let array_items = ['Town Portal Scroll', 'Glimmer Cape', 'Hood of Defiance',
-            'Hurricane Pike', 'Blade Mail', 'Necronomicon', 'Aeon Disk', 'Silver Edge', 'Kaya',
-            'Moon Shard', 'Power Treads', 'Arcane Boots', 'Diffusal Blade', 'Daedalus', "Linken's Sphere",
-            'Mask of Madness', 'Animal Courier', "Aghanim's Scepter", 'Mekansm', 'Bloodstone',
-            'Abyssal Blade', 'Heart of Tarrasque', 'Eye of Skadi', 'Butterfly', 'Crystalys', 'Dragon Lance',
-            'Soul Booster', 'Veil of Discord', 'Vanguard', 'Armlet of Mordiggian', 'Sange', 'Aether Lens',
-            'Meteor Hammer', 'Yasha', 'Urn of Shadows', 'Force Staff', 'Shadow Blade', 'Assault Cuirass',
-            'Tranquil Boots', 'Crimson Guard', 'Skull Basher', 'Echo Sabre', 'Phase Boots',
-            'Medallion of Courage', 'Solar Crest', 'Battle Fury', 'Maelstrom', 'Dagon', 'Black king Bar',
-            'Monkey king Bar', 'Drum of Endurance', "Eul's Scepter of Divinity", 'Lotus Orb', 'Ethereal Blade',
-            "Heaven's Halberd", "Vladmir's Offering", 'Rod of Atos', "Shiva's Guard", 'Radiance', 'Desolator',
-            'Hand of Midas', 'Orchid Malevolence', 'Kaya and Sange', 'Spirit Vessel', 'Sange and Yasha',
-            'Helm of the Dominator', 'Holy Locket', 'Nullifier', 'Yasha and Kaya', 'Boots of Travel',
-            'Pipe of Insight', 'Refresher Orb', 'Manta Style', 'Divine Rapier', 'Ghost Scepter',
-            'Guardian Greaves', 'Scythe of Vyse', 'Satanic', 'Blink Dagger', 'Octarine Core', 'Bloodthorn',
-            'Mjollnir', 'Energy Booster', 'Vitality Booster', 'Point Booster', 'Platemail',
-            'Talisman of Evasion', 'Hyperstone', 'Ultimate Orb', 'Demon Edge', 'Mystic Staff', 'Reaver',
-            'Eaglesong', 'Sacred Relic', 'Town Portal Scroll', 'Iron Branch', 'Ring of Protection',
-            'Magic Stick', 'Magic Wand', 'Ring of Basilius', 'Clarity', 'Gauntlets of Strength',
-            'Stout Shield', 'Wind Lace', 'Null Talisman', 'Headdress', 'Faerie Fire', 'Slippers of Agility',
-            'Quelling Blade', 'Ring of Regen', 'Wraith Band', 'Buckler', 'Smoke of Deceit',
-            'Mantle of Intelligence', 'Infused Raindrops', "Sage's Mask", 'Bracer', 'Observer Ward', 'Circlet',
-            'Orb of Venom', 'Boots of Speed', 'Soul Ring', 'Sentry Ward', 'Belt of Strength', 'Blight Stone',
-            'Gloves of Haste', 'Enchanted Mango', 'Band of Elvenskin', 'Blades of Attack', 'Cloak',
-            'Healing Salve', 'Robe of the Magi', 'Chainmail', 'Ring of Tarrasque', 'Oblivion Staff', 'Tango',
-            'Crown', 'Quarterstaff', 'Ring of Health', 'Perseverance', 'Tome of Knowledge', 'Ogre Axe',
-            'Helm of Iron Will', 'Void Stone', 'Dust of Appearance', 'Blade of Alacrity', 'Javelin',
-            'Gem of True Sight', 'Animal Courier', 'Staff of Wizardry', 'Broadsword', 'Morbid Mask',
-            'Bottle', 'Claymore', 'Shadow Amulet', 'Mithril Hammer'];
         let win_int = getRandNumb(0, 155);
 
         let timerInterval;
@@ -253,35 +254,6 @@ function roulette_heroes() {
 
 // Рулетка Предметов для окна стрима
 function roulette_items2() {
-    let array_items = ['Town Portal Scroll', 'Glimmer Cape', 'Hood of Defiance',
-        'Hurricane Pike', 'Blade Mail', 'Necronomicon', 'Aeon Disk', 'Silver Edge', 'Kaya',
-        'Moon Shard', 'Power Treads', 'Arcane Boots', 'Diffusal Blade', 'Daedalus', "Linken's Sphere",
-        'Mask of Madness', 'Animal Courier', "Aghanim's Scepter", 'Mekansm', 'Bloodstone',
-        'Abyssal Blade', 'Heart of Tarrasque', 'Eye of Skadi', 'Butterfly', 'Crystalys', 'Dragon Lance',
-        'Soul Booster', 'Veil of Discord', 'Vanguard', 'Armlet of Mordiggian', 'Sange', 'Aether Lens',
-        'Meteor Hammer', 'Yasha', 'Urn of Shadows', 'Force Staff', 'Shadow Blade', 'Assault Cuirass',
-        'Tranquil Boots', 'Crimson Guard', 'Skull Basher', 'Echo Sabre', 'Phase Boots',
-        'Medallion of Courage', 'Solar Crest', 'Battle Fury', 'Maelstrom', 'Dagon', 'Black king Bar',
-        'Monkey king Bar', 'Drum of Endurance', "Eul's Scepter of Divinity", 'Lotus Orb', 'Ethereal Blade',
-        "Heaven's Halberd", "Vladmir's Offering", 'Rod of Atos', "Shiva's Guard", 'Radiance', 'Desolator',
-        'Hand of Midas', 'Orchid Malevolence', 'Kaya and Sange', 'Spirit Vessel', 'Sange and Yasha',
-        'Helm of the Dominator', 'Holy Locket', 'Nullifier', 'Yasha and Kaya', 'Boots of Travel',
-        'Pipe of Insight', 'Refresher Orb', 'Manta Style', 'Divine Rapier', 'Ghost Scepter',
-        'Guardian Greaves', 'Scythe of Vyse', 'Satanic', 'Blink Dagger', 'Octarine Core', 'Bloodthorn',
-        'Mjollnir', 'Energy Booster', 'Vitality Booster', 'Point Booster', 'Platemail',
-        'Talisman of Evasion', 'Hyperstone', 'Ultimate Orb', 'Demon Edge', 'Mystic Staff', 'Reaver',
-        'Eaglesong', 'Sacred Relic', 'Town Portal Scroll', 'Iron Branch', 'Ring of Protection',
-        'Magic Stick', 'Magic Wand', 'Ring of Basilius', 'Clarity', 'Gauntlets of Strength',
-        'Stout Shield', 'Wind Lace', 'Null Talisman', 'Headdress', 'Faerie Fire', 'Slippers of Agility',
-        'Quelling Blade', 'Ring of Regen', 'Wraith Band', 'Buckler', 'Smoke of Deceit',
-        'Mantle of Intelligence', 'Infused Raindrops', "Sage's Mask", 'Bracer', 'Observer Ward', 'Circlet',
-        'Orb of Venom', 'Boots of Speed', 'Soul Ring', 'Sentry Ward', 'Belt of Strength', 'Blight Stone',
-        'Gloves of Haste', 'Enchanted Mango', 'Band of Elvenskin', 'Blades of Attack', 'Cloak',
-        'Healing Salve', 'Robe of the Magi', 'Chainmail', 'Ring of Tarrasque', 'Oblivion Staff', 'Tango',
-        'Crown', 'Quarterstaff', 'Ring of Health', 'Perseverance', 'Tome of Knowledge', 'Ogre Axe',
-        'Helm of Iron Will', 'Void Stone', 'Dust of Appearance', 'Blade of Alacrity', 'Javelin',
-        'Gem of True Sight', 'Animal Courier', 'Staff of Wizardry', 'Broadsword', 'Morbid Mask',
-        'Bottle', 'Claymore', 'Shadow Amulet', 'Mithril Hammer'];
     let win_int = getRandNumb(0, 155);
     let timerInterval;
     

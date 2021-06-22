@@ -41,7 +41,11 @@ function shop() {
         document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
         document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
-    } else { }
+    } else {
+        document.getElementById('money-shop').innerHTML = `Монет - 400`;
+        document.getElementById('money-settings').innerHTML = `Монет - 400`;
+        document.getElementById('money-guessHero').innerHTML = `Монет - 400`;
+    }
 
     if (bg != null) {
         document.getElementById('change-background-product').innerHTML = `

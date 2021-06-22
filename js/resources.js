@@ -100,56 +100,56 @@ function obnov_res(){
 
 // Процессор
 if (cpu_level_ls !== null) {
-    cpu_level.innerHTML = `Ур. - ${level_cpu_int}`;
-    cpu_cost.innerHTML = ` - ${cpu_cost_ls}м`;
+    cpu_level.innerHTML = `Уровень ${level_cpu_int}`;
+    cpu_cost.innerHTML = ` ${cpu_cost_ls}м`;
 } else {
-    cpu_level.innerHTML = `Ур. - 1`;
-    cpu_cost.innerHTML = ` - ${cost_cpu}м`;
+    cpu_level.innerHTML = `Уровень 1`;
+    cpu_cost.innerHTML = ` ${cost_cpu}м`;
 }
 
 // Видеокарта
 if (gpu_level_ls !== null) {
-    gpu_level.innerHTML = `Ур. - ${level_gpu_int}`;
-    gpu_cost.innerHTML = ` - ${gpu_cost_ls}м`;
+    gpu_level.innerHTML = `Уровень ${level_gpu_int}`;
+    gpu_cost.innerHTML = ` ${gpu_cost_ls}м`;
 } else if (gpu_level_ls === null) {
-    gpu_level.innerHTML = `Ур. - 1`;
-    gpu_cost.innerHTML = ` - ${cost_gpu}м`;
+    gpu_level.innerHTML = `Уровень 1`;
+    gpu_cost.innerHTML = ` ${cost_gpu}м`;
 }
 
 // Оперативная память
 if (ram_level_ls !== null) {
-    ram_level.innerHTML = `Ур. - ${level_ram_int}`;
+    ram_level.innerHTML = `Уровень ${level_ram_int}`;
     ram_cost.innerHTML = ` - ${ram_cost_ls}м`;
 } else {
-    ram_level.innerHTML = `Ур. - 1`;
-    ram_cost.innerHTML = ` - ${cost_ram}м`;
+    ram_level.innerHTML = `Уровень 1`;
+    ram_cost.innerHTML = ` ${cost_ram}м`;
 }
 
 // Монитор
 if (monitor_level_ls !== null) {
-    monitor_level.innerHTML = `Ур. - ${level_monitor_int}`;
-    monitor_cost.innerHTML = ` - ${monitor_cost_ls}м`;
+    monitor_level.innerHTML = `Уровень ${level_monitor_int}`;
+    monitor_cost.innerHTML = ` ${monitor_cost_ls}м`;
 } else {
-    monitor_level.innerHTML = `Ур. - 1`;
-    monitor_cost.innerHTML = ` - ${cost_monitor}м`;
+    monitor_level.innerHTML = `Уровень 1`;
+    monitor_cost.innerHTML = ` ${cost_monitor}м`;
 }
 
 // Веб-камера
 if (web_cam_level_ls !== null) {
-    web_cam_level.innerHTML = `Ур. - ${level_web_cam_int}`;
-    web_cam_cost.innerHTML = ` - ${web_cam_cost_ls}м`
+    web_cam_level.innerHTML = `Уровень ${level_web_cam_int}`;
+    web_cam_cost.innerHTML = ` ${web_cam_cost_ls}м`
 } else {
-    web_cam_level.innerHTML = `Ур. - 1`;
-    web_cam_cost.innerHTML = ` - ${cost_web_cam}м`;
+    web_cam_level.innerHTML = `Уровень 1`;
+    web_cam_cost.innerHTML = ` ${cost_web_cam}м`;
 }
 
 // Микрофон
 if (microphone_level_ls !== null) {
-    microphone_level.innerHTML = `Ур. - ${level_microphone_int}`;
+    microphone_level.innerHTML = `Уровень ${level_microphone_int}`;
     microphone_cost.innerHTML = ` - ${microphone_cost_ls}м`;
 } else {
-    microphone_level.innerHTML = `Ур. - 1`;
-    microphone_cost.innerHTML = ` - ${cost_microphone}м`;
+    microphone_level.innerHTML = `Уровень 1`;
+    microphone_cost.innerHTML = ` ${cost_microphone}м`;
 }
 
 // Повышение уровня каждого ресурса ПК
@@ -187,7 +187,7 @@ function cpu_up_level() {
         }
         cost_cpu += 150;
         followers_plus += 1;
-        watchers_plus += 2;
+        watchers_plus += 3;
         watchers_minus += 3;
         localStorage.setItem("followers_plus_lc", followers_plus);
         localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -236,7 +236,7 @@ function gpu_up_level() {
         }
         cost_gpu += 150;
         followers_plus += 1;
-        watchers_plus += 2;
+        watchers_plus += 3;
         watchers_minus += 3;
         localStorage.setItem("followers_plus_lc", followers_plus);
         localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -284,7 +284,7 @@ function ram_up_level() {
             level_ram.innerHTML = `Ур. - ${level_ram_int}`;
         }
         followers_plus += 1;
-        watchers_plus += 2;
+        watchers_plus += 3;
         watchers_minus += 3;
         localStorage.setItem("followers_plus_lc", followers_plus);
         localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -332,7 +332,7 @@ function monitor_up_level() {
         }
         cost_monitor += 150;
         followers_plus += 1;
-        watchers_plus += 2;
+        watchers_plus += 1;
         watchers_minus += 3;
         localStorage.setItem("followers_plus_lc", followers_plus);
         localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -381,8 +381,8 @@ function web_cam_up_level() {
             web_cam_level.innerHTML = `Ур. - ${level_web_cam_int}`;
         }
         cost_web_cam += 150;
-        followers_plus += 1;
-        watchers_plus += 2;
+        followers_plus += 3;
+        watchers_plus += 3;
         watchers_minus += 3;
         localStorage.setItem("followers_plus_lc", followers_plus);
         localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -442,7 +442,7 @@ function microphone_up_level() {
             
             cost_microphone += 150;
             followers_plus += 1;
-            watchers_plus += 2;
+            watchers_plus += 3;
             watchers_minus += 3;
             localStorage.setItem("followers_plus_lc", followers_plus);
             localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -486,7 +486,7 @@ function microphone_up_level() {
             
             cost_microphone += 150;
             followers_plus += 1;
-            watchers_plus += 2;
+            watchers_plus += 3;
             watchers_minus += 3;
             localStorage.setItem("followers_plus_lc", followers_plus);
             localStorage.setItem("watchers_plus_lc", watchers_plus);
@@ -500,4 +500,76 @@ function microphone_up_level() {
             microphone_cost.innerHTML = ` - ${cost_microphone}м`;
         }
     }
+}
+
+function cpuInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Процессор',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +1</b> <br />
+            <b>Зрителей: +2</b> <br />
+        `
+    });
+}
+
+function gpuInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Видеокарта',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +1</b> <br />
+            <b>Зрителей: +2</b> <br />
+        `
+    });
+}
+
+function ramInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Оперативная память',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +1</b> <br />
+            <b>Зрителей: +2</b> <br />
+        `
+    });
+}
+
+function monitorInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Монитор',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +1</b> <br />
+            <b>Зрителей: +1</b> <br />
+        `
+    });
+}
+
+function webCamInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Веб-камера',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +3</b> <br />
+            <b>Зрителей: +3</b> <br />
+        `
+    });
+}
+
+function microphoneInfo() {
+    Swal.fire({
+        icon: 'info',
+        title: 'Микрофон',
+        html: `
+            Увеличивает кол-во прибавление зрителей и фолловеров на стриме. <br />
+            <b>Фолловеров: +1</b> <br />
+            <b>Зрителей: +3</b> <br />
+        `
+    });
 }

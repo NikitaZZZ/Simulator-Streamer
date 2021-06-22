@@ -25,9 +25,13 @@ body {
     bottom: 9rem; 
     right: 2rem; 
     width: 300px;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding-bottom: 2rem;
     background: #212529;
     border-radius: 15px;
+    z-index: 1;
 }
 
 .lina-user {
@@ -39,6 +43,7 @@ body {
     padding-top: 0.5rem;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    position: fixed;
 }
 
 .lina {
@@ -57,6 +62,7 @@ body {
     float: right;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 0.5rem;
     padding-left: 1rem;
     padding-top: 0.3rem;
     width: 150px;
@@ -64,6 +70,13 @@ body {
     border: 2px solid silver;
     border-radius: 20px;
     color: #fff;
+}
+
+#messagesChoice {
+    width: 200px; 
+    bottom: 0; 
+    margin-right: 1rem;
+    float: right;
 }
 
 .col-sm {
@@ -179,28 +192,6 @@ body {
     margin-top: 4px;
     margin-bottom: 0;
 }
-
-#name, #level, #cost,
-#name_2, #level_2, #cost_2,
-#name_3, #level_3, #cost_3,
-#name_4, #level_4, #cost_4,
-#name_5, #level_5, #cost_5,
-#name_6, #level_6, #cost_6 { float: left; }
-
-#up1, #up2, #up3, #up4, #up5, #up6  { width: 65px; margin-left: 2%; }
-
-#level, #level_2, #level_3,
-#level_4, #level_5, #level_6 { margin-left: 10px; text-decoration: underline }
-
-#name, #level, #cost,
-#name_2, #level_2, #cost_2,
-#name_3, #level_3, #cost_3,
-#name_4, #level_4, #cost_4,
-#name_5, #level_5, #cost_5,
-#name_6, #level_6, #cost_6 { margin-top: 7px; }
-
-#cost, #cost_2, #cost_3,
-#cost_4, #cost_5, #cost_6 { margin-left: 10px; }
 
 .console-modal {
     position: fixed;

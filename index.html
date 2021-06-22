@@ -20,8 +20,19 @@
             Lina
         </div>
 
+        <div style="margin-top: 2rem;"></div>
+
         <div class="lina">Привет!</div>
         <div class="user">Здравствуй!</div>
+        <div class="user">Как дела?</div>
+        <div class="lina">Хорошо, а у тебя?</div>
+        <div class="user">Отлично!</div>
+
+        <div class="btn-group-vertical" id="messagesChoice">
+            <button class="btn btn-outline-warning">Что делаешь?</button>
+            <button class="btn btn-outline-success">Давай играть!</button>
+            <button class="btn btn-outline-primary">Обучение</button>
+        </div>
     </div>
 
     <button type="button" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
@@ -75,10 +86,10 @@
                 <div class="col-sm">
                     <div class="btn-group-vertical text-center mt-3">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-up" class="btn btn-dark" onclick="update_money()">Компьютер</button>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-shop" class="btn btn-dark">Магазин</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-shop" class="btn btn-dark">Магазин "Twitch"</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-roulette" class="btn btn-dark">Рулетка Лины</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-guessHero" class="btn btn-dark" onclick="update_money()">Угадай героя</button>
-                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-casino" class="btn btn-dark">Казино</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-casino" class="btn btn-dark">Custom Hero Simulator</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-stream" id="btn-stream" onclick='true_var=true; generation2()' class="btn btn-dark">Открыть окно стрима</button>
 
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-settings" class="btn btn-dark" onclick="shop()">Настройки</button>
@@ -88,8 +99,6 @@
             </div>
         </div>
     </div>
-
-    <div id="test"></div>
 
     <div class="modal fade" id="modal-settings">
         <div class="modal-dialog modal-lg" role="document">
@@ -155,7 +164,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="title-shop">Магазин</h4>
+                    <h4 class="modal-title" id="title-shop">Магазин "Twitch"</h4>
                     <p class="lead" id="money-shop"></p>
                 </div>
                 <div class="modal-body">
@@ -196,42 +205,81 @@
         </div>
     </div>
     <div class="modal fade" id="modal-up">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h4 class="modal-title" id="up-title">Прокачка ресурсов</h4>
                     <p class="lead" id="money"></p>
                 </div>
                 <div class="modal-body">
-                    <p class="lead" id="name">Процессор - </p>
-                    <p class="lead" id="level"></p>
-                    <p class="lead" id="cost"></p>
-                    <button class="btn btn-outline-success" id="up1" onclick="cpu_up_level()">+</button>
-                    <br><br>
-                    <p class="lead" id="name_2">Видеокарта - </p>
-                    <p class="lead" id="level_2"></p>
-                    <p class="lead" id="cost_2"></p>
-                    <button class="btn btn-outline-success" id="up2" onclick="gpu_up_level()">+</button>
-                    <br><br>
-                    <p class="lead" id="name_3">Оперативная Память - </p>
-                    <p class="lead" id="level_3"></p>
-                    <p class="lead" id="cost_3"></p>
-                    <button class="btn btn-outline-success" id="up3" onclick="ram_up_level()">+</button>
-                    <br><br>
-                    <p class="lead" id="name_4">Монитор - </p>
-                    <p class="lead" id="level_4"></p>
-                    <p class="lead" id="cost_4"></p>
-                    <button class="btn btn-outline-success" id="up4" onclick="monitor_up_level()">+</button>
-                    <br><br>
-                    <p class="lead" id="name_5">Веб-камера - </p>
-                    <p class="lead" id="level_5"></p>
-                    <p class="lead" id="cost_5"></p>
-                    <button class="btn btn-outline-success" id="up5" onclick="web_cam_up_level()">+</button>
-                    <br><br>
-                    <p class="lead" id="name_6">Микрофон - </p>
-                    <p class="lead" id="level_6"></p>
-                    <p class="lead" id="cost_6"></p>
-                    <button class="btn btn-outline-success" id="up6" onclick="microphone_up_level()">+</button>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/cpu.png" class="card-img-top" alt="..." style="background-color: #fff;">
+                                <div class="card-body">
+                                    <h5 class="card-title">CPU</h5>
+                                    <p id="level" class="card-text text-success"></p>
+                                    <button id="cost" class="btn btn-warning" onclick="cpu_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="cpuInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/gpu.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">GPU</h5>
+                                    <p id="level_2" class="card-text text-success"></p>
+                                    <button id="cost_2" class="btn btn-warning" onclick="gpu_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="gpuInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/ram.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">RAM</h5>
+                                    <p id="level_3" class="card-text text-success"></p>
+                                    <button id="cost_3" class="btn btn-warning" onclick="ram_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="ramInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/monitor.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Монитор</h5>
+                                    <p id="level_4" class="card-text text-success"></p>
+                                    <button id="cost_4" class="btn btn-warning" onclick="monitor_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="monitorInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/webcam.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Веб-камера</h5>
+                                    <p id="level_5" class="card-text text-success"></p>
+                                    <button id="cost_5" class="btn btn-warning" onclick="web_cam_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="webCamInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/microphone.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Микрофон</h5>
+                                    <p id="level_6" class="card-text text-success"></p>
+                                    <button id="cost_6" class="btn btn-warning" onclick="microphone_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="microphoneInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
