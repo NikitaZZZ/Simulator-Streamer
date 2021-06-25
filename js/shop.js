@@ -143,8 +143,6 @@ function healBuy() {
         money -= 150;
         localStorage.setItem("money", money);
         
-        let money_lc = localStorage.getItem("money");
-    
         document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
         document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
@@ -164,8 +162,6 @@ function foodBuy() {
         money -= 50;
         localStorage.setItem("money", money);
         
-        let money_lc = localStorage.getItem("money");
-    
         document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
         document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
@@ -197,8 +193,6 @@ function waterBuy() {
         money -= 25;
         localStorage.setItem("money", money);
         
-        let money_lc = localStorage.getItem("money");
-    
         document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
         document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
