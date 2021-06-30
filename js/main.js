@@ -1,6 +1,6 @@
 // rand number
 function getRandNumb(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
+    return Math.floor(min + Math.random() * (max + 1 - min));
 }
 
 // vue link 

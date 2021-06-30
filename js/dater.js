@@ -139,6 +139,10 @@ func_time();
 // Обновлять часы каждые две секунды
 setInterval(func_time, 150);
 
+foodDecrease = 2;
+waterDecrease = 3;
+energyDecrease = 5;
+
 // Вычитание статистики каждые 15 сек
 setInterval(() => {
     if (water === 2 && food === 2 && energy === 2) {
@@ -157,8 +161,8 @@ setInterval(() => {
         }, 5000);
     }
 
-    food -= 2;
-    water -= 2;
+    food -= foodDecrease;
+    water -= waterDecrease;
 
     let food_elem = document.getElementById("food"),
     water_elem = document.getElementById("water"),
@@ -196,7 +200,7 @@ function func_time() {
     if (minutes === 60) {
         hour = hour_int + 1;
         minutes = 0;
-        energy -= 20;
+        energy -= energyDecrease;
     }
 
     // Новый день
@@ -204,6 +208,10 @@ function func_time() {
         hour = '0' + 0;
         day_num += 1;
         day = day_num;
+
+        foodDecrease = getRandNumb(1, 5);
+        waterDecrease = getRandNumb(1, 4);
+        energyDecrease = getRandNumb(1, 10);
         
         // Рандомное число
         random_number = getRandNumb(0, 5);

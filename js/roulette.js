@@ -158,10 +158,52 @@ let array_items = ['Town Portal Scroll', 'Glimmer Cape', 'Hood of Defiance',
 function roulette_items() {
     if (energy < 50) {
         Swal.fire({
-            icon: 'error',
-            title: 'Ошибка',
-            text: 'Вы не можете больше играть!',
-            footer: '<a href="training_energy.html" target="_blank">Почему так произошло?</a>'
+            icon: 'warning',
+            title: 'Предупреждение',
+            text: 'У вас нет энергии, если вы будете играть - вы будете терять здоровье!',
+            footer: '<a href="training_energy.html" target="_blank">Почему так произошло?</a>',
+            confirmButtonText: 'Не играть',
+            denyButtonText: 'Играть',
+            showDenyButton: true,
+        }).then((result) => {
+            if (result.isDenied) {
+                health -= 10;
+                reloadStats();
+
+                let win_int = getRandNumb(0, 155);
+
+                let timerInterval;
+                Swal.fire({
+                    title: 'Крутим рулетку предметов...',
+                    imageUrl: '../img/lina.png',
+                    imageWidth: 300,
+                    imageHeight: 200,
+                    timer: 2000,
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                        timerInterval = setInterval(() => {
+                            Swal.getContent().querySelector('b')
+                                .textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    onClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.timer
+                    ) {
+                        Swal.fire({
+                            title: `Вам выпал: ${array_items[win_int]}`
+                        });
+        
+                        result_items.innerHTML = `Прошлый результат: ${array_items[win_int]}`
+                    }
+                })
+            }
         });
     } else if (energy >= 50) {
         energy -= 10;
@@ -207,10 +249,52 @@ function roulette_items() {
 function roulette_heroes() {
     if (energy < 50) {
         Swal.fire({
-            icon: 'error',
-            title: 'Ошибка',
-            text: 'Вы не можете больше играть!',
-            footer: '<a href="training_energy.html" target="_blank">Почему так произошло?</a>'
+            icon: 'warning',
+            title: 'Предупреждение!',
+            text: 'У вас нет энергии, если вы будете играть - вы будете терять здоровье!',
+            footer: '<a href="training_energy.html" target="_blank">Почему так произошло?</a>',
+            confirmButtonText: 'Не играть',
+            denyButtonText: 'Играть',
+            showDenyButton: true,
+        }).then((result) => {
+            if (result.isDenied) {
+                health -= 10;
+                reloadStats();
+
+                let win_int = getRandNumb(0, 119);
+
+                let timerInterval;
+                Swal.fire({
+                    title: 'Крутим рулетку героев...',
+                    imageUrl: '../img/lina.png',
+                    imageWidth: 300,
+                    imageHeight: 200,
+                    timer: 2000,
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    onBeforeOpen: () => {
+                        Swal.showLoading();
+                        timerInterval = setInterval(() => {
+                            Swal.getContent().querySelector('b')
+                                .textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    onClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                }).then((result) => {
+                    if (
+                        /* Read more about handling dismissals below */
+                        result.dismiss === Swal.DismissReason.timer
+                    ) {
+                        Swal.fire({
+                            title: `Вам выпал: ${array_heroes[win_int]}`
+                        });
+        
+                        result_heroes.innerHTML = `Прошлый результат: ${array_heroes[win_int]}`
+                    }
+                })
+            }
         });
     } else if (energy >= 50) {
         energy -= 10;
