@@ -372,6 +372,17 @@ function roulette_items2() {
     });
 
     money += 5;
+
+    let moneyAllLc = localStorage.getItem('money-all');
+    if (moneyAllLc === null) {
+        moneyForLc = money;
+    } else {
+        moneyForLc = parseInt(moneyAllLc) + 5;
+    }
+
+    localStorage.setItem('money-all', moneyForLc);
+    updateStatsStreamer();
+
     localStorage.setItem("money", money);
     money_p.innerHTML = `Монет - ${money}`;
     money_p_stream.innerHTML = `Монет - ${money}`;
@@ -386,6 +397,17 @@ function roulette_heroes2() {
     watchers_p.innerHTML = `Зрителей - ${watchers}`;
 
     money += 5;
+
+    let moneyAllLc = localStorage.getItem('money-all');
+    if (moneyAllLc === null) {
+        moneyForLc = money;
+    } else {
+        moneyForLc = parseInt(moneyAllLc) + 5;
+    }
+
+    localStorage.setItem('money-all', moneyForLc);
+    updateStatsStreamer();
+
     localStorage.setItem("money", money);
     money_p.innerHTML = `Монет - ${money}`;
     money_p_stream.innerHTML = `Монет - ${money}`;

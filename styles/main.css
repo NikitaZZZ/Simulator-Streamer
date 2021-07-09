@@ -47,52 +47,61 @@ body {
 }
 
 .lina {
-    float: left;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
+    width: 120px;
+    text-align: left;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
-    max-width: 180px;
-    max-height: 70px;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
     border: 2px solid silver;
     border-radius: 20px;
     color: #fff;
 }
 
 .linaHello {
-    float: left;
     margin-left: 1rem;
-    margin-top: 1.2rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
-    width: 150px;
+    border: 2px solid silver;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.userHello {
+    float: right;
+    margin-right: 1rem;
+    padding-left: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     border: 2px solid silver;
     border-radius: 20px;
     color: #fff;
 }
 
 .user {
-    float: right;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-top: 0.3rem;
-    width: 150px;
     height: 40px;
+    float: right;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    margin-top: 3rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
     border: 2px solid silver;
     border-radius: 20px;
     color: #fff;
 }
 
 #messagesChoice {
-    width: 200px; 
+    width: 180px; 
     bottom: 0; 
     margin-right: 1rem;
+    border: 1px solid silver;
+    border-radius: 10px;
     float: right;
 }
 
@@ -299,6 +308,22 @@ body {
 
 #spells {
     width: 30rem;
+}
+
+#streamer-btn {
+    background: none;
+    border: none;
+}
+
+#name-streamer, #age-streamer, #sex-streamer {
+    font-size: 17px;
+}
+
+#info-streamer {
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding-top: 1rem;
+    background:rgb(58, 58, 58);
 }
 
 @media screen and (max-width: 500px) {

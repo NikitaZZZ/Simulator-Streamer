@@ -132,6 +132,17 @@ setInterval(() => {
         donat_p.innerHTML = `Задонатили - ${money_array[number_int]} монет`;
         donat_all.innerHTML = `Всего задонатили - ${donat} монет`;
         money += money_array[number_int];
+
+        let moneyAllLc = localStorage.getItem('money-all');
+        if (moneyAllLc === null) {
+            moneyForLc = money_array[number_int];
+        } else {
+            moneyForLc = parseInt(moneyAllLc) + money_array[number_int];
+        }
+    
+        localStorage.setItem('money-all', moneyForLc);
+        updateStatsStreamer();
+
         localStorage.setItem("money", money);
 
         let money_lc = localStorage.getItem("money");
@@ -237,6 +248,17 @@ function checkHero2(button) {
         });
 
         money += 5;
+
+        let moneyAllLc = localStorage.getItem('money-all');
+        if (moneyAllLc === null) {
+            moneyForLc = money;
+        } else {
+            moneyForLc = parseInt(moneyAllLc) + 5;
+        }
+
+        localStorage.setItem('money-all', moneyForLc);
+        updateStatsStreamer();
+        
         localStorage.setItem("money", money);
 
         let money_lc = localStorage.getItem("money");

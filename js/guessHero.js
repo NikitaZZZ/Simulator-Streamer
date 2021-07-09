@@ -251,6 +251,16 @@ function checkHero(button) {
 
             money += 5;
             localStorage.setItem("money", money);
+
+            let moneyAllLc = localStorage.getItem('money-all');
+            if (moneyAllLc === null) {
+                moneyForLc = money;
+            } else {
+                moneyForLc = parseInt(moneyAllLc) + 5;
+            }
+        
+            localStorage.setItem('money-all', moneyForLc);
+            updateStatsStreamer();
     
             let money_lc = localStorage.getItem("money");
     

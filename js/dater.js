@@ -209,6 +209,12 @@ function func_time() {
         day_num += 1;
         day = day_num;
 
+        let dayAliveLc = localStorage.getItem('alive-day-all');
+        const dayAliveForLc = dayAliveLc + 1;
+
+        localStorage.setItem('alive-day-all', dayAliveForLc);
+        updateStatsStreamer();
+
         foodDecrease = getRandNumb(1, 5);
         waterDecrease = getRandNumb(1, 4);
         energyDecrease = getRandNumb(1, 10);
@@ -345,6 +351,7 @@ function func_time() {
         case 1:
             if (hour === 10 && minutes === 10) {
                 check_time = false;
+                onBtns();
                 script.innerHTML = `${scripts1[0]}`;
                 task1.innerHTML = `${tasks1[0]}`;
                 task2.innerHTML = `${tasks1[1]}`;
@@ -380,14 +387,17 @@ function func_time() {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
+                    offBtns();
                 } else {
                     script.innerHTML = `${scripts1[6]}`;
+                    offBtns();
                 }
             }
         ; break;
         case 2: 
             if (hour === 10 && minutes === 10) {
                 check_time = false;
+                onBtns();
                 script.innerHTML = `${scripts2[0]}`;
                 task1.innerHTML = `${tasks2[0]}`;
                 task2.innerHTML = `${tasks2[1]}`;
@@ -419,14 +429,17 @@ function func_time() {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
+                    offBtns();
                 } else {
                     script.innerHTML = `${scripts2[6]}`;
+                    offBtns();
                 }
             }
         ; break;
         case 3:
             if (hour === 10 && minutes === 10) {
                 check_time = false;
+                onBtns();
                 script.innerHTML = `${scripts3[0]}`;
                 task1.innerHTML = `${tasks3[0]}`;
                 task2.innerHTML = `${tasks3[1]}`;
@@ -458,14 +471,17 @@ function func_time() {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
+                    offBtns();
                 } else {
                     script.innerHTML = `${scripts3[6]}`;
+                    offBtns();
                 }
             }
         ; break;
         case 4:
             if (hour === 10 && minutes === 10) {
                 check_time = false;
+                onBtns();
                 script.innerHTML = `${scripts4[0]}`;
                 task1.innerHTML = `${tasks4[0]}`;
                 task2.innerHTML = `${tasks4[1]}`;
@@ -497,14 +513,17 @@ function func_time() {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
+                    offBtns();
                 } else {
                     script.innerHTML = `${scripts4[6]}`;
+                    offBtns();
                 }
             }
         ; break;
         case 5:
             if (hour === 10 && minutes === 10) {
                 check_time = false;
+                onBtns();
                 script.innerHTML = `${scripts5[0]}`;
                 task1.innerHTML = `${tasks5[0]}`;
                 task2.innerHTML = `${tasks5[1]}`;
@@ -536,10 +555,28 @@ function func_time() {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
+                    offBtns();
                 } else {
                     script.innerHTML = `${scripts5[6]}`;
+                    offBtns();
                 }
             }
         ; break;
     }
+}
+
+function offBtns() {
+    document.getElementById('computer-btn').disabled = true;
+    document.getElementById('shop-btn').disabled = true;
+    document.getElementById('roulette-btn').disabled = true;
+    document.getElementById('guessHero-btn').disabled = true;
+    document.getElementById('chs-btn').disabled = true;
+}
+
+function onBtns() {
+    document.getElementById('computer-btn').disabled = false;
+    document.getElementById('shop-btn').disabled = false;
+    document.getElementById('roulette-btn').disabled = false;
+    document.getElementById('guessHero-btn').disabled = false;
+    document.getElementById('chs-btn').disabled = false;
 }

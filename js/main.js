@@ -36,3 +36,45 @@ document.addEventListener("keypress", (e) => {
         });
     }
 });
+
+updateInfoStreamer();
+updateStatsStreamer();
+
+function updateInfoStreamer() {
+    const nameStreamer = localStorage.getItem('name-streamer');
+    const ageStreamer = localStorage.getItem('age-streamer');
+    const sexStreamer = localStorage.getItem('sex-streamer');
+    
+    document.getElementById('name-streamer').innerHTML = `Имя: ${nameStreamer}`;
+    document.getElementById('age-streamer').innerHTML = `Возраст: ${ageStreamer}`;
+    document.getElementById('sex-streamer').innerHTML = `Пол: ${sexStreamer}`;
+}
+
+function updateStatsStreamer() {
+    const aliveDayAll = localStorage.getItem('alive-day-all');
+    const moneyAll = localStorage.getItem('money-all');
+
+    if (aliveDayAll === null) {
+        document.getElementById('alive-day-all').innerHTML = `Прожитой дней всего: 1`;
+    } else {
+        document.getElementById('alive-day-all').innerHTML = `Прожитой дней всего: ${aliveDayAll}`;
+    }
+
+    if (moneyAll === null) {
+        document.getElementById('alive-day-all').innerHTML = `Монет заработано всего: 400`;
+    } else {
+        document.getElementById('money-all').innerHTML = `Монет заработано всего: ${moneyAll}`;
+    }
+}
+
+function saveInfoStreamer() {
+    const nameStreamerInput = document.getElementById('name-streamer-input').value;
+    const ageStreamerInput = document.getElementById('age-streamer-input').value;
+    const sexStreamerInput = document.getElementById('sex-streamer-select').value;
+
+    localStorage.setItem('name-streamer', nameStreamerInput);
+    localStorage.setItem('age-streamer', ageStreamerInput);
+    localStorage.setItem('sex-streamer', sexStreamerInput);
+
+    updateInfoStreamer();
+}
