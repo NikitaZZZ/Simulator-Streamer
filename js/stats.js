@@ -27,3 +27,28 @@ function reloadStats() {
     water_elem.innerHTML = `Вода - ${water}%`;
     energy_elem.innerHTML = `Энергия - ${energy}%`;
 }
+
+function streamerStatsUpdateUp() {
+    const foodDecreaseLc = localStorage.getItem('foodDecrease');
+    const waterDecreaseLc = localStorage.getItem('waterDecrease');
+    const energyDecreaseLc = localStorage.getItem('energyDecrease');
+
+    foodDecrease = parseInt(foodDecreaseLc);
+    waterDecrease = parseInt(waterDecreaseLc);
+    energyDecrease = parseInt(energyDecreaseLc);
+}
+
+function decreaseFoodAlert() {
+    const foodDecreaseLc = localStorage.getItem('foodDecrease');
+    
+}
+
+function decreaseWaterAlert() {
+    const waterDecreaseLc = localStorage.getItem('waterDecrease');
+
+}
+
+function decreaseEnergyAlert() {
+    const energyDecreaseLc = localStorage.getItem('energyDecrease');
+
+}
