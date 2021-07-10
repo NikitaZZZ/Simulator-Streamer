@@ -168,6 +168,8 @@ function roulette_items() {
         }).then((result) => {
             if (result.isDenied) {
                 health -= 10;
+
+                updateStatsLc();
                 reloadStats();
 
                 let win_int = getRandNumb(0, 155);
@@ -207,6 +209,8 @@ function roulette_items() {
         });
     } else if (energy >= 50) {
         energy -= 10;
+
+        updateStatsLc();
         reloadStats();
 
         let win_int = getRandNumb(0, 155);
@@ -259,6 +263,8 @@ function roulette_heroes() {
         }).then((result) => {
             if (result.isDenied) {
                 health -= 10;
+
+                updateStatsLc();
                 reloadStats();
 
                 let win_int = getRandNumb(0, 119);
@@ -298,6 +304,8 @@ function roulette_heroes() {
         });
     } else if (energy >= 50) {
         energy -= 10;
+
+        updateStatsLc();
         reloadStats();
 
         let win_int = getRandNumb(0, 119);
@@ -342,6 +350,8 @@ function roulette_items2() {
     let timerInterval;
     
     energy -= 10;
+
+    updateStatsLc();
     reloadStats();
 
     Swal.fire({
@@ -413,6 +423,8 @@ function roulette_heroes2() {
     money_p_stream.innerHTML = `Монет - ${money}`;
 
     energy -= 10;
+
+    updateStatsLc();
     reloadStats();
 
     let timerInterval;

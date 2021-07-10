@@ -147,10 +147,10 @@ function update_money() {
 
     if (money_lc === null) {
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
-        document.getElementById('money').innerHTML = `Монет - ${money}`;
+        document.getElementById('money-pc').innerHTML = `Монет - ${money}`;
     } else {
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money_lc}`;
-        document.getElementById('money').innerHTML = `Монет - ${money_lc}`;
+        document.getElementById('money-pc').innerHTML = `Монет - ${money_lc}`;
     }
 }
 
@@ -241,6 +241,8 @@ function checkHero(button) {
         });
     } else {
         energy -= 10;
+        
+        updateStatsLc();
         reloadStats();
     
         if (button === hero_universal_object.correctAnswer) {

@@ -40,6 +40,9 @@ document.addEventListener("keypress", (e) => {
 updateInfoStreamer();
 updateStatsStreamer();
 
+const moneyInfoStreamer = localStorage.getItem('money');
+if (moneyInfoStreamer !== null) { document.getElementById('money-info-streamer').innerHTML = `Монет - ${moneyInfoStreamer}м` }
+
 function updateInfoStreamer() {
     const nameStreamer = localStorage.getItem('name-streamer');
     const ageStreamer = localStorage.getItem('age-streamer');

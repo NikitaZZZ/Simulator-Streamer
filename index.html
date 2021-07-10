@@ -43,6 +43,7 @@
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h5 class="modal-title" id="streamerBoostTitle">Информация о стримере</h5>
+                    <h5 style="float: right; margin-bottom: 0;" id="money-info-streamer"></h5>
                 </div>
                 <div class="modal-body">
                     <div class="form-floating">
@@ -54,9 +55,9 @@
                             <p id="alive-day-all">Прожито дней всего: 1</p>
                             <p id="money-all">Монет заработано всего: 400</p>
                             <hr>
-                            <button class="btn btn-outline-success mb-2" onclick="decreaseFoodAlert()">Уменьшение еды</button>
-                            <button class="btn btn-outline-success mb-2" onclick="decreaseWaterAlert()">Уменьшение воды</button>
-                            <button class="btn btn-outline-success mb-2" onclick="decreaseEnergyAlert()">Уменьшение энергии</button>
+                            <button class="btn btn-success mb-2" onclick="decreaseFoodAlert()">Уменьшение еды <span class="badge bg-primary">250м</span></button>
+                            <button class="btn btn-success mb-2" onclick="decreaseWaterAlert()">Уменьшение воды <span class="badge bg-primary">250м</span></button>
+                            <button class="btn btn-success mb-2" onclick="decreaseEnergyAlert()">Уменьшение энергии <span class="badge bg-primary">250м</span></button>
                         </div>
                         <hr>
                         <div id="settings-streamer">
@@ -260,7 +261,7 @@
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
                     <h4 class="modal-title" id="up-title">Прокачка ресурсов</h4>
-                    <p class="lead" id="money"></p>
+                    <p class="lead" id="money-pc"></p>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -462,8 +463,8 @@
     <script src="js/resources.js"></script>
     <script src="js/roulette.js"></script>
     <script src="js/guessHero.js"></script>
-    <script src="js/stats.js"></script>
     <script src="js/dater.js"></script>
+    <script src="js/stats.js"></script>
     <script src="js/console.js"></script>
     <script src="js/stream.js"></script>
     <script src="js/shop.js"></script>

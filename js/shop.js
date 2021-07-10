@@ -1,5 +1,15 @@
 let settings_div = document.getElementById("settings-div");
 
+function updateMoney() {
+    localStorage.setItem('money', money);
+    
+    document.getElementById('stream-money').innerHTML = `Монет - ${money}`;
+    document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
+    document.getElementById('money-pc').innerHTML = `Монет - ${money}`;
+    document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
+    document.getElementById('money-info-streamer').innerHTML = `Монет - ${money}`;
+}
+
 shop();
 
 function buyChangeBg() {
@@ -150,6 +160,7 @@ function healBuy() {
         document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
     
         health = 100;
+        updateStatsLc();
         reloadStats();
     } else {
         Swal.fire({
@@ -181,6 +192,7 @@ function foodBuy() {
             reloadStats();
         }
     
+        updateStatsLc();
         reloadStats();
     } else {
         Swal.fire({
@@ -212,7 +224,7 @@ function waterBuy() {
             reloadStats();
         }
     
-    
+        updateStatsLc();
         reloadStats();
     } else {
         Swal.fire({

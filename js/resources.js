@@ -50,7 +50,7 @@ let money_level_ls = localStorage.getItem("money"),
     microphone_cost_ls = localStorage.getItem("microphone_cost");
 
 // Получаем все элементы level ресурсов
-let money_p = document.getElementById("money"),
+let money_p = document.getElementById("money-pc"),
     gpu_level = document.getElementById("level_2"),
     cpu_level = document.getElementById("level"),
     ram_level = document.getElementById("level_3"),

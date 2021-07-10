@@ -28,6 +28,31 @@ let day_num = 1,
     hour = 10,
     minutes = 5;
 
+// Рандомное число для заданий
+let random_number = getRandNumb(1, 5);
+
+const dayLc = localStorage.getItem('day');
+const randomNumberLc = parseInt(localStorage.getItem('random_number'));
+const hourLc = localStorage.getItem('hour');
+const minutesLc = localStorage.getItem('minutes');
+
+function statsLcUpdate() {
+    const healthLc = localStorage.getItem('health');
+    const foodLc = localStorage.getItem('food');
+    const waterLc = localStorage.getItem('water');
+    const energyLc = localStorage.getItem('energy');
+    
+    if (healthLc !== null) { health = parseInt(healthLc); }
+    if (foodLc !== null) { food = parseInt(foodLc); }
+    if (waterLc !== null) { water = parseInt(waterLc); }
+    if (energyLc !== null) { energy = parseInt(energyLc); }
+}
+
+if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; }
+if (randomNumberLc !== null) { random_number = randomNumberLc; }
+if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
+if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
+
 // Задания
 let tasks1 = [
     '10:10 → Позавтракать',
@@ -130,18 +155,31 @@ let scripts5 = [
     'Пойду спать, классный был стрим'
 ];
 
-// Рандомное число для заданий
-let random_number = getRandNumb(1, 5);
-
 // Первый запуск часов
 func_time();
 
 // Обновлять часы каждые две секунды
 setInterval(func_time, 150);
 
-foodDecrease = 2;
-waterDecrease = 3;
-energyDecrease = 5;
+let stats = {
+    foodDecrease: 2,
+    waterDecrease: 3,
+    energyDecrease: 5,
+
+    levelFoodDecrease: 1,
+    levelWaterDecrease: 1,
+    levelEnergyDecrease: 1,
+}
+
+const statsLcFirst = JSON.parse(localStorage.getItem('stats'));
+
+stats.foodDecrease = statsLcFirst.foodDecrease;
+stats.waterDecrease = statsLcFirst.waterDecrease;
+stats.energyDecrease = statsLcFirst.energyDecrease;
+
+stats.levelFoodDecrease = statsLcFirst.levelFoodDecrease;
+stats.levelWaterDecrease = statsLcFirst.levelWaterDecrease;
+stats.levelEnergyDecrease = statsLcFirst.levelEnergyDecrease;
 
 // Вычитание статистики каждые 15 сек
 setInterval(() => {
@@ -161,8 +199,10 @@ setInterval(() => {
         }, 5000);
     }
 
-    food -= foodDecrease;
-    water -= waterDecrease;
+    food -= stats.foodDecrease;
+    water -= stats.waterDecrease;
+
+    updateStatsLc();
 
     let food_elem = document.getElementById("food"),
     water_elem = document.getElementById("water"),
@@ -175,9 +215,80 @@ setInterval(() => {
 
 setInterval(() => {
     health -= 1;
-
+    
+    updateStatsLc();
     document.getElementById("health").innerHTML = `Здоровье - ${health}%`;
 }, 35000)
+
+function saveDay() {
+    localStorage.setItem('day', day);
+    localStorage.setItem('hour', hour);
+    localStorage.setItem('random_number', random_number);
+}
+
+function updateScript() {
+    switch (random_number) {
+        case 1: 
+            script.innerHTML = `${scripts1[0]}`;
+            task1.innerHTML = `${tasks1[0]}`;
+            task2.innerHTML = `${tasks1[1]}`;
+            task3.innerHTML = `${tasks1[2]}`;
+            task4.innerHTML = `${tasks1[3]}`;
+            task5.innerHTML = `${tasks1[4]}`;
+            task6.innerHTML = `${tasks1[5]}`;
+            task7.innerHTML = `${tasks1[6]}`;
+        ; break;
+        case 2: 
+            script.innerHTML = `${scripts2[0]}`;
+            task1.innerHTML = `${tasks2[0]}`;
+            task2.innerHTML = `${tasks2[1]}`;
+            task3.innerHTML = `${tasks2[2]}`;
+            task4.innerHTML = `${tasks2[3]}`;
+            task5.innerHTML = `${tasks2[4]}`;
+            task6.innerHTML = `${tasks2[5]}`;
+            task7.innerHTML = `${tasks2[6]}`;
+        ; break;
+        case 3: 
+            script.innerHTML = `${scripts3[0]}`;
+            task1.innerHTML = `${tasks3[0]}`;
+            task2.innerHTML = `${tasks3[1]}`;
+            task3.innerHTML = `${tasks3[2]}`;
+            task4.innerHTML = `${tasks3[3]}`;
+            task5.innerHTML = `${tasks3[4]}`;
+            task6.innerHTML = `${tasks3[5]}`;
+            task7.innerHTML = `${tasks3[6]}`;
+        ; break;
+        case 4: 
+            script.innerHTML = `${scripts4[0]}`;
+            task1.innerHTML = `${tasks4[0]}`;
+            task2.innerHTML = `${tasks4[1]}`;
+            task3.innerHTML = `${tasks4[2]}`;
+            task4.innerHTML = `${tasks4[3]}`;
+            task5.innerHTML = `${tasks4[4]}`;
+            task6.innerHTML = `${tasks4[5]}`;
+            task7.innerHTML = `${tasks4[6]}`;
+        ; break;
+        case 5: 
+            script.innerHTML = `${scripts5[0]}`;
+            task1.innerHTML = `${tasks5[0]}`;
+            task2.innerHTML = `${tasks5[1]}`;
+            task3.innerHTML = `${tasks5[2]}`;
+            task4.innerHTML = `${tasks5[3]}`;
+            task5.innerHTML = `${tasks5[4]}`;
+            task6.innerHTML = `${tasks5[5]}`;
+            task7.innerHTML = `${tasks5[6]}`;
+        ; break;
+    }
+}
+
+function updateStatsLc() {
+    localStorage.setItem('health', health);
+    localStorage.setItem('food', food);
+    localStorage.setItem('water', water);
+    localStorage.setItem('energy', energy);
+}
+
+updateScript();
 
 // Механика часов
 function func_time() {
@@ -194,13 +305,19 @@ function func_time() {
     // Каждый раз прибавляем к минутам 5
     if (check_time === true) {
         minutes = minutes_int + 5;
+
+        saveDay();
     } else { }
 
     // Если минуты достигают 60-ти, тогда +1 час
     if (minutes === 60) {
         hour = hour_int + 1;
         minutes = 0;
-        energy -= energyDecrease;
+        energy -= stats.energyDecrease;
+
+        updateStatsLc();
+        reloadStats();
+        saveDay();
     }
 
     // Новый день
@@ -210,14 +327,14 @@ function func_time() {
         day = day_num;
 
         let dayAliveLc = localStorage.getItem('alive-day-all');
-        const dayAliveForLc = dayAliveLc + 1;
+        const dayAliveForLc = parseInt(dayAliveLc) + 1;
 
         localStorage.setItem('alive-day-all', dayAliveForLc);
         updateStatsStreamer();
 
-        foodDecrease = getRandNumb(1, 5);
-        waterDecrease = getRandNumb(1, 4);
-        energyDecrease = getRandNumb(1, 10);
+        stats.foodDecrease = getRandNumb(1, 5);
+        stats.waterDecrease = getRandNumb(1, 4);
+        stats.energyDecrease = getRandNumb(1, 10);
         streamerStatsUpdateUp();
         
         // Рандомное число
@@ -226,6 +343,8 @@ function func_time() {
         // Убрать кнопку стрима 
         btn_stream.style.visibility = "hidden"
         stream_no = false;
+
+        saveDay();
     }
 
     // Если на часах меньше 10, добавлять в начале 0
@@ -261,6 +380,7 @@ function func_time() {
                 health -= 50;
                 water -= 25;
                 energy -= 50;
+                updateStatsLc();
                 reloadStats();
     
                 stream_no = true;
@@ -286,19 +406,23 @@ function func_time() {
     
                 if (cpu_int != 1){
                     cpu_int = cpu_int - 1;
+
                     localStorage.setItem("cpu_level", cpu_int);
+                    document.getElementById('level').innerHTML = `Уровень ${cpu_int}`;
                     reloadStats();
                 }
     
                 if (gpu_int != 1){
                     gpu_int = gpu_int - 1;
                     localStorage.setItem("gpu_level", gpu_int);
+                    document.getElementById('level_2').innerHTML = `Уровень ${gpu_int}`;
                     reloadStats();
                 }
                     
                 if (ram_int != 1){
                     ram_int = ram_int - 1;
                     localStorage.setItem("ram_level", ram_int);
+                    document.getElementById('level_3').innerHTML = `Уровень ${ram_int}`;
                     reloadStats();
                 }
     
@@ -320,6 +444,8 @@ function func_time() {
 
                 health -= 70;
                 water -= 40;
+
+                updateStatsLc();
                 reloadStats();
     
                 Swal.fire({
@@ -333,6 +459,7 @@ function func_time() {
             if (randomEvent == 3) {
                 health -= 40;
                 
+                updateStatsLc();
                 reloadStats();
                 stream_no = true;
 
