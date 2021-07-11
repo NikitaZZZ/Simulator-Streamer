@@ -201,7 +201,6 @@ function cpu_up_level() {
 // Видеокарта
 function gpu_up_level() {
     let gpu_level_ls = localStorage.getItem("gpu_level");
-    let money_level_ls = localStorage.getItem("money");
 
     if (money < cost_gpu) {
         Swal.fire({
@@ -239,7 +238,7 @@ function gpu_up_level() {
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("gpu_cost", cost_gpu);
         updateMoney();
-        gpu_cost.innerHTML = ` - ${cost_gpu}м`;
+        gpu_cost.innerHTML = `${cost_gpu}м`;
     }
 }
 
@@ -283,7 +282,7 @@ function ram_up_level() {
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("ram_cost", cost_ram);
         updateMoney();
-        ram_cost.innerHTML = ` - ${cost_ram}м`;
+        ram_cost.innerHTML = `${cost_ram}м`;
     }
 }
 
@@ -329,7 +328,7 @@ function monitor_up_level() {
 
         updateMoney();
 
-        monitor_cost.innerHTML = ` - ${cost_monitor}м`;
+        monitor_cost.innerHTML = `${cost_monitor}м`;
     }
 }
 
@@ -373,18 +372,13 @@ function web_cam_up_level() {
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("web_cam_cost", cost_web_cam);
         updateMoney();
-        web_cam_cost.innerHTML = ` - ${cost_web_cam}м`;
+        web_cam_cost.innerHTML = `${cost_web_cam}м`;
     }
 }
 
 // Микрофон
 function microphone_up_level() {
     // Получаем все элементы cost ресурсов
-    let cpu_cost = document.getElementById("cost"),
-    gpu_cost = document.getElementById("cost_2"),
-    ram_cost = document.getElementById("cost_3"),
-    monitor_cost = document.getElementById("cost_4"),
-    web_cam_cost = document.getElementById("cost_5"),
     microphone_cost = document.getElementById("cost_6");
 
     microphone_level_ls = localStorage.getItem("microphone_level");
@@ -429,7 +423,7 @@ function microphone_up_level() {
             localStorage.setItem("watchers_minus_lc", watchers_minus);
             localStorage.setItem("microphone_cost", cost_microphone);
             updateMoney();
-            microphone_cost.innerHTML = ` - ${cost_microphone}м`;
+            microphone_cost.innerHTML = `${cost_microphone}м`;
         }
     } else if (microphone_cost_ls !== null) {
         if (money < microphone_cost_ls) {
@@ -469,7 +463,7 @@ function microphone_up_level() {
             localStorage.setItem("watchers_minus_lc", watchers_minus);
             localStorage.setItem("microphone_cost", cost_microphone);
             updateMoney();
-            microphone_cost.innerHTML = ` - ${cost_microphone}м`;
+            microphone_cost.innerHTML = `${cost_microphone}м`;
         }
     }
 }
