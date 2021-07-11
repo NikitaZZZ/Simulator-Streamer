@@ -30,6 +30,7 @@ let day_num = 1,
 
 // Рандомное число для заданий
 let random_number = getRandNumb(1, 5);
+saveDay();
 
 const dayLc = localStorage.getItem('day');
 const randomNumberLc = parseInt(localStorage.getItem('random_number'));
@@ -49,7 +50,7 @@ function statsLcUpdate() {
 }
 
 if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; }
-if (randomNumberLc !== null) { random_number = randomNumberLc; }
+if (randomNumberLc !== null) { random_number = randomNumberLc; } else { localStorage.setItem('random_number', random_number); }
 if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
 if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
 
@@ -183,7 +184,7 @@ stats.levelEnergyDecrease = statsLcFirst.levelEnergyDecrease;
 
 // Вычитание статистики каждые 15 сек
 setInterval(() => {
-    if (water === 2 && food === 2 && energy === 2) {
+    if (health <= 2 || water <= 2 || food <= 2 || energy <= 2) {
         Swal.fire({
             icon: 'error',
             title: 'Вы проиграли!',
@@ -196,7 +197,16 @@ setInterval(() => {
 
         setTimeout(() => {
             location.reload()
-        }, 5000);
+        }, 3000);
+
+        localStorage.removeItem('day');
+        localStorage.removeItem('energy');
+        localStorage.removeItem('food');
+        localStorage.removeItem('water');
+        localStorage.removeItem('health');
+        localStorage.removeItem('hour');
+        localStorage.removeItem('money');
+        localStorage.removeItem('stats');
     }
 
     food -= stats.foodDecrease;
@@ -338,7 +348,7 @@ function func_time() {
         streamerStatsUpdateUp();
         
         // Рандомное число
-        random_number = getRandNumb(0, 5);
+        random_number = getRandNumb(1, 5);
 
         // Убрать кнопку стрима 
         btn_stream.style.visibility = "hidden"

@@ -193,11 +193,7 @@ function cpu_up_level() {
         localStorage.setItem("watchers_plus_lc", watchers_plus);
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("cpu_cost", cost_cpu);
-        localStorage.setItem("money", money);
-        money_p.innerHTML = `Монет - ${money}`;
-        document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+        updateMoney();
         cpu_cost.innerHTML = ` - ${cost_cpu}м`;
     }
 }
@@ -242,11 +238,7 @@ function gpu_up_level() {
         localStorage.setItem("watchers_plus_lc", watchers_plus);
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("gpu_cost", cost_gpu);
-        localStorage.setItem("money", money);
-        document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
-        money_p.innerHTML = `Монет - ${money}`;
+        updateMoney();
         gpu_cost.innerHTML = ` - ${cost_gpu}м`;
     }
 }
@@ -290,11 +282,7 @@ function ram_up_level() {
         localStorage.setItem("watchers_plus_lc", watchers_plus);
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("ram_cost", cost_ram);
-        localStorage.setItem("money", money);
-        money_p.innerHTML = `Монет - ${money}`;
-        document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+        updateMoney();
         ram_cost.innerHTML = ` - ${cost_ram}м`;
     }
 }
@@ -339,11 +327,7 @@ function monitor_up_level() {
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("monitor_cost", cost_monitor);
 
-        localStorage.setItem("money", money);
-        money_p.innerHTML = `Монет - ${money}`;
-        document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+        updateMoney();
 
         monitor_cost.innerHTML = ` - ${cost_monitor}м`;
     }
@@ -388,11 +372,7 @@ function web_cam_up_level() {
         localStorage.setItem("watchers_plus_lc", watchers_plus);
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("web_cam_cost", cost_web_cam);
-        localStorage.setItem("money", money);
-        money_p.innerHTML = `Монет - ${money}`;
-        document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+        updateMoney();
         web_cam_cost.innerHTML = ` - ${cost_web_cam}м`;
     }
 }
@@ -448,11 +428,7 @@ function microphone_up_level() {
             localStorage.setItem("watchers_plus_lc", watchers_plus);
             localStorage.setItem("watchers_minus_lc", watchers_minus);
             localStorage.setItem("microphone_cost", cost_microphone);
-            localStorage.setItem("money", money);
-            money_p.innerHTML = `Монет - ${money}`;
-            document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-            document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-            document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+            updateMoney();
             microphone_cost.innerHTML = ` - ${cost_microphone}м`;
         }
     } else if (microphone_cost_ls !== null) {
@@ -492,11 +468,7 @@ function microphone_up_level() {
             localStorage.setItem("watchers_plus_lc", watchers_plus);
             localStorage.setItem("watchers_minus_lc", watchers_minus);
             localStorage.setItem("microphone_cost", cost_microphone);
-            localStorage.setItem("money", money);
-            money_p.innerHTML = `Монет - ${money}`;
-            document.getElementById('money-shop').innerHTML = `Монет - ${money_level_ls}`;
-            document.getElementById('money-settings').innerHTML = `Монет - ${money_level_ls}`;
-            document.getElementById('money-guessHero').innerHTML = `Монет - ${money_level_ls}`;
+            updateMoney();
             microphone_cost.innerHTML = ` - ${cost_microphone}м`;
         }
     }

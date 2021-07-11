@@ -23,15 +23,11 @@ function buyChangeBg() {
         });
 
         money -= 250;
-        localStorage.setItem("money", money);
-        document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
-        money_p.innerHTML = `Монет - ${money}`;
 
         localStorage.setItem("bg", "bg");
 
         shop();
+        updateMoney();
     } else if (bg != null || money < 250) {
         Swal.fire({
             icon: 'error',
@@ -44,18 +40,8 @@ function buyChangeBg() {
 
 function shop() {
     let bg = localStorage.getItem("bg");
-    let moneyLC = localStorage.getItem('money');
 
-    if (moneyLC != null) {
-        money = parseInt(moneyLC);
-        document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
-    } else {
-        document.getElementById('money-shop').innerHTML = `Монет - 400`;
-        document.getElementById('money-settings').innerHTML = `Монет - 400`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - 400`;
-    }
+    updateMoney();
 
     if (bg != null) {
         document.getElementById('change-background-product').innerHTML = `
@@ -151,13 +137,10 @@ function change_bg(name) {
 }
 
 function healBuy() {
-    if (health != 100) {
+    if (health != 100 && money >= 150) {
         money -= 150;
-        localStorage.setItem("money", money);
-        
-        document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
+    
+        updateMoney();
     
         health = 100;
         updateStatsLc();
@@ -171,14 +154,11 @@ function healBuy() {
 }
 
 function foodBuy() {
-    if (food != 100 && energy != 100) {
+    if (food != 100 && energy != 100 && money >= 50) {
         money -= 50;
-        localStorage.setItem("money", money);
-        
-        document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
-    
+
+        updateMoney();
+
         food += 25;
         energy += 25;
     
@@ -203,13 +183,9 @@ function foodBuy() {
 }
 
 function waterBuy() {
-    if (water != 100 && energy != 100) {
+    if (water != 100 && energy != 100 && money >= 25) {
         money -= 25;
-        localStorage.setItem("money", money);
-        
-        document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
-        document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
+        updateMoney();
     
         water += 20;
         energy += 15;

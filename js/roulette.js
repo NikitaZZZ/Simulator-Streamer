@@ -393,9 +393,7 @@ function roulette_items2() {
     localStorage.setItem('money-all', moneyForLc);
     updateStatsStreamer();
 
-    localStorage.setItem("money", money);
-    money_p.innerHTML = `Монет - ${money}`;
-    money_p_stream.innerHTML = `Монет - ${money}`;
+    updateMoney();
 
     watchers += 1;
     watchers_p.innerHTML = `Зрителей - ${watchers}`;
@@ -418,9 +416,7 @@ function roulette_heroes2() {
     localStorage.setItem('money-all', moneyForLc);
     updateStatsStreamer();
 
-    localStorage.setItem("money", money);
-    money_p.innerHTML = `Монет - ${money}`;
-    money_p_stream.innerHTML = `Монет - ${money}`;
+    updateMoney();
 
     energy -= 10;
 
