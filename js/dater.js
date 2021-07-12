@@ -191,22 +191,22 @@ setInterval(() => {
             showCloseButton: false,
             showConfirmButton: false,
             allowOutsideClick: false,
-            text: 'Алина умерла. Вы не должны были этого допустить!',
+            text: 'Конец игры!',
             footer: '<a href="training.html">Как играть?</a>'
         });
 
         setTimeout(() => {
+            localStorage.removeItem('day');
+            localStorage.removeItem('energy');
+            localStorage.removeItem('food');
+            localStorage.removeItem('water');
+            localStorage.removeItem('health');
+            localStorage.removeItem('hour');
+            localStorage.removeItem('money');
+            localStorage.removeItem('stats');
+            
             location.reload()
         }, 3000);
-
-        localStorage.removeItem('day');
-        localStorage.removeItem('energy');
-        localStorage.removeItem('food');
-        localStorage.removeItem('water');
-        localStorage.removeItem('health');
-        localStorage.removeItem('hour');
-        localStorage.removeItem('money');
-        localStorage.removeItem('stats');
     }
 
     food -= stats.foodDecrease;

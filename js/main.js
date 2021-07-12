@@ -64,7 +64,7 @@ function updateStatsStreamer() {
     }
 
     if (moneyAll === null) {
-        document.getElementById('alive-day-all').innerHTML = `Монет заработано всего: 400`;
+        document.getElementById('money-all').innerHTML = `Монет заработано всего: 400`;
     } else {
         document.getElementById('money-all').innerHTML = `Монет заработано всего: ${moneyAll}`;
     }
