@@ -14,29 +14,86 @@
     <audio src="music/background.mp3" autoplay id="music"></audio>
     <audio src="" id="sound"></audio>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="healthAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы здоровье пополнить! Купи лекарство в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="waterAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы водички попить! Купи воды в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="foodAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы поесть! Купи еды в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="energyAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы запасы энергии пополнить! Купи еды или воды в магазине!
+            </div>
+        </div>
+    </div>
+
     <div class="collapse" id="assistantDiv">
         <div class="lina-user">
             <img src="img/lina.png" style="width: 25px; height: 20px;" alt="lina">
             Lina
-        </div>
 
+            <div class="relations">Отношения: 100</div>
+        </div>
         <div style="margin-top: 2rem;"></div>
 
         <div id="dialogs">
             <div class="linaHello">Привет!</div>
-            <div class="userHello">Привет</div>
+            <div class="userHello">Здравствуй</div>
         </div>
 
         <div class="btn-group-vertical" id="messagesChoice">
             <button class="btn btn-dark" onclick="dialogsAssistant(1, getRandNumb(1, 3))">Как дела?</button>
             <button class="btn btn-dark" onclick="dialogsAssistant(2, getRandNumb(1, 3))">Что делаешь?</button>
-            <button class="btn btn-dark" onclick="dialogsAssistant(3, getRandNumb(1, 3))">Обучение</button>
+            <button class="btn btn-dark" onclick="dialogsAssistant(3, getRandNumb(1, 3))">Пока</button>
         </div>
     </div>
 
-    <!-- <button type="button" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
-        <img src="img/icon-streamer.jpg" id="assistant" alt="assistant" />
-    </button> -->
+    <button type="button" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
+        <img src="img/lina.png" id="assistant" alt="assistant" />
+    </button>
 
     <div class="modal fade" id="streamer-boost" tabindex="-1" aria-labelledby="streamer-boost" aria-hidden="true">
         <div class="modal-dialog">

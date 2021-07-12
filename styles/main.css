@@ -15,9 +15,19 @@ body {
     right: 0; 
     margin: 2em;
     border-radius: 50%;
-    width: 100px;
+    width: 130px;
     height: 100px;
     border: none;
+}
+
+.toast-header {
+    background:rgb(44, 44, 44);
+    color: #fff;
+}
+
+.toast-body {
+    background:rgb(58, 58, 58);
+    color: #fff;
 }
 
 #assistantDiv {
@@ -46,9 +56,16 @@ body {
     position: fixed;
 }
 
+.relations {
+    float: right;
+    color: #fff;
+    margin-right: 1rem;
+}
+
 .lina {
-    width: 120px;
-    text-align: left;
+    float: left;
+    max-width: 200px;
+    width: 150px;
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.3rem;
@@ -61,6 +78,8 @@ body {
 }
 
 .linaHello {
+    max-width: 250px;
+    width: 150px;
     margin-left: 1rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -73,10 +92,14 @@ body {
 }
 
 .userHello {
+    width: 150px;
+    max-width: 250px;
     float: right;
     margin-right: 1rem;
+    margin-bottom: 0.5rem;
     padding-left: 1rem;
     padding-top: 0.3rem;
+    padding-right: 1rem;
     padding-bottom: 0.3rem;
     border: 2px solid silver;
     border-radius: 20px;
@@ -84,16 +107,24 @@ body {
 }
 
 .user {
+    width: 150px;
     height: 40px;
     float: right;
     padding-left: 1rem;
     padding-top: 0.5rem;
-    margin-top: 3rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
     border: 2px solid silver;
     border-radius: 20px;
     color: #fff;
+}
+
+#lina {
+    float: left;
+}
+
+#user {
+    float: right;
 }
 
 #messagesChoice {

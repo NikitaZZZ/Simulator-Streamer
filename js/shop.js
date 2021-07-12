@@ -145,16 +145,24 @@ function healBuy() {
         health = 100;
         updateStatsLc();
         reloadStats();
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Лекарство успешно куплена!',
+            html: `
+                Здоровье: ${health} <br />
+            `
+        });
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Вам пока не надо лечиться!',
+            title: 'Вам пока не надо лечиться или у вас не хватает монет!',
         });
     }
 }
 
 function foodBuy() {
-    if (food != 100 && energy != 100 && money >= 50) {
+    if (food != 100 && money >= 50 || energy != 100 && money >= 50) {
         money -= 50;
 
         updateMoney();
@@ -174,16 +182,25 @@ function foodBuy() {
     
         updateStatsLc();
         reloadStats();
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Еда успешно куплена!',
+            html: `
+                Вода: ${food} <br />
+                Энергия: ${energy}   
+            `
+        });
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Вам пока не нужна еда!',
+            title: 'Вам пока не нужна еда или у вас не хватает монет!',
         });
     }
 }
 
 function waterBuy() {
-    if (water != 100 && energy != 100 && money >= 25) {
+    if (water != 100 && money >= 25 || energy != 100 && money >= 25) {
         money -= 25;
         updateMoney();
     
@@ -202,10 +219,19 @@ function waterBuy() {
     
         updateStatsLc();
         reloadStats();
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Вода успешно куплена!',
+            html: `
+                Вода: ${water} <br />
+                Энергия: ${energy}   
+            `
+        });
     } else {
         Swal.fire({
             icon: 'error',
-            title: 'Вам пока не нужна вода!',
+            title: 'Вам пока не нужна вода или у вас не хватает монет!',
         });
     }
 }
