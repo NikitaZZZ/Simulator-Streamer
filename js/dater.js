@@ -174,13 +174,15 @@ let stats = {
 
 const statsLcFirst = JSON.parse(localStorage.getItem('stats'));
 
-stats.foodDecrease = statsLcFirst.foodDecrease;
-stats.waterDecrease = statsLcFirst.waterDecrease;
-stats.energyDecrease = statsLcFirst.energyDecrease;
-
-stats.levelFoodDecrease = statsLcFirst.levelFoodDecrease;
-stats.levelWaterDecrease = statsLcFirst.levelWaterDecrease;
-stats.levelEnergyDecrease = statsLcFirst.levelEnergyDecrease;
+if (statsLcFirst === null) {} else {
+    stats.foodDecrease = statsLcFirst.foodDecrease;
+    stats.waterDecrease = statsLcFirst.waterDecrease;
+    stats.energyDecrease = statsLcFirst.energyDecrease;
+    
+    stats.levelFoodDecrease = statsLcFirst.levelFoodDecrease;
+    stats.levelWaterDecrease = statsLcFirst.levelWaterDecrease;
+    stats.levelEnergyDecrease = statsLcFirst.levelEnergyDecrease;
+}
 
 // Вычитание статистики каждые 15 сек
 setInterval(() => {

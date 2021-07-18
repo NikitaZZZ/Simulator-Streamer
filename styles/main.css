@@ -20,6 +20,18 @@ body {
     border: none;
 }
 
+#assistant-btn {
+    position: fixed;
+    bottom: 0; 
+    right: 0; 
+    margin: 2em;
+    border-radius: 50%;
+    background: none;
+    width: 130px;
+    height: 100px;
+    border: none;
+}
+
 .toast-header {
     background:rgb(44, 44, 44);
     color: #fff;

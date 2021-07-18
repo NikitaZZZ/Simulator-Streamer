@@ -4,6 +4,7 @@ function updateMoney() {
     localStorage.setItem('money', money);
     
     document.getElementById('stream-money').innerHTML = `Монет - ${money}`;
+    document.getElementById('money-shop').innerHTML = `Монет - ${money}`;
     document.getElementById('money-settings').innerHTML = `Монет - ${money}`;
     document.getElementById('money-pc').innerHTML = `Монет - ${money}`;
     document.getElementById('money-guessHero').innerHTML = `Монет - ${money}`;
