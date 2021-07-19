@@ -30,7 +30,6 @@ let day_num = 1,
 
 // Рандомное число для заданий
 let random_number = getRandNumb(1, 5);
-saveDay();
 
 const dayLc = localStorage.getItem('day');
 const randomNumberLc = parseInt(localStorage.getItem('random_number'));
@@ -49,10 +48,12 @@ function statsLcUpdate() {
     if (energyLc !== null) { energy = parseInt(energyLc); }
 }
 
-if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; }
+if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; day_num = parseInt(dayLc); day = day_num; }
 if (randomNumberLc !== null) { random_number = randomNumberLc; } else { localStorage.setItem('random_number', random_number); }
 if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
 if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
+
+saveDay();
 
 // Задания
 let tasks1 = [
@@ -186,6 +187,21 @@ if (statsLcFirst === null) {} else {
 
 // Вычитание статистики каждые 15 сек
 setInterval(() => {
+    food -= stats.foodDecrease;
+    water -= stats.waterDecrease;
+
+    updateStatsLc();
+
+    let food_elem = document.getElementById("food"),
+    water_elem = document.getElementById("water"),
+    energy_elem = document.getElementById("energy");
+
+    food_elem.innerHTML = `Еда - ${food}%`;
+    water_elem.innerHTML = `Вода - ${water}%`;
+    energy_elem.innerHTML = `Энергия - ${energy}%`;
+}, 20000);
+
+setInterval(() => {
     if (health <= 2 || water <= 2 || food <= 2 || energy <= 2) {
         Swal.fire({
             icon: 'error',
@@ -210,20 +226,7 @@ setInterval(() => {
             location.reload()
         }, 3000);
     }
-
-    food -= stats.foodDecrease;
-    water -= stats.waterDecrease;
-
-    updateStatsLc();
-
-    let food_elem = document.getElementById("food"),
-    water_elem = document.getElementById("water"),
-    energy_elem = document.getElementById("energy");
-
-    food_elem.innerHTML = `Еда - ${food}%`;
-    water_elem.innerHTML = `Вода - ${water}%`;
-    energy_elem.innerHTML = `Энергия - ${energy}%`;
-}, 20000);
+}, 1000);
 
 setInterval(() => {
     health -= 1;
@@ -339,9 +342,9 @@ function func_time() {
         day = day_num;
 
         let dayAliveLc = localStorage.getItem('alive-day-all');
-        const dayAliveForLc = parseInt(dayAliveLc) + 1;
+        if (dayAliveLc !== null) { dayAliveLc = parseInt(dayAliveLc) + 1; } else { dayAliveLc = 1 }
 
-        localStorage.setItem('alive-day-all', dayAliveForLc);
+        localStorage.setItem('alive-day-all', dayAliveLc);
         updateStatsStreamer();
 
         stats.foodDecrease = getRandNumb(1, 5);
