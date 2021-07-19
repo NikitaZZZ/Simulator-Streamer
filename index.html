@@ -405,7 +405,7 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col-sm">
+                            <!-- <div class="col-sm">
                                 <p class="lead">Рулетка предметов</p>
                                 <button id="btn-roulette-items" onclick="roulette_items()" class="btn btn-outline-warning">Крутить рулетку</button>
                                 <p class="lead" id="result-items"></p>
@@ -416,7 +416,12 @@
                                 <button id="btn-roulette-heroes" onclick="roulette_heroes()" class="btn btn-outline-warning">Крутить рулетку</button>
                                 <p class="lead" id="result-heroes"></p>
                                 <img src="img/heroes.png" class="img-fluid" id="img-heroes" alt="heroes-dota">
-                            </div>
+                            </div> -->
+
+                            <p id="labelRangeNumbers" style="width: 200px; display: inline-block;">От 0 до 100</p>
+                            <input type="range" class="form-range" id="rangeNumbers" min="0" max="100" step="1" onchange="check()">
+                        
+                            <button class="btn btn-warning" onclick="letsGo()">Let's Go!</button>
                         </div>
                     </div>
                 </div>

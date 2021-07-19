@@ -453,3 +453,18 @@ function roulette_heroes2() {
 
     let win_int = getRandNumb(0, 119);
 }
+
+function check() {
+    let range = document.getElementById('rangeNumbers').value;
+    document.getElementById('labelRangeNumbers').innerHTML = `От 0 до ${range}`;
+}
+
+function letsGo() {
+    let range = document.getElementById('rangeNumbers').value;
+    let number = getRandNumb(0, 100);
+
+    if (number <= parseInt(range)) {
+        console.log(number);
+        console.log(range);
+    }
+}
