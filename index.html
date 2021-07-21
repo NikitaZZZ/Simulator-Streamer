@@ -196,9 +196,12 @@
                     <div class="btn-group-vertical text-center mt-3">
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-up" class="btn btn-dark" id="computer-btn" onclick="update_money()">Компьютер</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-shop" class="btn btn-dark" id="shop-btn">Магазин "Twitch"</button>
+
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-old-roulette" class="btn btn-dark" id="old-roulette-btn">Старая рулетка Лины</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-roulette" class="btn btn-dark" id="roulette-btn">Рулетка Лины</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-guessHero" class="btn btn-dark" id="guessHero-btn" onclick="update_money()">Угадай героя</button>
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-casino" class="btn btn-dark" id="chs-btn">Custom Hero Simulator</button>
+
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-stream" id="btn-stream" onclick='true_var=true; generation2()' class="btn btn-dark">Открыть окно стрима</button>
 
                         <button type="button" data-bs-toggle="modal" data-bs-target="#modal-settings" class="btn btn-dark" onclick="shop()">Настройки</button>
@@ -400,23 +403,19 @@
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h4 class="modal-title">Рулетки</h4>
+                    <h4 class="modal-title">Рулетка</h4>
+                    <button class="btn btn-outline-dark text-muted" onclick="secret()">Secret</button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <!-- <div class="col-sm">
-                                <p class="lead">Рулетка предметов</p>
-                                <button id="btn-roulette-items" onclick="roulette_items()" class="btn btn-outline-warning">Крутить рулетку</button>
-                                <p class="lead" id="result-items"></p>
-                                <img src="img/items.png" class="img-fluid" id="img-items" alt="items-dota">
+                            <div id="numbersDiv">
+                                <div class="card bg-dark" id="cardNumbers">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-title roulette-number" id="cardText">1</h5>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm">
-                                <p class="lead">Рулетка героев</p>
-                                <button id="btn-roulette-heroes" onclick="roulette_heroes()" class="btn btn-outline-warning">Крутить рулетку</button>
-                                <p class="lead" id="result-heroes"></p>
-                                <img src="img/heroes.png" class="img-fluid" id="img-heroes" alt="heroes-dota">
-                            </div> -->
 
                             <p id="labelRangeNumbers" style="width: 200px; display: inline-block;">От 0 до 100</p>
                             <input type="range" class="form-range" id="rangeNumbers" min="0" max="100" step="1" onchange="check()">
@@ -431,6 +430,38 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modal-old-roulette">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title">Старая рулетка</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p class="lead">Рулетка предметов</p>
+                                <button id="btn-roulette-items" onclick="roulette_items()" class="btn btn-outline-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-items"></p>
+                                <img src="img/items.png" class="img-fluid" id="img-items" alt="items-dota">
+                            </div>
+                            <div class="col-sm">
+                                <p class="lead">Рулетка героев</p>
+                                <button id="btn-roulette-heroes" onclick="roulette_heroes()" class="btn btn-outline-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-heroes"></p>
+                                <img src="img/heroes.png" class="img-fluid" id="img-heroes" alt="heroes-dota">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modal-guessHero">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content bg-dark text-white">

@@ -369,6 +369,23 @@ body {
     background:rgb(58, 58, 58);
 }
 
+.roulette-number {
+    text-align: center;
+    font-size: 40px;
+    margin-top: 3.5rem;
+}
+
+#cardNumbers {
+    width: 200px; 
+    height: 200px;
+    margin: auto;
+    border-color: silver; 
+}
+
+#old-roulette-btn {
+    visibility: hidden;
+}
+
 @media screen and (max-width: 500px) {
     #spells {
         width: 20rem;

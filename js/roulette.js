@@ -454,17 +454,92 @@ function roulette_heroes2() {
     let win_int = getRandNumb(0, 119);
 }
 
-function check() {
-    let range = document.getElementById('rangeNumbers').value;
-    document.getElementById('labelRangeNumbers').innerHTML = `От 0 до ${range}`;
+let counterSecret = 0;
+function secret() {
+    counterSecret++;
+
+    if (counterSecret === 5) {
+        document.getElementById('old-roulette-btn').style.visibility = 'visible';
+    }
 }
 
-function letsGo() {
+function check() {
     let range = document.getElementById('rangeNumbers').value;
+    document.getElementById('labelRangeNumbers').innerHTML = `От ${range} до 100`;
+}
+
+check();
+
+let counterNumber = 0;
+let numberCycle = 1;
+
+function letsGo() {
+    let range = parseInt(document.getElementById('rangeNumbers').value);
     let number = getRandNumb(0, 100);
 
-    if (number <= parseInt(range)) {
-        console.log(number);
-        console.log(range);
+    numberCycle = 1;
+
+    if (range === 0) {
+        if (counterNumber === 2) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Играй честно)',
+            });
+        } else {
+            counterNumber++;
+            console.log(counterNumber);
+        }
     }
+
+    encounter(range, number);
+}
+
+function encounter(range, number) {
+    let cardText = document.getElementById('cardText');
+
+    let interval = setInterval(() => {
+        if (numberCycle === number || numberCycle === 100) {
+            clearInterval(interval);
+
+            if (number >= range && number <= 100) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                  
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Вы угадали :)'
+                })
+            } else {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                  
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Вы не угадали :('
+                })
+            }
+        }
+
+        cardText.innerHTML = numberCycle;
+
+        numberCycle++;
+    }, 100);
 }
