@@ -70,6 +70,18 @@
         </div>
     </div>
 
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="linaMessageDiv" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body" id="linaMessage"></div>
+        </div>
+    </div>
+
     <div class="collapse" id="assistantDiv">
         <div class="lina-user">
             <img src="img/lina.png" style="width: 25px; height: 20px;" alt="lina">
@@ -84,14 +96,19 @@
             <div class="userHello">Здравствуй</div>
         </div>
 
-        <div class="btn-group-vertical" id="messagesChoice">
+        <!-- <div class="btn-group-vertical" id="messagesChoice">
             <button class="btn btn-dark" id="btnDialog1">Как дела?</button>
             <button class="btn btn-dark" id="btnDialog2">Что делаешь?</button>
             <button class="btn btn-dark" id="btnDialog3" onclick="dialogsAssistant('bye', getRandNumb(1, 3))">Пока</button>
+        </div> -->
+
+        <div class="input-group" id="input-form">
+            <input type="text" class="form-control" id="inputMessage" placeholder="Введите текст: ">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fab fa-telegram-plane"></i></button>
         </div>
     </div>
 
-    <button type="button" id="assistant-btn" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
+    <button type="button" id="assistant-btn" onclick="isOpenCheck()" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
         <img src="img/lina.png" id="assistant" alt="assistant" />
     </button>
 

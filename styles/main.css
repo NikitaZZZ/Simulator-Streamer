@@ -52,8 +52,20 @@ body {
     overflow-x: hidden;
     padding-bottom: 2rem;
     background: #212529;
-    border-radius: 15px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     z-index: 1;
+}
+
+#input-form {
+    position: fixed;
+    bottom: 9rem;
+    width: 300px;
+}
+
+#inputMessage {
+    background: none;
+    color: #fff;
 }
 
 .lina-user {

@@ -1,7 +1,20 @@
+// TODO: Проверку набранного сообщения
+// TODO: добавить рандомные сообщение, которые будет посылать Лина
+
 let relationsWithLina = 100;
 const dialogs = document.getElementById('dialogs');
 const linaRelations = document.getElementsByClassName('relations')[0];
 let numberDialog = 1;
+let isOpen = false;
+let randomNumber = 20000;
+
+function isOpenCheck() {
+    if (isOpen === false) {
+        isOpen = true;
+    } else {
+        isOpen = false;
+    }
+}
 
 dialogsAssistantArray = [{
     1: [
@@ -50,11 +63,11 @@ dialogsAssistantArray = [{
     ],
 }]
 
-let btnDialog1 = document.getElementById('btnDialog1');
-let btnDialog2 = document.getElementById('btnDialog2');
+// let btnDialog1 = document.getElementById('btnDialog1');
+// let btnDialog2 = document.getElementById('btnDialog2');
 
-btnDialog1.onclick = () => { dialogsAssistant(numberDialog, getRandNumb(1, 3)) }
-btnDialog2.onclick = () => { dialogsAssistant(numberDialog+1, getRandNumb(1, 3)) }
+// btnDialog1.onclick = () => { dialogsAssistant(numberDialog, getRandNumb(1, 3)) }
+// btnDialog2.onclick = () => { dialogsAssistant(numberDialog+1, getRandNumb(1, 3)) }
 
 function dialogsAssistant(numberDialog1, numberDialog2) {
     numberDialog++;
@@ -67,8 +80,8 @@ function dialogsAssistant(numberDialog1, numberDialog2) {
         <div class="lina">${textLina}</div>    
     `;
 
-    btnDialog1.innerHTML = dialogsAssistantArray[0][numberDialog][0];
-    btnDialog2.innerHTML = dialogsAssistantArray[0][numberDialog+1][0];
+    // btnDialog1.innerHTML = dialogsAssistantArray[0][numberDialog][0];
+    // btnDialog2.innerHTML = dialogsAssistantArray[0][numberDialog+1][0];
 
     checkMsgsForRelations(numberDialog1);
 }
@@ -97,3 +110,28 @@ setTimeout(() => {
         $('#energyAdvice').toast('show');
     }
 }, 5000);
+
+function randomize() {
+    randomNumber = getRandNumb(30000, 60000)
+}
+
+setInterval(() => {
+    if (isOpen === false) {
+        if (relationsWithLina >= 70) {
+            document.getElementById('linaMessage').innerText = `Как дела, солнышко мое?`;
+            $('#linaMessageDiv').toast('show');
+
+            dialogs.innerHTML += `
+                <div class="lina">Как дела, солнышко мое?</div>    
+            `;
+        }
+    } else {
+        if (relationsWithLina >= 70) {
+            dialogs.innerHTML += `
+                <div class="lina">Как дела, солнышко мое?</div>    
+            `;
+        } 
+    }
+
+    randomize();
+}, randomNumber);
