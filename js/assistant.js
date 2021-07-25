@@ -9,6 +9,15 @@ let isOpen = false;
 let randomNumber = 20000;
 let confidenceScale = 1;
 
+if (localStorage.getItem('relationship') !== null || localStorage.getItem('confidenceScale') !== null) {
+    relationsWithLina = parseInt(localStorage.getItem("relationship"));
+    confidenceScale = parseInt(localStorage.getItem("confidenceScale"));
+
+    updateRelationship();
+} else {
+    updateRelationship();
+}
+
 function isOpenCheck() {
     if (isOpen === false) {
         isOpen = true;
@@ -47,11 +56,11 @@ dialogsAssistantArray = [{
         "Да какая разница",
     ],
     4: [
-        "пока",
-        
-        "Ну блин, пока :(",
-        "Ты уже уходишь?",
-        "Эх, а могли ведь поговорить...",
+        "как настроение?",
+
+        "Отлично!",
+        "Пойдет",
+        "Не очень"
     ],
 
     5: [
@@ -61,13 +70,15 @@ dialogsAssistantArray = [{
         "Ты уже уходишь?",
         "Эх, а могли ведь поговорить...",
     ],
+
+    6: [
+        "пока",
+        
+        "Ну блин, пока :(",
+        "Ты уже уходишь?",
+        "Эх, а могли ведь поговорить...",
+    ],
 }]
-
-// let btnDialog1 = document.getElementById('btnDialog1');
-// let btnDialog2 = document.getElementById('btnDialog2');
-
-// btnDialog1.onclick = () => { dialogsAssistant(numberDialog, getRandNumb(1, 3)) }
-// btnDialog2.onclick = () => { dialogsAssistant(numberDialog+1, getRandNumb(1, 3)) }
 
 function dialogsAssistant(numberDialog1, numberDialog2) {
     numberDialog++;
@@ -86,11 +97,11 @@ function dialogsAssistant(numberDialog1, numberDialog2) {
     checkMsgsForRelations(numberDialog1);
 }
 
-function checkMsgsForRelations(numberDialog1) {
-    if (numberDialog1 === 'bye') {
-        relationsWithLina -= 20;
-        linaRelations.innerHTML = `Отношения: ${relationsWithLina}`;
-    }
+function updateRelationship() {
+    linaRelations.innerHTML = `Отношения: ${relationsWithLina} <i class="fas fa-question-circle" onclick="infoCofidenceScale()"></i>`;
+    localStorage.setItem('relationship', relationsWithLina);
+    localStorage.setItem('confidenceScale', confidenceScale);
+    console.log(confidenceScale, relationsWithLina);
 }
 
 setTimeout(() => {
@@ -150,16 +161,39 @@ function userMessage(text) {
     `;
 }
 
+function checkConfidence() {
+    if (relationsWithLina === 100) {
+        relationsWithLina = 0;
+        confidenceScale++;
+
+        updateRelationship();
+    }
+}
+
 function checkMessage() {
     let inputMessage = document.getElementById('inputMessage').value;
     userMessage(inputMessage);
 
-    for (let i = 1; i < 6; i++) {
+    if (inputMessage === "как дела?") {
+        relationsWithLina += 10;
+        checkConfidence();
+        updateRelationship();
+    } else if (inputMessage === "что делаешь?") {
+        relationsWithLina += 5;
+        checkConfidence();
+        updateRelationship();
+    } else if (inputMessage === "как настроение?") {
+        relationsWithLina += 16;
+        checkConfidence();
+        updateRelationship();
+    }
+
+    for (let i = 1; i < 7; i++) {
         if (dialogsAssistantArray[0][i][0] === inputMessage.toLowerCase()) {
             switch (confidenceScale) {
-                case 1: linaMessage(dialogsAssistantArray[0][i][3]);; break;
-                case 5: linaMessage(dialogsAssistantArray[0][i][2]);; break;
-                case 10: linaMessage(dialogsAssistantArray[0][i][1]);; break;
+                case 1: linaMessage(dialogsAssistantArray[0][i][3]); break;
+                case 5: linaMessage(dialogsAssistantArray[0][i][2]); break;
+                case 10: linaMessage(dialogsAssistantArray[0][i][1]); break;
             }
         }
     }
