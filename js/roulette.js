@@ -468,7 +468,13 @@ function check() {
     document.getElementById('labelRangeNumbers').innerHTML = `От ${range} до 100`;
 }
 
+function checkExact() {
+    let range = document.getElementById('rangeNumberExact').value;
+    document.getElementById('labelRangeNumberExact').innerHTML = `Вы загадываете число: ${range}`;
+}
+
 check();
+checkExact();
 
 let counterNumber = 0;
 let numberCycle = 1;
@@ -476,6 +482,9 @@ let numberCycle = 1;
 function letsGo() {
     let range = parseInt(document.getElementById('rangeNumbers').value);
     let number = getRandNumb(0, 100);
+    
+    document.getElementById('classic-btn').disabled = true;
+    document.getElementById('exactNumber-btn').disabled = true;
 
     numberCycle = 1;
 
@@ -500,8 +509,68 @@ function encounter(range, number) {
     let interval = setInterval(() => {
         if (numberCycle === number || numberCycle === 100) {
             clearInterval(interval);
+            document.getElementById('classic-btn').disabled = false;
+            document.getElementById('exactNumber-btn').disabled = false;
 
             if (number >= range && number <= 100) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                  
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Вы угадали :)'
+                })
+            } else {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                  
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Вы не угадали :('
+                })
+            }
+        }
+
+        cardText.innerHTML = numberCycle;
+
+        numberCycle++;
+    }, 100);
+}
+
+function exactNumber() {
+    let cardText = document.getElementById('cardTextExact');
+    let number = getRandNumb(0, 100);
+    let range = parseInt(document.getElementById('rangeNumberExact').value);
+    numberCycle = 0;
+
+    document.getElementById('classic-btn').disabled = true;
+    document.getElementById('exactNumber-btn').disabled = true;
+
+    let interval = setInterval(() => {
+        if (numberCycle === number) {
+            clearInterval(interval);
+            document.getElementById('classic-btn').disabled = false;
+            document.getElementById('exactNumber-btn').disabled = false;
+
+            if (numberCycle === range) {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',

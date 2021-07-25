@@ -1,6 +1,3 @@
-// TODO: Проверку набранного сообщения
-// TODO: добавить рандомные сообщение, которые будет посылать Лина
-
 let relationsWithLina = 50;
 const dialogs = document.getElementById('dialogs');
 const linaRelations = document.getElementsByClassName('relations')[0];
@@ -63,14 +60,6 @@ dialogsAssistantArray = [{
         "Не очень"
     ],
 
-    5: [
-        "пока",
-        
-        "Ну блин, пока :(",
-        "Ты уже уходишь?",
-        "Эх, а могли ведь поговорить...",
-    ],
-
     6: [
         "пока",
         
@@ -80,22 +69,22 @@ dialogsAssistantArray = [{
     ],
 }]
 
-function dialogsAssistant(numberDialog1, numberDialog2) {
-    numberDialog++;
+questionsLina = [{
+    1: {
+        'answerGood': 'Как дела, солнышнко мое?',
+        'answerNeutral': 'Как дела?',
+    },
 
-    textUser = dialogsAssistantArray[0][numberDialog1][0];
-    textLina = dialogsAssistantArray[0][numberDialog1][numberDialog2];
+    2: {
+        'answerGood': 'Что делаешь, радость моя?',
+        'answerNeutral': 'Что делаешь?',
+    },
 
-    dialogs.innerHTML += `
-        <div class="user">${textUser}</div>    
-        <div class="lina">${textLina}</div>    
-    `;
-
-    // btnDialog1.innerHTML = dialogsAssistantArray[0][numberDialog][0];
-    // btnDialog2.innerHTML = dialogsAssistantArray[0][numberDialog+1][0];
-
-    checkMsgsForRelations(numberDialog1);
-}
+    3: {
+        'answerGood': 'Как настроение, огонек?',
+        'answerNeutral': 'Как настроение?',
+    }
+}]
 
 function updateRelationship() {
     linaRelations.innerHTML = `Отношения: ${relationsWithLina} <i class="fas fa-question-circle" onclick="infoCofidenceScale()"></i>`;
@@ -128,16 +117,25 @@ function randomize() {
 
 setInterval(() => {
     if (isOpen === false) {
-        if (relationsWithLina >= 70 && confidenceScale === 10) {
-            document.getElementById('linaMessage').innerText = `Как дела, солнышко мое?`;
+        if (confidenceScale === 10) {
+            let randNumb = getRandNumb(1, 3);
+
+            document.getElementById('linaMessage').innerText = questionsLina[0][randNumb].answerGood;
             $('#linaMessageDiv').toast('show');
 
-            linaMessage('Как дела, солнышко мое?');
+            linaMessage(questionsLina[0][randNumb].answerGood);
+        } else if (confidenceScale === 5) {
+            document.getElementById('linaMessage').innerText = questionsLina[0][randNumb].answerNeutral;
+            $('#linaMessageDiv').toast('show');
+
+            linaMessage(questionsLina[0][randNumb].answerNeutral);
         }
     } else {
-        if (relationsWithLina >= 70 && confidenceScale === 10) {
-            linaMessage('Как дела, солнышко мое?');
-        } 
+        if (confidenceScale === 10) {
+            linaMessage(questionsLina[0][randNumb].answerGood);
+        } else if (confidenceScale === 5) {
+            linaMessage(questionsLina[0][randNumb].answerNeutral);
+        }
     }
 
     randomize();
@@ -174,26 +172,30 @@ function checkMessage() {
     let inputMessage = document.getElementById('inputMessage').value;
     userMessage(inputMessage);
 
-    if (inputMessage === "как дела?") {
+    if (inputMessage.toLowerCase() === "как дела?") {
         relationsWithLina += 10;
         checkConfidence();
         updateRelationship();
-    } else if (inputMessage === "что делаешь?") {
+    } else if (inputMessage.toLowerCase() === "что делаешь?") {
         relationsWithLina += 5;
         checkConfidence();
         updateRelationship();
-    } else if (inputMessage === "как настроение?") {
+    } else if (inputMessage.toLowerCase() === "как настроение?") {
         relationsWithLina += 16;
         checkConfidence();
         updateRelationship();
     }
 
-    for (let i = 1; i < 7; i++) {
+    for (let i = 1; i < Object.keys(dialogsAssistantArray[0]).length; i++) {
+        console.log(dialogsAssistantArray[0][i][0] == inputMessage.toLowerCase());
+
         if (dialogsAssistantArray[0][i][0] === inputMessage.toLowerCase()) {
-            switch (confidenceScale) {
-                case 1: linaMessage(dialogsAssistantArray[0][i][3]); break;
-                case 5: linaMessage(dialogsAssistantArray[0][i][2]); break;
-                case 10: linaMessage(dialogsAssistantArray[0][i][1]); break;
+            if (confidenceScale >= 1 && confidenceScale < 5) {
+                linaMessage(dialogsAssistantArray[0][i][3]);
+            } else if (confidenceScale >= 5 && confidenceScale < 10) {
+                linaMessage(dialogsAssistantArray[0][i][2]);
+            } else if (confidenceScale === 10) {
+                linaMessage(dialogsAssistantArray[0][i][1]);
             }
         }
     }

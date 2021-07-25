@@ -425,23 +425,42 @@
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="row">
-                            <div id="numbersDiv">
-                                <div class="card bg-dark" id="cardNumbers">
-                                    <div class="card-img-overlay">
-                                        <h5 class="card-title roulette-number" id="cardText">1</h5>
+                        <div class="row tab-content">
+                            <div class="tab-pane fade show active" id="classic" role="tabpanel" aria-labelledby="home-tab">
+                                <div id="numbersDiv">
+                                    <div class="card bg-dark" id="cardNumbers">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title roulette-number" id="cardText">1</h5>
+                                        </div>
                                     </div>
                                 </div>
+    
+                                <p id="labelRangeNumbers" style="width: 200px; display: inline-block;">От 0 до 100</p>
+                                <input type="range" class="form-range" id="rangeNumbers" min="0" max="100" step="1" onchange="check()">
+                            
+                                <button class="btn btn-warning" onclick="letsGo()">Let's Go!</button>
                             </div>
-
-                            <p id="labelRangeNumbers" style="width: 200px; display: inline-block;">От 0 до 100</p>
-                            <input type="range" class="form-range" id="rangeNumbers" min="0" max="100" step="1" onchange="check()">
-                        
-                            <button class="btn btn-warning" onclick="letsGo()">Let's Go!</button>
+                            <div class="tab-pane fade" id="exactNumber" role="tabpanel" aria-labelledby="profile-tab">
+                                <div id="numbersDiv">
+                                    <div class="card bg-dark" id="cardNumbers">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title roulette-number" id="cardTextExact">1</h5>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <p id="labelRangeNumberExact" style="width: 200px; display: inline-block;">50</p>
+                                <input type="range" class="form-range" id="rangeNumberExact" min="0" max="100" step="1" onchange="checkExact()">
+                            
+                                <button class="btn btn-warning" onclick="exactNumber()">Let's Go!</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer list-group">
+                    <button class="btn btn-outline-warning" id="classic-btn" data-bs-toggle="list" data-bs-target="#classic" type="button" role="tab" aria-controls="profile" aria-selected="false">Классическая</button>
+                    <button class="btn btn-outline-success" id="exactNumber-btn" data-bs-toggle="list" data-bs-target="#exactNumber" type="button" role="tab" aria-controls="home" aria-selected="true">Точное число</button>
+                    
                     <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
                 </div>
             </div>
