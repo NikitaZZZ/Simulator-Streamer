@@ -1,12 +1,13 @@
 // TODO: Проверку набранного сообщения
 // TODO: добавить рандомные сообщение, которые будет посылать Лина
 
-let relationsWithLina = 100;
+let relationsWithLina = 50;
 const dialogs = document.getElementById('dialogs');
 const linaRelations = document.getElementsByClassName('relations')[0];
 let numberDialog = 1;
 let isOpen = false;
 let randomNumber = 20000;
+let confidenceScale = 1;
 
 function isOpenCheck() {
     if (isOpen === false) {
@@ -16,46 +17,45 @@ function isOpenCheck() {
     }
 }
 
+function infoCofidenceScale() {
+    Swal.fire({
+        icon: 'info',
+        title: `Шкала доверия: ${confidenceScale}`,
+    })
+}
+
 dialogsAssistantArray = [{
     1: [
-        "Как дела?",
+        "как дела?",
 
         "Отлично, ведь я же с тобой разговариваю!",
         "Нормально",
         "Сойдет",
     ],
     2: [
-        "Что делаешь?",
+        "что делаешь?",
         
         "Разговариваю с тобой!",
         "Общаюсь кое с кем",
         "Разговариваю",
     ],
     3: [
-        "Кто тебя создал?",
+        "кто тебя создал?",
         
         "Меня создала прекрасная инди-компания LAR!",
         "Меня создали замечательные люди",
         "Да какая разница",
     ],
     4: [
-        "Пока",
+        "пока",
         
         "Ну блин, пока :(",
         "Ты уже уходишь?",
         "Эх, а могли ведь поговорить...",
     ],
+
     5: [
-        "Пока",
-        
-        "Ну блин, пока :(",
-        "Ты уже уходишь?",
-        "Эх, а могли ведь поговорить...",
-    ],
-
-
-    'bye': [
-        "Пока",
+        "пока",
         
         "Ну блин, пока :(",
         "Ты уже уходишь?",
@@ -117,21 +117,50 @@ function randomize() {
 
 setInterval(() => {
     if (isOpen === false) {
-        if (relationsWithLina >= 70) {
+        if (relationsWithLina >= 70 && confidenceScale === 10) {
             document.getElementById('linaMessage').innerText = `Как дела, солнышко мое?`;
             $('#linaMessageDiv').toast('show');
 
-            dialogs.innerHTML += `
-                <div class="lina">Как дела, солнышко мое?</div>    
-            `;
+            linaMessage('Как дела, солнышко мое?');
         }
     } else {
-        if (relationsWithLina >= 70) {
-            dialogs.innerHTML += `
-                <div class="lina">Как дела, солнышко мое?</div>    
-            `;
+        if (relationsWithLina >= 70 && confidenceScale === 10) {
+            linaMessage('Как дела, солнышко мое?');
         } 
     }
 
     randomize();
 }, randomNumber);
+
+document.getElementById('inputMessage').addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+        checkMessage();
+    }
+})
+
+function linaMessage(text) {
+    dialogs.innerHTML += `
+        <div class="lina">${text}</div>    
+    `;
+}
+
+function userMessage(text) {
+    dialogs.innerHTML += `
+        <div class="user">${text}</div>    
+    `;
+}
+
+function checkMessage() {
+    let inputMessage = document.getElementById('inputMessage').value;
+    userMessage(inputMessage);
+
+    for (let i = 1; i < 6; i++) {
+        if (dialogsAssistantArray[0][i][0] === inputMessage.toLowerCase()) {
+            switch (confidenceScale) {
+                case 1: linaMessage(dialogsAssistantArray[0][i][3]);; break;
+                case 5: linaMessage(dialogsAssistantArray[0][i][2]);; break;
+                case 10: linaMessage(dialogsAssistantArray[0][i][1]);; break;
+            }
+        }
+    }
+}

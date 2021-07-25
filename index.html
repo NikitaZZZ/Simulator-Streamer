@@ -87,13 +87,13 @@
             <img src="img/lina.png" style="width: 25px; height: 20px;" alt="lina">
             Lina
 
-            <div class="relations">Отношения: 100</div>
+            <div class="relations">Отношения: 50 <i class="fas fa-question-circle" onclick="infoCofidenceScale()"></i></div>
         </div>
         <div style="margin-top: 2rem;"></div>
 
         <div id="dialogs">
-            <div class="linaHello">Привет!</div>
-            <div class="userHello">Здравствуй</div>
+            <div class="linaHello">Привет! Как разговаривать со мной - <a href="linaGuide.html" target="_blank">клик</a></div>
+            <div class="userHello">Здравствуй, ок, спасибо</div>
         </div>
 
         <!-- <div class="btn-group-vertical" id="messagesChoice">
@@ -104,7 +104,7 @@
 
         <div class="input-group" id="input-form">
             <input type="text" class="form-control" id="inputMessage" placeholder="Введите текст: ">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fab fa-telegram-plane"></i></button>
+            <button class="btn btn-outline-secondary" type="button" id="button-addon" onclick="checkMessage()"><i class="fab fa-telegram-plane"></i></button>
         </div>
     </div>
 

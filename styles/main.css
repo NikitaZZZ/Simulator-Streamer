@@ -103,7 +103,7 @@ body {
 
 .linaHello {
     max-width: 250px;
-    width: 150px;
+    width: 200px;
     margin-left: 1rem;
     margin-top: 3rem;
     margin-bottom: 1rem;
@@ -116,7 +116,7 @@ body {
 }
 
 .userHello {
-    width: 150px;
+    width: 200px;
     max-width: 250px;
     float: right;
     margin-right: 1rem;
