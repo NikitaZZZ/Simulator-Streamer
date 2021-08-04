@@ -66,3 +66,33 @@ function saveInfoStreamer() {
 
     updateInfoStreamer();
 }
+
+
+
+Swal.fire({
+    title: 'Enter password',
+    html: `<input type="password" id="password" class="swal2-input" placeholder="Password">`,
+    confirmButtonText: 'Sign in',
+    focusConfirm: false,
+    allowOutsideClick: false,
+    showCancelButton: false,
+    showCloseButton: false,
+    allowEscapeKey: false,
+    preConfirm: () => {
+      const password = Swal.getPopup().querySelector('#password').value
+      if (!password) {
+        Swal.showValidationMessage(`Please enter password`)
+      }
+      return { password: password }
+    }
+}).then((result) => {
+    if (result.value.password == 'kapustadrakon') {
+        Swal.fire({
+            text: 'Yes!'
+        });
+    } else {
+        Swal.showValidationMessage(`Please enter password`)
+    }
+})
+  
+  
