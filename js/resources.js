@@ -10,7 +10,7 @@ let level_cpu = 1,
     level_microphone = 1;
 
 // Создаем список денег доната
-let money_array = [30, 40, 50, 60, 70, 80, 90, 100, 110, 120];
+let money_array = [10, 20, 30, 40, 50, 60, 70, 80];
 
 // Получаем параграф зрителей/фолловеров/доната
 let watchers_p = document.getElementById("watchers");
@@ -19,7 +19,7 @@ let donat_p = document.getElementById("donat");
 let donat_all = document.getElementById("donat-all");
 
 // Создаем перемнные фолловеры, зрители и донат
-let followers = 25612;
+let followers = 0;
 let watchers = 0;
 let donat = 0;
 
@@ -91,9 +91,9 @@ function obnov_res(){
     gpu_level_ls = localStorage.getItem("gpu_level");
     cpu_level_ls = localStorage.getItem("cpu_level");
 
-    ram_level.innerHTML = `Ур. - ${ram_level_ls }`;
-    cpu_level.innerHTML = `Ур. - ${gpu_level_ls}`;
-    gpu_level.innerHTML = `Ур. - ${cpu_level_ls}`;
+    ram_level.innerHTML = `Уровень - ${ram_level_ls }`;
+    cpu_level.innerHTML = `Уровень - ${gpu_level_ls}`;
+    gpu_level.innerHTML = `Уровень - ${cpu_level_ls}`;
 }
 
 // Проверка есть ли ресурсы в localStorage, если нет - Ур. 1, Цена - 100м
@@ -119,7 +119,7 @@ if (gpu_level_ls !== null) {
 // Оперативная память
 if (ram_level_ls !== null) {
     ram_level.innerHTML = `Уровень ${level_ram_int}`;
-    ram_cost.innerHTML = ` - ${ram_cost_ls}м`;
+    ram_cost.innerHTML = ` ${ram_cost_ls}м`;
 } else {
     ram_level.innerHTML = `Уровень 1`;
     ram_cost.innerHTML = ` ${cost_ram}м`;
@@ -146,7 +146,7 @@ if (web_cam_level_ls !== null) {
 // Микрофон
 if (microphone_level_ls !== null) {
     microphone_level.innerHTML = `Уровень ${level_microphone_int}`;
-    microphone_cost.innerHTML = ` - ${microphone_cost_ls}м`;
+    microphone_cost.innerHTML = ` ${microphone_cost_ls}м`;
 } else {
     microphone_level.innerHTML = `Уровень 1`;
     microphone_cost.innerHTML = ` ${cost_microphone}м`;
@@ -179,11 +179,11 @@ function cpu_up_level() {
             level_cpu += 1;
             level_cpu_int = level_cpu;
             localStorage.setItem("cpu_level", level_cpu_int);
-            cpu_level.innerHTML = `Ур. - ${level_cpu}`;
+            cpu_level.innerHTML = `Уровень - ${level_cpu}`;
         } else {
             level_cpu_int += 1;
             localStorage.setItem("cpu_level", level_cpu_int);
-            cpu_level.innerHTML = `Ур. - ${level_cpu_int}`;
+            cpu_level.innerHTML = `Уровень - ${level_cpu_int}`;
         }
         cost_cpu += 150;
         followers_plus += 1;
@@ -194,7 +194,7 @@ function cpu_up_level() {
         localStorage.setItem("watchers_minus_lc", watchers_minus);
         localStorage.setItem("cpu_cost", cost_cpu);
         updateMoney();
-        cpu_cost.innerHTML = ` - ${cost_cpu}м`;
+        cpu_cost.innerHTML = ` ${cost_cpu}м`;
     }
 }
 
@@ -223,11 +223,11 @@ function gpu_up_level() {
             level_gpu += 1;
             level_gpu_int = level_gpu;
             localStorage.setItem("gpu_level", level_gpu_int);
-            gpu_level.innerHTML = `Ур. - ${level_gpu}`;
+            gpu_level.innerHTML = `Уровень - ${level_gpu}`;
         } else {
             level_gpu_int += 1;
             localStorage.setItem("gpu_level", level_gpu_int);
-            gpu_level.innerHTML = `Ур. - ${level_gpu_int}`;
+            gpu_level.innerHTML = `Уровень - ${level_gpu_int}`;
         }
         cost_gpu += 150;
         followers_plus += 1;
@@ -268,11 +268,11 @@ function ram_up_level() {
             level_ram += 1;
             level_ram_int = level_ram;
             localStorage.setItem("ram_level", level_ram_int);
-            ram_level.innerHTML = `Ур. - ${level_ram}`;
+            ram_level.innerHTML = `Уровень - ${level_ram}`;
         } else {
             level_ram_int += 1;
             localStorage.setItem("ram_level", level_ram_int);
-            level_ram.innerHTML = `Ур. - ${level_ram_int}`;
+            level_ram.innerHTML = `Уровень - ${level_ram_int}`;
         }
         followers_plus += 1;
         watchers_plus += 3;
@@ -311,11 +311,11 @@ function monitor_up_level() {
             level_monitor += 1;
             level_monitor_int = level_monitor;
             localStorage.setItem("monitor_level", level_monitor_int);
-            monitor_level.innerHTML = `Ур. - ${level_monitor}`;
+            monitor_level.innerHTML = `Уровень - ${level_monitor}`;
         } else {
             level_monitor_int += 1;
             localStorage.setItem("monitor_level", level_monitor_int);
-            level_monitor.innerHTML = `Ур. - ${level_monitor_int}`;
+            level_monitor.innerHTML = `Уровень - ${level_monitor_int}`;
         }
         cost_monitor += 150;
         followers_plus += 1;
@@ -357,11 +357,11 @@ function web_cam_up_level() {
             level_web_cam += 1;
             level_web_cam_int = level_web_cam;
             localStorage.setItem("web_cam_level", level_web_cam);
-            web_cam_level.innerHTML = `Ур. - ${level_web_cam}`;
+            web_cam_level.innerHTML = `Уровень - ${level_web_cam}`;
         } else {
             level_web_cam_int += 1;
             localStorage.setItem("web_cam_level", level_web_cam_int);
-            web_cam_level.innerHTML = `Ур. - ${level_web_cam_int}`;
+            web_cam_level.innerHTML = `Уровень - ${level_web_cam_int}`;
         }
         cost_web_cam += 150;
         followers_plus += 3;
@@ -407,11 +407,11 @@ function microphone_up_level() {
                 level_microphone += 1;
                 level_microphone_int = level_microphone;
                 localStorage.setItem("microphone_level", level_microphone_int);
-                microphone_level.innerHTML = `Ур. - ${level_microphone}`;
+                microphone_level.innerHTML = `Уровень - ${level_microphone}`;
             } else {
                 level_microphone_int += 1;
                 localStorage.setItem("microphone_level", level_microphone_int);
-                microphone_level.innerHTML = `Ур. - ${level_microphone_int}`;
+                microphone_level.innerHTML = `Уровень - ${level_microphone_int}`;
             }
             
             cost_microphone += 150;
@@ -447,11 +447,11 @@ function microphone_up_level() {
                 level_microphone += 1;
                 level_microphone_int = level_microphone;
                 localStorage.setItem("microphone_level", level_microphone_int);
-                microphone_level.innerHTML = `Ур. - ${level_microphone}`;
+                microphone_level.innerHTML = `Уровень - ${level_microphone}`;
             } else {
                 level_microphone_int += 1;
                 localStorage.setItem("microphone_level", level_microphone_int);
-                microphone_level.innerHTML = `Ур. - ${level_microphone_int}`;
+                microphone_level.innerHTML = `Уровень - ${level_microphone_int}`;
             }
             
             cost_microphone += 150;

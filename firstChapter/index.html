@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/icon-streamer.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>V.I.E.W.E.R</title>
+</head>
+<body>
+    <audio src="music/background.mp3" autoplay id="music"></audio>
+    <audio src="" id="sound"></audio>
+
+    <!-- <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="healthAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы здоровье пополнить! Купи лекарство в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="waterAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы водички попить! Купи воды в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="foodAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы поесть! Купи еды в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="energyAdvice" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body">
+                Привет! Тебе бы запасы энергии пополнить! Купи еды или воды в магазине!
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+        <div id="linaMessageDiv" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="img/lina.png" style="width: 25px; height: 20px;" class="rounded me-2" alt="lina">
+                <strong class="me-auto">Lina - Помощник</strong>
+                <small>Сейчас</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Закрыть"></button>
+            </div>
+            <div class="toast-body" id="linaMessage"></div>
+        </div>
+    </div>
+
+    <div class="collapse" id="assistantDiv">
+        <div class="lina-user">
+            <img src="img/lina.png" style="width: 25px; height: 20px;" alt="lina">
+            Lina
+
+            <div class="relations">Отношения: 50 <i class="fas fa-question-circle" onclick="infoCofidenceScale()"></i></div>
+        </div>
+        <div style="margin-top: 2rem;"></div>
+
+        <div id="dialogs">
+            <div class="linaHello">Привет! Как разговаривать со мной - <a href="linaGuide.html" target="_blank">клик</a></div>
+            <div class="userHello">Здравствуй, ок, спасибо</div>
+        </div>
+
+        <div class="input-group" id="input-form">
+            <input type="text" class="form-control" id="inputMessage" placeholder="Введите текст: ">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon" onclick="checkMessage()"><i class="fab fa-telegram-plane"></i></button>
+        </div>
+    </div>
+
+    <button type="button" id="assistant-btn" onclick="isOpenCheck()" data-bs-toggle="collapse" data-bs-target="#assistantDiv">
+        <img src="img/lina.png" id="assistant" alt="assistant" />
+    </button> -->
+
+    <div class="modal fade" id="streamer-boost" tabindex="-1" aria-labelledby="streamer-boost" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="streamerBoostTitle">Информация о стримере</h5>
+                    <h5 style="float: right; margin-bottom: 0;" id="money-info-streamer"></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating">
+                        <div class="text-center" id="info-streamer">
+                            <p id="name-streamer">Имя :</p>
+                            <p id="age-streamer">Возраст: </p>
+                            <p id="sex-streamer">Пол: </p>
+                            <hr>
+                            <p id="alive-day-all">Прожито дней всего: 1</p>
+                            <p id="money-all">Монет заработано всего: 400</p>
+                            <hr>
+                            <button class="btn btn-success mb-2" onclick="decreaseFoodAlert()">Уменьшение еды <span class="badge bg-primary">250м</span></button>
+                            <button class="btn btn-success mb-2" onclick="decreaseWaterAlert()">Уменьшение воды <span class="badge bg-primary">250м</span></button>
+                            <button class="btn btn-success mb-2" onclick="decreaseEnergyAlert()">Уменьшение энергии <span class="badge bg-primary">250м</span></button>
+                        </div>
+                        <hr>
+                        <div id="settings-streamer">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control bg-dark text-white" id="name-streamer-input" placeholder="Стример">
+                                <label for="name-streamer-input">Имя стримера</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control bg-dark text-white" id="age-streamer-input" placeholder="1">
+                                <label for="age-streamer-input">Возраст стримера</label>
+                            </div>
+
+                            <div class="form-floating">
+                                <select class="form-select bg-dark text-white" id="sex-streamer-select">
+                                    <option value="Мужской">Мужской</option>
+                                    <option value="Женский">Женский</option>
+                                </select>
+                                <label for="sex-streamer">Выберите пол стримера</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-success" onclick="saveInfoStreamer()">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="container text-center text-white mt-3">
+            <div class="row">
+                <div class="col-sm">
+                    <button id="streamer-btn" data-bs-toggle="modal" data-bs-target="#streamer-boost">
+                        <img src="img/icon-streamer.jpg" style="width: 100px; height: 100px; border-radius: 50%;" alt="">
+                    </button>
+                    <h2 class="mt-3" id="day"></h2>
+                    <h2 id="time"></h2>
+
+                    <h5 id="title-thoughts"></h5>
+                    <hr>
+                    <button id="todo-task-btn" class="btn btn-dark" onclick="check_time=true">Выполнить задание</button>
+                </div>
+                <div class="col-sm">
+                    <h2 class="mt-3" id="text-task">Задания</h2>
+                    <p id="List-Text1">
+                        <i id="task1-text"></i>
+                    </p>
+                    <p id="List-Text2">
+                        <i id="task2-text"></i>
+                    </p>
+                    <p id="List-Text3">
+                        <i id="task3-text"></i>
+                    </p>
+                    <p id="List-Text4">
+                        <i id="task4-text"></i>
+                    </p>
+                    <p id="List-Text5">
+                        <i id="task5-text"></i>
+                    </p>
+                    <p id="List-Text6">
+                        <i id="task6-text"></i>
+                    </p>
+                    <p id="List-Text7">
+                        <i id="task7-text"></i>
+                    </p>
+                </div>
+                <div class="col-sm">
+                    <h2 class="mt-3" id="title-stats">Статистика</h2>
+                    <p id="health"></p>
+                    <p id="food"></p>
+                    <p id="water"></p>
+                    <p id="energy"></p>
+                </div>
+
+                <div class="col-sm">
+                    <div class="btn-group-vertical text-center mt-3">
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-up" class="btn btn-dark" id="computer-btn" onclick="update_money()">Компьютер</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-shop" class="btn btn-dark" id="shop-btn">Магазин "Twitch"</button>
+
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-old-roulette" class="btn btn-dark" id="old-roulette-btn">Старая рулетка Лины</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-roulette" class="btn btn-dark" id="roulette-btn">Рулетка Лины</button>
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-guessHero" class="btn btn-dark" id="guessHero-btn" onclick="update_money()">Угадай героя</button>
+                        <!-- <button type="button" data-bs-toggle="modal" data-bs-target="#modal-casino" class="btn btn-dark" id="chs-btn">Custom Hero Simulator</button> -->
+
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-stream" id="btn-stream" onclick='true_var=true; generation2()' class="btn btn-dark">Открыть окно стрима</button>
+
+                        <button type="button" data-bs-toggle="modal" data-bs-target="#modal-settings" class="btn btn-dark" onclick="shop()">Настройки</button>
+                        <button type="button" v-on:click="jump('first.html')" class="btn btn-danger">Вернуться в главное меню</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-settings">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title">Настройки</h4>
+                    <p class="lead" id="money-settings"></p>
+                </div>
+                <div class="modal-body">
+                    <div id="settings-div">
+                        <div class="card bg-dark text-white" id="change-background-product">
+                            <img src="img/forest.jpg" class="card-img" alt="forest-bg">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title" id="change-bg-title">Смена фонов</h5>
+                                <p class="card-text" id="change-bg-text">Вам откроется возможность менять фоны игры. Сейчас доступно 5 фонов.</p>
+                                <p class="card-text" id="change-bg-cost">Цена - 250м</p>
+                                <div id="shop-bg-slides" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="img/olen.jpg" id="img-bg-1" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/tree.jpg" id="img-bg-2" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/morning.jpg" id="img-bg-3" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/night.jpg" id="img-bg-4" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/forest.jpg" id="img-bg-5" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/neon.jpg" id="img-bg-6" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/night-cyberpunk.jpg" id="img-bg-7" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="img/main.jpg" id="img-bg-8" class="d-block w-100" alt="...">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#shop-bg-slides" data-bs-slide="prev" style="background: none; border: none;">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#shop-bg-slides"  data-bs-slide="next" style="background: none; border: none;">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                                <button type="button" class="btn btn-dark" id="shop-bg-buy" onclick="buyChangeBg()">Купить</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-shop">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="title-shop">Магазин "Twitch"</h4>
+                    <p class="lead" id="money-shop"></p>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <div class="card bg-dark text-white" style="width: 18rem;">
+                            <img src="img/heal.jpeg" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Лечение</h5>
+                                <p class="card-text">Если у вас мало здоровья, то вы можете купить "Лечение" чтобы восстановить его.</p>
+                                <a href="#" class="btn btn-outline-success" onclick="healBuy()">Купить</a>
+                                <small class="text-muted mr-2" style="float: right;">150 монет</small>
+                            </div>
+                        </div>
+                        <div class="card bg-dark text-white" style="width: 18rem;">
+                            <img src="img/food.jpg" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">Еда</h5>
+                                <p class="card-text">Если у вас мало еды или вам не хватает энергии, вы можете восстановить их, купив еды.</p>
+                                <a href="#" class="btn btn-outline-success" onclick="foodBuy()">Купить</a>
+                                <small class="text-muted mr-2" style="float: right;">50 монет</small>
+                            </div>
+                        </div> 
+                        <div class="card bg-dark text-white" style="width: 18rem;">
+                            <img src="img/water.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Вода</h5>
+                                <p class="card-text">Если у вас мало воды или вам не хватает энергии, вы можете немного восстановить их, купив воды.</p>
+                                <a href="#" class="btn btn-outline-success" onclick="waterBuy()">Купить</a>
+                                <small class="text-muted mr-2" style="float: right;">25 монет</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-up">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="up-title">Прокачка ресурсов</h4>
+                    <p class="lead" id="money-pc"></p>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/cpu.png" class="card-img-top" alt="..." style="background-color: #fff;">
+                                <div class="card-body">
+                                    <h5 class="card-title">CPU</h5>
+                                    <p id="level" class="card-text text-success"></p>
+                                    <button id="cost" class="btn btn-warning" onclick="cpu_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="cpuInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/gpu.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">GPU</h5>
+                                    <p id="level_2" class="card-text text-success"></p>
+                                    <button id="cost_2" class="btn btn-warning" onclick="gpu_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="gpuInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark mb-2" style="width: 18rem; margin: auto;">
+                                <img src="img/ram.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">RAM</h5>
+                                    <p id="level_3" class="card-text text-success"></p>
+                                    <button id="cost_3" class="btn btn-warning" onclick="ram_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="ramInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/monitor.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Монитор</h5>
+                                    <p id="level_4" class="card-text text-success"></p>
+                                    <button id="cost_4" class="btn btn-warning" onclick="monitor_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="monitorInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/webcam.webp" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Веб-камера</h5>
+                                    <p id="level_5" class="card-text text-success"></p>
+                                    <button id="cost_5" class="btn btn-warning" onclick="web_cam_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="webCamInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="card bg-dark" style="width: 18rem; margin: auto;">
+                                <img src="img/microphone.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Микрофон</h5>
+                                    <p id="level_6" class="card-text text-success"></p>
+                                    <button id="cost_6" class="btn btn-warning" onclick="microphone_up_level()"></button>
+                                    <i class="far fa-question-circle" onclick="microphoneInfo()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-roulette">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title">Рулетка</h4>
+                    <button class="btn btn-outline-dark text-muted" onclick="secret()">Secret</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row tab-content">
+                            <div class="tab-pane fade show active" id="classic" role="tabpanel" aria-labelledby="home-tab">
+                                <div id="numbersDiv">
+                                    <div class="card bg-dark" id="cardNumbers">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title roulette-number" id="cardText">1</h5>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <p id="labelRangeNumbers" style="width: 200px; display: inline-block;">От 0 до 100</p>
+                                <input type="range" class="form-range" id="rangeNumbers" min="0" max="100" step="1" onchange="check()">
+                            
+                                <button class="btn btn-warning" onclick="letsGo()">Let's Go!</button>
+                            </div>
+                            <div class="tab-pane fade" id="exactNumber" role="tabpanel" aria-labelledby="profile-tab">
+                                <div id="numbersDiv">
+                                    <div class="card bg-dark" id="cardNumbers">
+                                        <div class="card-img-overlay">
+                                            <h5 class="card-title roulette-number" id="cardTextExact">1</h5>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <p id="labelRangeNumberExact" style="width: 200px; display: inline-block;">50</p>
+                                <input type="range" class="form-range" id="rangeNumberExact" min="0" max="100" step="1" onchange="checkExact()">
+                            
+                                <button class="btn btn-warning" onclick="exactNumber()">Let's Go!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer list-group">
+                    <button class="btn btn-outline-warning" id="classic-btn" data-bs-toggle="list" data-bs-target="#classic" type="button" role="tab" aria-controls="profile" aria-selected="false">Классическая</button>
+                    <button class="btn btn-outline-success" id="exactNumber-btn" data-bs-toggle="list" data-bs-target="#exactNumber" type="button" role="tab" aria-controls="home" aria-selected="true">Точное число</button>
+                    
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-old-roulette">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title">Старая рулетка</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p class="lead">Рулетка предметов</p>
+                                <button id="btn-roulette-items" onclick="roulette_items()" class="btn btn-outline-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-items"></p>
+                                <img src="img/items.png" class="img-fluid" id="img-items" alt="items-dota">
+                            </div>
+                            <div class="col-sm">
+                                <p class="lead">Рулетка героев</p>
+                                <button id="btn-roulette-heroes" onclick="roulette_heroes()" class="btn btn-outline-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-heroes"></p>
+                                <img src="img/heroes.png" class="img-fluid" id="img-heroes" alt="heroes-dota">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-guessHero">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h4 class="modal-title">Угадай героя</h4>
+                    <p class="lead" id="money-guessHero"></p>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-center">
+                        <img src="" class="img-fluid" id="hero" alt="hero">
+                    </div>
+                    <div class="container" id="container-gH">
+                        <div class="row row-cols-2">
+                            <button class="btn btn-outline-success" onclick="checkHero(1)" id="btn-answer1"></button>
+                            <button class="btn btn-outline-success" onclick="checkHero(2)" id="btn-answer2"></button>
+                            <button class="btn btn-outline-success" onclick="checkHero(3)" id="btn-answer3"></button>
+                            <button class="btn btn-outline-success" onclick="checkHero(4)" id="btn-answer4"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-casino">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content text-white" style="background: none; border: none;" id="heroes"></div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-stream">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content bg-dark text-white" id="stream-body">
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm" id="roulette-items">
+                                <p class="lead" id="title-items">Рулетка предметов</p>
+                                <button id="btn-roulette-items" onclick="roulette_items2()" class="btn btn-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-items1">Результат: </p>
+                                <img src="img/items.png" class="img-fluid" alt="items-dota">
+                            </div>
+                            <div class="col-sm" id="roulette-heroes">
+                                <p class="lead" id="title-heroes">Рулетка героев</p>
+                                <button id="btn-roulette-heroes" onclick="roulette_heroes2()" class="btn btn-warning">Крутить рулетку</button>
+                                <p class="lead" id="result-heroes2">Результат: </p>
+                                <img src="img/heroes.png" class="img-fluid" alt="heroes-dota">
+                            </div>
+                            <div class="col-sm" id="guessHero2">
+                                <p class="lead" id="title-guessHero2" style="color: #fff;">Угадай героя</p>
+                                <!-- <p class="lead" id="money-guessHero2" style="color: #fff;"></p> -->
+                                <div class="d-flex justify-content-center">
+                                    <img src="" class="img-fluid" id="hero2" alt="hero">
+                                </div>
+                                <div class="container mt-2" id="container-gH2">
+                                    <div class="row row-cols-2">
+                                        <button class="btn btn-outline-success" style="color: #fff;" onclick="checkHero2(1)" id="btn-answer1-2"></button>
+                                        <button class="btn btn-outline-success" style="color: #fff;" onclick="checkHero2(2)" id="btn-answer2-2"></button>
+                                        <button class="btn btn-outline-success" style="color: #fff;" onclick="checkHero2(3)" id="btn-answer3-2"></button>
+                                        <button class="btn btn-outline-success" style="color: #fff;" onclick="checkHero2(4)" id="btn-answer4-2"></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <p class="lead" id="stream-money">Монет - 0</p>
+                                <p class="lead" id="followers">Фолловеров - 0</p>
+                                <p class="lead" id="watchers"></p>
+                                <p class="lead" id="donat">Задонатили - 0 монет</p>
+                                <p class="lead" id="donat-all">Всего задонатили - 0 монет</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger" id="cls" onclick="true_var=false;" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HelloPreload http://hello-site.ru/preloader/ -->
+    <style type="text/css">#hellopreloader>p{display:none;}#hellopreloader_preload{display: block;position: fixed;z-index: 99999;top: 0;left: 0;width: 100%;height: 100%;min-width: 1000px;}</style>
+    <div id="hellopreloader"><div id="hellopreloader_preload"></div></div>
+    <script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");function fadeOutnojquery(el){el.style.opacity = 1;var interhellopreloader = setInterval(function(){el.style.opacity = el.style.opacity - 0.05;if (el.style.opacity <=0.05){ clearInterval(interhellopreloader);hellopreloader.style.display = "none";}},16);}window.onload = function(){setTimeout(function(){fadeOutnojquery(hellopreloader);},1000);};</script>
+    <!-- HelloPreload http://hello-site.ru/preloader/ -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://kit.fontawesome.com/373834e38f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    <script src="js/randomEvents.js"></script>
+    <script src="js/resources.js"></script>
+    <script src="js/roulette.js"></script>
+    <script src="js/guessHero.js"></script>
+    <script src="js/dater.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/console.js"></script>
+    <script src="js/stream.js"></script>
+    <script src="js/shop.js"></script>
+    <!-- <script src="js/casino.js"></script> -->
+    <!-- <script src="js/assistant.js"></script> -->
+    <script>
+        let bg_name = localStorage.getItem("bg-name");
+
+        if (bg_name === null) {
+            document.getElementById("hellopreloader_preload").style.background = "url('img/main.jpg')";
+            document.body.style.backgroundImage = "url('img/main.jpg')";
+        } else {
+            if (bg_name === "forest") {
+                let jour = document.getElementById("day").style.color = "#000";
+                let time = document.getElementById("time").style.color = "#000";
+                let thoughts = document.getElementById("title-thoughts").style.color = "#000";
+                let title_task = document.getElementById("text-task").style.color = "#000";
+                let task1 = document.getElementById("task1-text").style.color = "#000";
+                let task2 = document.getElementById("task2-text").style.color = "#000";
+                let task3 = document.getElementById("task3-text").style.color = "#000";
+                let task4 = document.getElementById("task4-text").style.color = "#000";
+                let task5 = document.getElementById("task5-text").style.color = "#000";
+                let task6 = document.getElementById("task6-text").style.color = "#000";
+                let task7 = document.getElementById("task7-text").style.color = "#000";
+                let title_stats = document.getElementById("title-stats").style.color = "#000";
+                let health = document.getElementById("health").style.color = "#000";
+                let food = document.getElementById("food").style.color = "#000";
+                let water = document.getElementById("water").style.color = "#000";
+                let energy = document.getElementById("energy").style.color = "#000";
+            }
+
+            document.body.style.backgroundImage = `url('img/${bg_name}.jpg')`;
+            document.getElementById("hellopreloader_preload").style.background = `url('img/${bg_name}.jpg')`;
+        }
+    </script>
+</body>
+</html>

@@ -20,23 +20,6 @@ new Vue ({
     }
 });
 
-// Кнопка вызова окна 'Обратной связи'
-document.addEventListener("keypress", (e) => {
-    if (e.key === "с" || e.key === "c" 
-    || e.key === "C" || e.key === "С") {
-        Swal.fire({
-            title: 'Обратная связь с разработчиками (Баги, предложения)',
-            icon: 'info',
-            html:
-                '<a href="https://vk.com/public_lar" target="_blank" id="vk-link"><i class="fab fa-vk"></i> Группа в ВКонтакте (Новости Симулятора, Беседа для вопросов/предложений)</a> <br> <br>' +
-                '<p class="lead">---Разработчики---</p>' +
-                '<a href="https://vk.com/virtualp1" target="_blank" id="vk-link"><i class="fab fa-vk"></i> Никита Зинин</a> <br>' +
-                '<a href="https://vk.com/23tvrus" target="_blank" id="vk-link"><i class="fab fa-vk"></i> Данил Чернышев</a> <br>' +
-                '<a href="https://vk.com/penniless_writer" target="_blank" id="vk-link"><i class="fab fa-vk"></i> Анна Пастухова</a> <br>'
-        });
-    }
-});
-
 updateInfoStreamer();
 updateStatsStreamer();
 
@@ -48,9 +31,11 @@ function updateInfoStreamer() {
     const ageStreamer = localStorage.getItem('age-streamer');
     const sexStreamer = localStorage.getItem('sex-streamer');
     
-    document.getElementById('name-streamer').innerHTML = `Имя: ${nameStreamer}`;
-    document.getElementById('age-streamer').innerHTML = `Возраст: ${ageStreamer}`;
-    document.getElementById('sex-streamer').innerHTML = `Пол: ${sexStreamer}`;
+    if (nameStreamer !== null && ageStreamer !== null && sexStreamer !== null) {
+        document.getElementById('name-streamer').innerHTML = `Имя: ${nameStreamer}`;
+        document.getElementById('age-streamer').innerHTML = `Возраст: ${ageStreamer}`;
+        document.getElementById('sex-streamer').innerHTML = `Пол: ${sexStreamer}`;
+    }
 }
 
 function updateStatsStreamer() {

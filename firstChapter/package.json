@@ -1,0 +1,35 @@
+{
+    "app_name": "Simulator MissAlina23",
+    "description": "simulator streamer missalina23",
+    "main": "first.html",
+    "name": "missalina23",
+    "version": "2.0.1",
+    "webexe_settings": {
+        "blacklist": "",
+        "custom_script": "",
+        "download_dir": "",
+        "export_dir": "C:/Users/\u041d\u0438\u043a\u0438\u0442\u0430/Documents",
+        "force_download": false,
+        "linux-x32": true,
+        "linux-x64": true,
+        "mac-x64": true,
+        "nw_compression_level": 0,
+        "nw_version": "0.45.5",
+        "output_pattern": "",
+        "sdk_build": false,
+        "uncompressed_folder": false,
+        "whitelist": "",
+        "windows-x32": true,
+        "windows-x64": true
+    },
+    "webkit": {},
+    "window": {
+        "height": 720,
+        "icon": "avatar.png",
+        "id": "simulator",
+        "position": "center",
+        "resizable": true,
+        "title": "Simulator MissAlina23",
+        "width": 1280
+    }
+}

@@ -2307,4 +2307,6 @@ function spellLevelUp(spellUp) {
     document.getElementById('levelUpUltimate').style.display = 'none';
 
     heroUser[0].spellPoints -= 1;
+
+    console.log(spellUp);
 }

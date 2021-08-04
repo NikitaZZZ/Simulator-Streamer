@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a { text-decoration: none; }
+
+body {
+    background: url("../img/background.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#title {
+    color: #fff;
+    padding-top: 1%;
+    font-size: 25px;
+    text-align: center;
+}
+
+#main-background {
+    margin-top: 1%;
+    max-width: 100%;
+    height: auto;
+}
+
+#training-button {
+    width: 115px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid silver;
+    box-shadow: 0px 0px 10px #fff; /* Параметры тени */
+}
+
+#training-button:hover {
+    background: #fff;
+    color: #000;
+    transition: 0.5s ease;
+}
+
+#start-button {
+    width: 115px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 3%;
+    background: none;
+    border: 1px solid silver;
+    box-shadow: 0px 0px 10px #fff; /* Параметры тени */
+}
+
+#start-button:hover {
+    background: #fff;
+    color: #000;
+    transition: 0.5s ease;
+}

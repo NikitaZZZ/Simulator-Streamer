@@ -6,11 +6,16 @@ let isOpen = false;
 let randomNumber = 20000;
 let confidenceScale = 1;
 
-if (localStorage.getItem('relationship') !== null || localStorage.getItem('confidenceScale') !== null) {
+if (localStorage.getItem('relationship') !== null) {
     relationsWithLina = parseInt(localStorage.getItem("relationship"));
-    confidenceScale = parseInt(localStorage.getItem("confidenceScale"));
-
+    console.log('rWL: ', relationsWithLina);
+} else {
     updateRelationship();
+}
+
+if (localStorage.getItem('confidenceScale') !== null) {
+    confidenceScale = parseInt(localStorage.getItem("confidenceScale"));
+    console.log('cS: ', confidenceScale);
 } else {
     updateRelationship();
 }
@@ -163,6 +168,7 @@ function checkConfidence() {
     if (relationsWithLina === 100) {
         relationsWithLina = 0;
         confidenceScale++;
+        console.log('cs - ', confidenceScale);
 
         updateRelationship();
     }
@@ -174,14 +180,17 @@ function checkMessage() {
 
     if (inputMessage.toLowerCase() === "как дела?") {
         relationsWithLina += 10;
+
         checkConfidence();
         updateRelationship();
     } else if (inputMessage.toLowerCase() === "что делаешь?") {
         relationsWithLina += 5;
+
         checkConfidence();
         updateRelationship();
     } else if (inputMessage.toLowerCase() === "как настроение?") {
-        relationsWithLina += 16;
+        relationsWithLina += 15;
+
         checkConfidence();
         updateRelationship();
     }
