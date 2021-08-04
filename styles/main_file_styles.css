@@ -9,7 +9,7 @@
 a { text-decoration: none; }
 
 body {
-    background: url("../img/background.png");
+    background: url("../img/main.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -18,9 +18,13 @@ body {
 
 #title {
     color: #fff;
-    padding-top: 1%;
-    font-size: 25px;
+    font-size: 10vw;
     text-align: center;
+    margin-top: 5rem;
+    text-shadow: 5px 0 15px #000, 
+    0 10px 10px #000, 
+    -10px 0 10px #000, 
+    0 -10px 10px #000;
 }
 
 #main-background {
