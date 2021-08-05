@@ -52,7 +52,7 @@ function statsLcUpdate() {
 if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; day_num = parseInt(dayLc); day = day_num; }
 if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
 if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
-if (randomNumberLc !== null) { random_number = parseInt(randomNumberLc); } else { localStorage.setItem('random_number', random_number); }
+if (randomNumberLc !== null || randomNumberLc !== NaN) { random_number = parseInt(randomNumberLc); } else { localStorage.setItem('random_number', random_number); }
 
 saveDay();
 
