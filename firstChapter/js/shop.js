@@ -81,16 +81,14 @@ function shop() {
                 </button>
             </div>
 
-            <select class="form-select bg-dark text-white mt-2">
-                <option value="1" id="change-bg" onclick="change_bg('olen')">Олень</option>
-                <option value="2" id="change-bg" onclick="change_bg('tree')">Девушка и дерево</option>
-                <option value="3" id="change-bg" onclick="change_bg('morning')">Рассвет</option>
-                <option value="4" id="change-bg" onclick="change_bg('night')">Ночной лес</option>
-                <option value="5" id="change-bg" onclick="change_bg('forest')">Лес на фоне гор</option>
-                <option value="6" id="change-bg" onclick="change_bg('neon')">Неон</option>
-                <option value="7" id="change-bg" onclick="change_bg('night-cyberpunk')">Девушка и горы</option>
-                <option value="8" id="change-bg" onclick="change_bg('main')">Стандартный фон</option>
-            </select>
+            <button value="1" id="change-bg" onclick="change_bg('olen')">Олень</button>
+            <button value="2" id="change-bg" onclick="change_bg('tree')">Девушка и дерево</button>
+            <button value="3" id="change-bg" onclick="change_bg('morning')">Рассвет</button>
+            <button value="4" id="change-bg" onclick="change_bg('night')">Ночной лес</button>
+            <button value="5" id="change-bg" onclick="change_bg('forest')">Лес на фоне гор</button>
+            <button value="6" id="change-bg" onclick="change_bg('neon')">Неон</button>
+            <button value="7" id="change-bg" onclick="change_bg('night-cyberpunk')">Девушка и горы</button>
+            <button value="8" id="change-bg" onclick="change_bg('main')">Стандартный фон</button>
         `;
     } else { }
 }

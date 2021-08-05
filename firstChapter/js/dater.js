@@ -32,10 +32,14 @@ let day_num = 1,
 let random_number = getRandNumb(1, 5);
 
 const dayLc = localStorage.getItem('day');
-const randomNumberLc = localStorage.getItem('random_number');
-console.log(random_number, randomNumberLc);
 const hourLc = localStorage.getItem('hour');
 const minutesLc = localStorage.getItem('minutes');
+
+if (localStorage.getItem('random_number') !== null && localStorage.getItem('random_number') !== "NaN") { 
+    random_number = parseInt(localStorage.getItem('random_number')); 
+} else {
+    localStorage.setItem('random_number', random_number);
+}
 
 function statsLcUpdate() {
     const healthLc = localStorage.getItem('health');
@@ -52,7 +56,6 @@ function statsLcUpdate() {
 if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; day_num = parseInt(dayLc); day = day_num; }
 if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
 if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
-if (randomNumberLc !== null || randomNumberLc !== NaN) { random_number = parseInt(randomNumberLc); } else { localStorage.setItem('random_number', random_number); }
 
 saveDay();
 
