@@ -81,20 +81,21 @@ function shop() {
                 </button>
             </div>
 
-            <button value="1" id="change-bg" onclick="change_bg('olen')">Олень</button>
-            <button value="2" id="change-bg" onclick="change_bg('tree')">Девушка и дерево</button>
-            <button value="3" id="change-bg" onclick="change_bg('morning')">Рассвет</button>
-            <button value="4" id="change-bg" onclick="change_bg('night')">Ночной лес</button>
-            <button value="5" id="change-bg" onclick="change_bg('forest')">Лес на фоне гор</button>
-            <button value="6" id="change-bg" onclick="change_bg('neon')">Неон</button>
-            <button value="7" id="change-bg" onclick="change_bg('night-cyberpunk')">Девушка и горы</button>
-            <button value="8" id="change-bg" onclick="change_bg('main')">Стандартный фон</button>
+            <button value="1" class="btn btn-outline-success" id="change-bg" onclick="change_bg('olen')">Олень</button>
+            <button value="2" class="btn btn-outline-success" id="change-bg" onclick="change_bg('tree')">Девушка и дерево</button>
+            <button value="3" class="btn btn-outline-success" id="change-bg" onclick="change_bg('morning')">Рассвет</button>
+            <button value="4" class="btn btn-outline-success" id="change-bg" onclick="change_bg('night')">Ночной лес</button>
+            <button value="5" class="btn btn-outline-success" id="change-bg" onclick="change_bg('forest')">Лес на фоне гор</button>
+            <button value="6" class="btn btn-outline-success" id="change-bg" onclick="change_bg('neon')">Неон</button>
+            <button value="7" class="btn btn-outline-success" id="change-bg" onclick="change_bg('night-cyberpunk')">Девушка и горы</button>
+            <button value="8" class="btn btn-outline-success" id="change-bg" onclick="change_bg('main')">Стандартный фон</button>
         `;
     } else { }
 }
 
 function change_bg(name) {
-    document.body.style.backgroundImage = `url("img/${name}.jpg")`
+    document.body.style.backgroundImage = `url("img/${name}.jpg")`;
+    document.body.style.backgroundSize = 'auto';
 
     if (name === "forest") {
         document.getElementById("day").style.color = "#000";
