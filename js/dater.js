@@ -526,7 +526,7 @@ function func_time() {
                 } else {
                     script.innerHTML = `${scripts1[5]}`;
                 }
-            } else if (hour === 02 && minutes === 10 || hour >= 02 && minutes >= 10) {
+            } else if (hour === 02 && minutes === 10 || hour >= 02 && minutes >= 10 && hour < 10 && minutes < 10) {
                 check_time = false;
                 if (stream_no === true) {
                     script.innerHTML = `Пойду спать`;
