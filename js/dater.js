@@ -49,7 +49,11 @@ function statsLcUpdate() {
 }
 
 if (dayLc !== null) { document.getElementById('day').innerHTML = `День: ${dayLc}`; day_num = parseInt(dayLc); day = day_num; }
-if (randomNumberLc !== null) { random_number = randomNumberLc; } else { localStorage.setItem('random_number', random_number); }
+if (localStorage.getItem('random_number') !== null && localStorage.getItem('random_number') !== "NaN") { 
+    random_number = parseInt(localStorage.getItem('random_number')); 
+} else {
+    localStorage.setItem('random_number', random_number);
+}
 if (hourLc !== null) { hour = parseInt(hourLc); hour_int = parseInt(hourLc); }
 if (minutesLc !== null) { minutes = parseInt(minutesLc); minutes_int = parseInt(minutesLc); }
 

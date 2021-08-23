@@ -2079,7 +2079,7 @@ function generationEnemy() {
                         <img src="${thirdSpell3.image}" style="width: 150px; height: 150px; cursor: pointer; filter: saturate(0) brightness(0.6);" class="card-img-top" alt="${thirdSpell3.name}" data-bs-toggle="collapse" data-bs-target="#thirdSpell3Enemy">
 
                         <div id="thirdSpell3Enemy" class="accordion-collapse collapse" aria-labelledby="thirdSpell" data-bs-parent="#thirdSpellEnemy">
-                            <div class="accordion-body bg-dark" style="width: 15rem;">
+                            <div class="accordion-body bg-dark" style="width: 15rem;">2
                                 <h5 class="card-title">${thirdSpell3.name}</h5>
                                 <p class="card-text">${thirdSpell3.description}</p>
                                 <p class="card-text text-warning">${thirdSpell3.chance1 !== undefined ? `\ Шанс: ${thirdSpell3.chance1}% / ${thirdSpell3.chance2}% / ${thirdSpell3.chance3}% / ${thirdSpell3.chance4}% ` : ''}</p>
