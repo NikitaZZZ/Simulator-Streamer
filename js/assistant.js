@@ -20,13 +20,7 @@ if (localStorage.getItem('confidenceScale') !== null) {
     updateRelationship();
 }
 
-function isOpenCheck() {
-    if (isOpen === false) {
-        isOpen = true;
-    } else {
-        isOpen = false;
-    }
-}
+isOpenCheck = () => isOpen = isOpen ? false : true
 
 function infoCofidenceScale() {
     Swal.fire({
